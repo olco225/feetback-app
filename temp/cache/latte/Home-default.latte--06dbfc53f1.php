@@ -31,7 +31,6 @@ final class Template_06dbfc53f1 extends Latte\Runtime\Template
 	public function blockContent(array $ʟ_args): void
 	{
 		echo '	<h1>Toto je úvodná stránka</h1>
-	
 ';
 	}
 }

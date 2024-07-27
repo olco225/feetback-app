@@ -13,7 +13,7 @@
 	</header>
 	<main>
 		<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
-
+		<a n:href="ProjektsPage:projektsPage"> projekt page </a>
 		{include content}
 	</main>
 	{block scripts}

@@ -56,7 +56,10 @@ final class Template_8fe3d07caf extends Latte\Runtime\Template
 
 		}
 
-		echo "\n";
+		echo '		<a href="';
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('ProjektsPage:projektsPage')) /* line 16 */;
+		echo '"> projekt page </a>
+';
 		$this->renderBlock('content', [], 'html') /* line 17 */;
 		echo '	</main>
 ';
