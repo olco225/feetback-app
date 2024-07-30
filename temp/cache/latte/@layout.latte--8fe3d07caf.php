@@ -56,14 +56,22 @@ final class Template_8fe3d07caf extends Latte\Runtime\Template
 
 		}
 
-		echo '		<a href="';
-		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('ProjektsPage:projektsPage')) /* line 16 */;
-		echo '"> projekt page </a>
+		echo '		<ul>
+			<li><a href="';
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('ProjektsPage:projektsPage')) /* line 17 */;
+		echo '"> projekt page </a></li>
+			<li><a href="';
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Registration:registration')) /* line 18 */;
+		echo '">registracia </a></li>
+			<li><a href="';
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Home:')) /* line 19 */;
+		echo '">Home </a></li>
+		</ul>
 ';
-		$this->renderBlock('content', [], 'html') /* line 17 */;
+		$this->renderBlock('content', [], 'html') /* line 21 */;
 		echo '	</main>
 ';
-		$this->renderBlock('scripts', get_defined_vars()) /* line 19 */;
+		$this->renderBlock('scripts', get_defined_vars()) /* line 23 */;
 		echo '</body>
 </html>
 ';
@@ -83,7 +91,7 @@ final class Template_8fe3d07caf extends Latte\Runtime\Template
 	}
 
 
-	/** {block scripts} on line 19 */
+	/** {block scripts} on line 23 */
 	public function blockScripts(array $ʟ_args): void
 	{
 		echo '	<script src="https://unpkg.com/nette-forms@3/src/assets/netteForms.js"></script>
