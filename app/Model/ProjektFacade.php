@@ -11,7 +11,15 @@ final class ProjektFacade {
     }
     public function projektGet(){
         return $this->database->table("projekt")
-        ->where("id", "2")
         ->fetchAll();
+    }
+    public function getProjekt($projektId){
+        return $this->database->table("projekt")->where("id", $projektId)->fetch();
+    }
+    public function updateProjekt($projektId, $data){
+        $this->database->table("projekt")->where("id", $projektId)->update($data);
+    }
+    public function addProjekt($data){
+        $this->database->table("projekt")->insert($data);
     }
 }

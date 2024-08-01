@@ -15,7 +15,7 @@ return array (
     'App\\Model\\ProjektFacade' => 
     array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\Model\\ProjektFacade.php',
-      1 => 1722095993,
+      1 => 1722493326,
     ),
     'App\\Model\\RegistrationFacade' => 
     array (
@@ -42,6 +42,11 @@ return array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\Home\\HomePresenter.php',
       1 => 1721799172,
     ),
+    'App\\UI\\ProjektSetter\\ProjektSetterPresenter' => 
+    array (
+      0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\ProjektSetter\\ProjektSetterPresenter.php',
+      1 => 1722494383,
+    ),
     'App\\UI\\ProjektsPage\\ProjektsPagePresenter' => 
     array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\ProjektsPage\\ProjektsPagePresenter.php',
@@ -50,7 +55,7 @@ return array (
     'App\\UI\\Registration\\RegistrationPresenter' => 
     array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\Registration\\RegistrationPresenter.php',
-      1 => 1722318305,
+      1 => 1722318487,
     ),
   ),
   1 => 
@@ -63,6 +68,8 @@ return array (
     'App\\UI\\Registration\\ProjektFacade' => 3,
     'App\\UI\\Registration\\RegistrationRegistrationTemplate' => 3,
     'App\\UI\\Registration\\RegistrationTemplate' => 3,
+    'App\\UI\\ProjektSetter\\ProjektSetterProjektSetterTemplate' => 3,
+    'App\\UI\\ProjektSetter\\ProjektSetterTemplate' => 3,
   ),
   2 => 
   array (
