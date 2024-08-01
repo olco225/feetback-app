@@ -15,7 +15,7 @@ final class RegistrationPresenter extends Nette\Application\UI\Presenter{
         $form->addText("username", "Username:")
         ->setRequired("usename must be");
 
-        $form->addText("password", "Password:")
+        $form->addPassword("password", "Password:")
         ->setRequired("password must be");
 
         $form->addSubmit('send', 'Save and publish');
