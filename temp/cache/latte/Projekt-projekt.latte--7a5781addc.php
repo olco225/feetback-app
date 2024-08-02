@@ -47,6 +47,7 @@ final class Template_7a5781addc extends Latte\Runtime\Template
             qrcodeContainer.innerHTML = ""; // vyčistí obsah
             new QRCode(qrcodeContainer, text);
         }
-    </script>';
+    </script>
+';
 	}
 }

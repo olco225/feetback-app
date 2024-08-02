@@ -68,12 +68,16 @@ final class Template_8fe3d07caf extends Latte\Runtime\Template
 			<li><a href="';
 		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Home:')) /* line 21 */;
 		echo '">Home </a></li>
+			<li><a href="';
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Rating:Rating')) /* line 22 */;
+		echo '">rating page </a></li>
+
 		</ul>
 ';
-		$this->renderBlock('content', [], 'html') /* line 23 */;
+		$this->renderBlock('content', [], 'html') /* line 25 */;
 		echo '	</main>
 ';
-		$this->renderBlock('scripts', get_defined_vars()) /* line 25 */;
+		$this->renderBlock('scripts', get_defined_vars()) /* line 27 */;
 		echo '</body>
 </html>
 ';
@@ -93,7 +97,7 @@ final class Template_8fe3d07caf extends Latte\Runtime\Template
 	}
 
 
-	/** {block scripts} on line 25 */
+	/** {block scripts} on line 27 */
 	public function blockScripts(array $ʟ_args): void
 	{
 		echo '	<script src="https://unpkg.com/nette-forms@3/src/assets/netteForms.js"></script>

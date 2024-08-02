@@ -17,6 +17,11 @@ return array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\Model\\ProjektFacade.php',
       1 => 1722578418,
     ),
+    'App\\Model\\RatingFacade' => 
+    array (
+      0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\Model\\RatingFacade.php',
+      1 => 1722613237,
+    ),
     'App\\Model\\RegistrationFacade' => 
     array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\Model\\RegistrationFacade.php',
@@ -57,6 +62,11 @@ return array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\ProjektsPage\\ProjektsPagePresenter.php',
       1 => 1722578459,
     ),
+    'App\\UI\\Rating\\RatingPresenter' => 
+    array (
+      0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\Rating\\RatingPresenter.php',
+      1 => 1722613207,
+    ),
     'App\\UI\\Registration\\RegistrationPresenter' => 
     array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\Registration\\RegistrationPresenter.php',
@@ -69,7 +79,6 @@ return array (
   2 => 
   array (
     'C:\\wamp64\\www\\Nette-projekt4\\app\\Model\\SignInFacade.php' => 1721807616,
-    'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\Rating\\RatingPresenter.php' => 1721807512,
     'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\SingIn\\SignInPresenter.php' => 1721807562,
   ),
 );
