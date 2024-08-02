@@ -1,6 +1,6 @@
 {block content}
 {foreach $projekts as $projekt}
-    <h2>{$projekt->title}</h2>
-    <button><a n:href="ProjektSetter:ProjektSetter $postId = $projekt->id">edit</a></button>
+    <h2><a n:href="Projekt:projekt $projektId = $projekt->id">{$projekt->title}</a></h2>
+    <button><a n:href="ProjektSetter:ProjektSetter $projekt->id">edit</a></button>
     <button><a n:href="ProjektSetter:ProjektSetter">create</a></button>
 {/foreach}
