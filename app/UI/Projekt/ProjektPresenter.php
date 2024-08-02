@@ -7,7 +7,7 @@ final class ProjektPresenter extends Nette\Application\UI\Presenter{
         private ProjektFacade $projektFacade,
     ){
     }
-    public function renderProjekt(): void{
-        $this->template->projekts = $this->projektFacade->projektGet();
+    public function renderProjekt($projektId): void{
+        $this->template->projekt = $this->projektFacade->getProjekt($projektId);
     }
 }

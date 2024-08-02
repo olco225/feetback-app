@@ -49,12 +49,12 @@ final class Template_dac947c578 extends Latte\Runtime\Template
 
 		foreach ($projekts as $projekt) /* line 2 */ {
 			echo '    <h2><a href="';
-			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Projekt:projekt', [$projektId = $projekt->id])) /* line 3 */;
+			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Projekt:projekt', [$projekt->id])) /* line 3 */;
 			echo '">';
 			echo LR\Filters::escapeHtmlText($projekt->title) /* line 3 */;
 			echo '</a></h2>
     <button><a href="';
-			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('ProjektSetter:ProjektSetter', [$ppp = $projekt->id])) /* line 4 */;
+			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('ProjektSetter:ProjektSetter', [$projekt->id])) /* line 4 */;
 			echo '">edit</a></button>
     <button><a href="';
 			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('ProjektSetter:ProjektSetter')) /* line 5 */;
