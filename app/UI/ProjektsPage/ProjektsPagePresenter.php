@@ -8,6 +8,6 @@ final class ProjektsPagePresenter extends Nette\Application\UI\Presenter{
     ){
     }
     public function renderProjektsPage(): void{
-        $this->template->projekts = $this->projektFacade->projektGet();
+        $this->template->projekts = $this->projektFacade->projektsGet();
     }
 }

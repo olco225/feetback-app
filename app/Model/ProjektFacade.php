@@ -9,7 +9,7 @@ final class ProjektFacade {
         private Nette\Database\Explorer $database,
     ){
     }
-    public function projektGet(){
+    public function projektsGet(){
         return $this->database->table("projekt")
         ->fetchAll();
     }
