@@ -1,9 +1,9 @@
 <?php
-namespace App\UI\Rating;
+namespace App\UI\Feetback;
 use Nette;
-use App\Model\RatingFacade;
+use App\Model\FeetbackFacade;
 use Nette\Application\UI\Form;
-final class RatingPresenter extends Nette\Application\UI\Presenter{
+final class FeetbackPresenter extends Nette\Application\UI\Presenter{
     public function __construct(
         private Ratingfacade $ratingFacade,
     ){
@@ -28,8 +28,8 @@ final class RatingPresenter extends Nette\Application\UI\Presenter{
         
 
     }
-    public function renderRating(): void{
-
+    public function renderRating($id): void{
+        $this->template->parameter = $id;
         
     }
 }

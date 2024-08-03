@@ -65,7 +65,7 @@ return array (
     'App\\UI\\Rating\\RatingPresenter' => 
     array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\Rating\\RatingPresenter.php',
-      1 => 1722613207,
+      1 => 1722613452,
     ),
     'App\\UI\\Registration\\RegistrationPresenter' => 
     array (
