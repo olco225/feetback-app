@@ -9,8 +9,8 @@ final class FeetbackFacade {
         private Nette\Database\Explorer $database,
     ){
     }
-    public function addComent($projetkId){
-        $this->database->table;
+    public function addFeetback($data){
+        $this->database->table("feetback")->insert($data);
     }
 
 }

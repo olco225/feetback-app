@@ -69,7 +69,7 @@ final class Template_8fe3d07caf extends Latte\Runtime\Template
 		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Home:')) /* line 21 */;
 		echo '">Home </a></li>
 			<li><a href="';
-		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Rating:Rating', [5])) /* line 22 */;
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Feetback:Feetback', [5])) /* line 22 */;
 		echo '" >rating page </a></li>
 
 		</ul>

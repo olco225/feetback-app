@@ -5,7 +5,7 @@ use App\Model\FeetbackFacade;
 use Nette\Application\UI\Form;
 final class FeetbackPresenter extends Nette\Application\UI\Presenter{
     public function __construct(
-        private Ratingfacade $ratingFacade,
+        private FeetbackFacade $feetbackFacade,
     ){
     }
     public function createComponentRatingForm(): Form{
@@ -17,6 +17,9 @@ final class FeetbackPresenter extends Nette\Application\UI\Presenter{
         $form->addTextArea("text", "What is your feedback?")
         ->setRequired("Title must be");
 
+        $form->addTextArea("projekt_id", "id:")
+        ->setRequired("Id must be");
+
         $form->addSubmit('send', 'Send');
         
         
@@ -25,11 +28,13 @@ final class FeetbackPresenter extends Nette\Application\UI\Presenter{
         return $form;
     }
     private function ratingFormSucceeded(array $data): void{
-        
-
+        $this->feetbackFacade->addFeetback($data);
+        $this->redirect("Home:");
     }
-    public function renderRating($id): void{
+    public function renderFeetback($id): void{
         $this->template->parameter = $id;
+
+        
         
     }
 }

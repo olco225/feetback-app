@@ -204,16 +204,16 @@ class Container_158c55d112 extends Nette\DI\Container
 		],
 		'App\UI\Error\Error4xx\Error4xxPresenter' => [2 => ['application.1']],
 		'App\UI\Error\Error5xx\Error5xxPresenter' => [2 => ['application.2']],
-		'App\UI\Home\HomePresenter' => [2 => ['application.3']],
-		'App\UI\Projekt\ProjektPresenter' => [2 => ['application.4']],
-		'App\UI\ProjektSetter\ProjektSetterPresenter' => [2 => ['application.5']],
-		'App\UI\ProjektsPage\ProjektsPagePresenter' => [2 => ['application.6']],
-		'App\UI\Rating\RatingPresenter' => [2 => ['application.7']],
+		'App\UI\Feetback\FeetbackPresenter' => [2 => ['application.3']],
+		'App\UI\Home\HomePresenter' => [2 => ['application.4']],
+		'App\UI\Projekt\ProjektPresenter' => [2 => ['application.5']],
+		'App\UI\ProjektSetter\ProjektSetterPresenter' => [2 => ['application.6']],
+		'App\UI\ProjektsPage\ProjektsPagePresenter' => [2 => ['application.7']],
 		'App\UI\Registration\RegistrationPresenter' => [2 => ['application.8']],
 		'NetteModule\ErrorPresenter' => [2 => ['application.9']],
 		'NetteModule\MicroPresenter' => [2 => ['application.10']],
-		'App\Model\ProjektFacade' => [['02']],
-		'App\Model\RatingFacade' => [['03']],
+		'App\Model\FeetbackFacade' => [['02']],
+		'App\Model\ProjektFacade' => [['03']],
 		'App\Model\RegistrationFacade' => [['04']],
 	];
 
@@ -230,15 +230,15 @@ class Container_158c55d112 extends Nette\DI\Container
 	}
 
 
-	public function createService02(): App\Model\ProjektFacade
+	public function createService02(): App\Model\FeetbackFacade
 	{
-		return new App\Model\ProjektFacade($this->getService('database.default.explorer'));
+		return new App\Model\FeetbackFacade($this->getService('database.default.explorer'));
 	}
 
 
-	public function createService03(): App\Model\RatingFacade
+	public function createService03(): App\Model\ProjektFacade
 	{
-		return new App\Model\RatingFacade($this->getService('database.default.explorer'));
+		return new App\Model\ProjektFacade($this->getService('database.default.explorer'));
 	}
 
 
@@ -277,7 +277,24 @@ class Container_158c55d112 extends Nette\DI\Container
 	}
 
 
-	public function createServiceApplication__3(): App\UI\Home\HomePresenter
+	public function createServiceApplication__3(): App\UI\Feetback\FeetbackPresenter
+	{
+		$service = new App\UI\Feetback\FeetbackPresenter($this->getService('02'));
+		$service->injectPrimary(
+			$this->getService('http.request'),
+			$this->getService('http.response'),
+			$this->getService('application.presenterFactory'),
+			$this->getService('01'),
+			$this->getService('session.session'),
+			$this->getService('security.user'),
+			$this->getService('latte.templateFactory'),
+		);
+		$service->invalidLinkMode = 5;
+		return $service;
+	}
+
+
+	public function createServiceApplication__4(): App\UI\Home\HomePresenter
 	{
 		$service = new App\UI\Home\HomePresenter;
 		$service->injectPrimary(
@@ -294,9 +311,9 @@ class Container_158c55d112 extends Nette\DI\Container
 	}
 
 
-	public function createServiceApplication__4(): App\UI\Projekt\ProjektPresenter
+	public function createServiceApplication__5(): App\UI\Projekt\ProjektPresenter
 	{
-		$service = new App\UI\Projekt\ProjektPresenter($this->getService('02'));
+		$service = new App\UI\Projekt\ProjektPresenter($this->getService('03'));
 		$service->injectPrimary(
 			$this->getService('http.request'),
 			$this->getService('http.response'),
@@ -311,9 +328,9 @@ class Container_158c55d112 extends Nette\DI\Container
 	}
 
 
-	public function createServiceApplication__5(): App\UI\ProjektSetter\ProjektSetterPresenter
+	public function createServiceApplication__6(): App\UI\ProjektSetter\ProjektSetterPresenter
 	{
-		$service = new App\UI\ProjektSetter\ProjektSetterPresenter($this->getService('02'));
+		$service = new App\UI\ProjektSetter\ProjektSetterPresenter($this->getService('03'));
 		$service->injectPrimary(
 			$this->getService('http.request'),
 			$this->getService('http.response'),
@@ -328,26 +345,9 @@ class Container_158c55d112 extends Nette\DI\Container
 	}
 
 
-	public function createServiceApplication__6(): App\UI\ProjektsPage\ProjektsPagePresenter
+	public function createServiceApplication__7(): App\UI\ProjektsPage\ProjektsPagePresenter
 	{
-		$service = new App\UI\ProjektsPage\ProjektsPagePresenter($this->getService('02'));
-		$service->injectPrimary(
-			$this->getService('http.request'),
-			$this->getService('http.response'),
-			$this->getService('application.presenterFactory'),
-			$this->getService('01'),
-			$this->getService('session.session'),
-			$this->getService('security.user'),
-			$this->getService('latte.templateFactory'),
-		);
-		$service->invalidLinkMode = 5;
-		return $service;
-	}
-
-
-	public function createServiceApplication__7(): App\UI\Rating\RatingPresenter
-	{
-		$service = new App\UI\Rating\RatingPresenter($this->getService('03'));
+		$service = new App\UI\ProjektsPage\ProjektsPagePresenter($this->getService('03'));
 		$service->injectPrimary(
 			$this->getService('http.request'),
 			$this->getService('http.response'),
