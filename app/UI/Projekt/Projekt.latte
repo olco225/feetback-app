@@ -17,3 +17,15 @@
         }
     </script>
 {********* Comentáre *************}
+{foreach $comentars as $coment}
+    <div id="coment">
+        <h4>{$coment->name}</h4>
+        <p>{$coment->text}</p>
+    </div>
+
+{/foreach}
+<style>
+    #coment{
+        border: 2px solid black;
+    }
+</style>
