@@ -39,13 +39,18 @@ final class Template_7a5781addc extends Latte\Runtime\Template
 		echo '</h1>
     <div id="qrcode"></div>
     <button onclick="generateQRCode()">Generate QR Code</button>
-
+    <div id="url-text"></div>
     <script>
         function generateQRCode() {
-            var text = "http://localhost/Nette-projekt4/www/projekt/projekt?projektId=4";
-            var qrcodeContainer = document.getElementById("qrcode");
+            let projektId = ';
+		echo LR\Filters::escapeJs($projekt->id) /* line 10 */;
+		echo ';
+            let url = "http://localhost/Nette-projekt4/www/feetback/feetback?projektId=" + projektId;
+            let qrcodeContainer = document.getElementById("qrcode");
+            document.getElementById("url-text").innerHTML = url;
+            
             qrcodeContainer.innerHTML = ""; // vyčistí obsah
-            new QRCode(qrcodeContainer, text);
+            new QRCode(qrcodeContainer, url);
         }
     </script>
 ';
