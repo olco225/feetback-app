@@ -17,8 +17,9 @@ final class FeetbackPresenter extends Nette\Application\UI\Presenter{
         $form->addTextArea("text", "What is your feedback?")
         ->setRequired("Title must be");
 
-        $form->addTextArea("projekt_id", "id:")
-        ->setRequired("Id must be");
+        $projektId = $this->getParameter("projektId");
+
+        $form->addHidden("projekt_id", $projektId);
 
         $form->addSubmit('send', 'Send');
         
