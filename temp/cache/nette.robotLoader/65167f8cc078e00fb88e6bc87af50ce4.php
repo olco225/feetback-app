@@ -84,8 +84,8 @@ return array (
     'App\\UI\\Projekt\\ProjektTemplate' => 3,
     'App\\UI\\Registration\\RegistrationRegistrationTemplate' => 3,
     'App\\UI\\Registration\\RegistrationTemplate' => 3,
-    'App\\UI\\Feetback\\FeetbackFeetbackTemplate' => 2,
-    'App\\UI\\Feetback\\FeetbackTemplate' => 2,
+    'App\\UI\\Feetback\\FeetbackFeetbackTemplate' => 3,
+    'App\\UI\\Feetback\\FeetbackTemplate' => 3,
   ),
   2 => 
   array (
