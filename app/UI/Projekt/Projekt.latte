@@ -8,7 +8,7 @@
     <script>
         function generateQRCode() {
             let projektId = {$projekt->id};
-            let url = "http://localhost/Nette-projekt4/www/feetback/feetback?projektId=" + projektId;
+            let url = "http://192.168.1.10/Nette-projekt4/www/feetback/feetback?projektId=" + projektId;
             let qrcodeContainer = document.getElementById("qrcode");
             document.getElementById("url-text").innerHTML = url;
             
