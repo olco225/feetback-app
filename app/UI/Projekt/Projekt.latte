@@ -5,13 +5,20 @@
     <div id="qrcode"></div>
     <button onclick="generateQRCode()">Generate QR Code</button>
     <div id="url-text"></div>
+    <a n:href="www" id="url-local-link">Pre testovacie účeli link</a>
+
     <script>
+        //vytvorenie linku na stránku s hodnotením pre testovacie účely
+        let projektId = {$projekt->id};
+        let localUrl = "http://localhost/Nette-projekt4/www/feetback/feetback?projektId=" + projektId;
+        document.getElementById("url-local-link").href = localUrl;
+        //funkcia pre generovanie qr codu
         function generateQRCode() {
             let projektId = {$projekt->id};
             let url = "http://192.168.1.10/Nette-projekt4/www/feetback/feetback?projektId=" + projektId;
             let qrcodeContainer = document.getElementById("qrcode");
             document.getElementById("url-text").innerHTML = url;
-            
+
             qrcodeContainer.innerHTML = ""; // vyčistí obsah
             new QRCode(qrcodeContainer, url);
         }

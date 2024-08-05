@@ -82,10 +82,10 @@ return array (
     'App\\UI\\ProjektsPage\\ProjektsPageTemplate' => 3,
     'App\\UI\\Projekt\\ProjektProjektTemplate' => 3,
     'App\\UI\\Projekt\\ProjektTemplate' => 3,
-    'App\\UI\\Registration\\RegistrationRegistrationTemplate' => 2,
-    'App\\UI\\Registration\\RegistrationTemplate' => 2,
-    'App\\UI\\Feetback\\FeetbackFeetbackTemplate' => 1,
-    'App\\UI\\Feetback\\FeetbackTemplate' => 1,
+    'App\\UI\\Registration\\RegistrationRegistrationTemplate' => 3,
+    'App\\UI\\Registration\\RegistrationTemplate' => 3,
+    'App\\UI\\Feetback\\FeetbackFeetbackTemplate' => 2,
+    'App\\UI\\Feetback\\FeetbackTemplate' => 2,
   ),
   2 => 
   array (
