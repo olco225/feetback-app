@@ -1,9 +1,10 @@
 <?php
 namespace App\UI\Registration;
 use Nette;
+use App\UI\BasePresenter;
 use App\Model\RegistrationFacade;
 use Nette\Application\UI\Form;
-final class RegistrationPresenter extends Nette\Application\UI\Presenter{
+final class RegistrationPresenter extends BasePresenter{
     public function __construct(
         private RegistrationFacade $registrationFacade,
     ){

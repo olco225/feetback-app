@@ -4,6 +4,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 
+	<link rel="stylesheet" href="{$basePath}/style/style.css">
+	
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 	<title>{ifset title}{include title|stripHtml} | {/ifset}Nette Web</title>
@@ -11,18 +13,21 @@
 
 <body>
 	<header>
-
-	</header>
-	<main>
-		<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 		<ul>
 			<li><a n:href="ProjektsPage:projektsPage"> projekt page </a></li>
 			<li><a n:href="Registration:registration">registracia </a></li>
 			<li><a n:href="Home:">Home </a></li>
 
 		</ul>
+	</header>
+	<main>
+		
 		{include content}
 	</main>
+	<footer>
+		<p>toto je petička</p>
+	</footer>
 	{block scripts}
 	<script src="https://unpkg.com/nette-forms@3/src/assets/netteForms.js"></script>
 	{/block}

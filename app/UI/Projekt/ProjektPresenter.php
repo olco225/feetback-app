@@ -1,9 +1,10 @@
 <?php
 namespace App\UI\Projekt;
 use Nette;
+use App\UI\BasePresenter;
 use App\Model\ProjektFacade;
 use App\Model\FeetbackFacade;
-final class ProjektPresenter extends Nette\Application\UI\Presenter{
+final class ProjektPresenter extends BasePresenter{
     public function __construct(
         private ProjektFacade $projektFacade,
         private FeetbackFacade $feetbackFacade,

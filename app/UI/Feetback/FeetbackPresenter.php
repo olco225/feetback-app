@@ -1,9 +1,10 @@
 <?php
 namespace App\UI\Feetback;
 use Nette;
+use App\UI\BasePresenter;
 use App\Model\FeetbackFacade;
 use Nette\Application\UI\Form;
-final class FeetbackPresenter extends Nette\Application\UI\Presenter{
+final class FeetbackPresenter extends BasePresenter{
     public function __construct(
         private FeetbackFacade $feetbackFacade,
     ){
