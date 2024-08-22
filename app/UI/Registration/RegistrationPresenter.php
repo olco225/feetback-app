@@ -24,7 +24,15 @@ final class RegistrationPresenter extends BasePresenter{
         $form->onSuccess[] = $this->registrationFormSucceeded(...);
         return $form;
     }
-    private function registrationFormSucceeded(array $data): void{
-        $this->registrationFacade->insertRegistrationData($data);
+    private function registrationFormSucceeded(Form $form, \stdClass $data): void{
+			$userExist = $this->registrationFacade->userExist($data);
+			if($userExist == False)
+			{
+				$this->registrationFacade->insertRegistrationDataHash($data);
+				$this->flashMessage('Registration successful.', 'success');
+            	$this->redirect('Home:');
+			}else{
+				$form->addError("Username is already taken, try difrent name");
+			}
     }
 }

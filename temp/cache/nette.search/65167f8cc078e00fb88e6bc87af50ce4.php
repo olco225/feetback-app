@@ -5,7 +5,7 @@ return array (
     'App\\Bootstrap' => 
     array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\Bootstrap.php',
-      1 => 1722752907,
+      1 => 1724316452,
     ),
     'App\\Core\\RouterFactory' => 
     array (
@@ -15,17 +15,17 @@ return array (
     'App\\Model\\FeetbackFacade' => 
     array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\Model\\FeetbackFacade.php',
-      1 => 1722750795,
+      1 => 1724306558,
     ),
     'App\\Model\\ProjektFacade' => 
     array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\Model\\ProjektFacade.php',
-      1 => 1722578418,
+      1 => 1724306558,
     ),
     'App\\Model\\RegistrationFacade' => 
     array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\Model\\RegistrationFacade.php',
-      1 => 1722525928,
+      1 => 1724319912,
     ),
     'App\\UI\\Accessory\\LatteExtension' => 
     array (
@@ -35,7 +35,7 @@ return array (
     'App\\UI\\BasePresenter' => 
     array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\BasePresenter.php',
-      1 => 1724218051,
+      1 => 1724316452,
     ),
     'App\\UI\\Error\\Error4xx\\Error4xxPresenter' => 
     array (
@@ -50,37 +50,37 @@ return array (
     'App\\UI\\Feetback\\FeetbackPresenter' => 
     array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\Feetback\\FeetbackPresenter.php',
-      1 => 1724218256,
+      1 => 1724316452,
     ),
     'App\\UI\\Home\\HomePresenter' => 
     array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\Home\\HomePresenter.php',
-      1 => 1724218189,
+      1 => 1724316452,
     ),
     'App\\UI\\Projekt\\ProjektPresenter' => 
     array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\Projekt\\ProjektPresenter.php',
-      1 => 1724218276,
+      1 => 1724316452,
     ),
     'App\\UI\\ProjektSetter\\ProjektSetterPresenter' => 
     array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\ProjektSetter\\ProjektSetterPresenter.php',
-      1 => 1724218333,
+      1 => 1724316452,
     ),
     'App\\UI\\ProjektsPage\\ProjektsPagePresenter' => 
     array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\ProjektsPage\\ProjektsPagePresenter.php',
-      1 => 1724218354,
+      1 => 1724316452,
     ),
     'App\\UI\\Registration\\RegistrationPresenter' => 
     array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\Registration\\RegistrationPresenter.php',
-      1 => 1724218375,
+      1 => 1724319929,
     ),
     'App\\UI\\SingIn\\SingInPresenter' => 
     array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\SingIn\\SignInPresenter.php',
-      1 => 1724218488,
+      1 => 1724316452,
     ),
   ),
   1 => 
