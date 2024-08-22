@@ -11,12 +11,14 @@
     <script>
         //vytvorenie linku na stránku s hodnotením pre testovacie účely
         let projektId = {$projekt->id};
-        let localUrl = "http://localhost/Nette-projekt4/www/feetback/feetback?projektId=" + projektId;
+        let localDomen = "http://localhost/Nette-projekt4/www";
+        let localUrl = localDomen + "/feetback/feetback?projektId=" + projektId;
         document.getElementById("url-local-link").href = localUrl;
         //funkcia pre generovanie qr codu
         function generateQRCode() {
             let projektId = {$projekt->id};
-            let url = "http://192.168.1.10/Nette-projekt4/www/feetback/feetback?projektId=" + projektId;
+            let domen = "http://192.168.1.10/Nette-projekt4/www";
+            let url = "/feetback/feetback?projektId=" + projektId;
             let qrcodeContainer = document.getElementById("qrcode");
             document.getElementById("url-text").innerHTML = url;
 

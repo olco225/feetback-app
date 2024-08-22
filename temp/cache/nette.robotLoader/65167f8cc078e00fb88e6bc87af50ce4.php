@@ -75,7 +75,7 @@ return array (
     'App\\UI\\Registration\\RegistrationPresenter' => 
     array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\Registration\\RegistrationPresenter.php',
-      1 => 1724320492,
+      1 => 1724320624,
     ),
     'App\\UI\\SingIn\\SingInPresenter' => 
     array (
@@ -95,6 +95,8 @@ return array (
     'App\\UI\\Sign\\SignPresenter' => 1,
     'App\\UI\\SignIn\\SignInPresenter' => 1,
     'App\\UI\\Home\\' => 1,
+    'App\\UI\\ProjektsPage\\ProjektsPageProjektsPageTemplate' => 1,
+    'App\\UI\\ProjektsPage\\ProjektsPageTemplate' => 1,
   ),
   2 => 
   array (
