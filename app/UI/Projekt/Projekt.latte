@@ -18,7 +18,7 @@
         function generateQRCode() {
             let projektId = {$projekt->id};
             let domen = "http://192.168.1.10/Nette-projekt4/www";
-            let url = "/feetback/feetback?projektId=" + projektId;
+            let url = domen + "/feetback/feetback?projektId=" + projektId;
             let qrcodeContainer = document.getElementById("qrcode");
             document.getElementById("url-text").innerHTML = url;
 

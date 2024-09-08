@@ -72,7 +72,7 @@ final class Template_7a5781addc extends Latte\Runtime\Template
 		echo LR\Filters::escapeJs($projekt->id) /* line 19 */;
 		echo ';
             let domen = "http://192.168.1.10/Nette-projekt4/www";
-            let url = "/feetback/feetback?projektId=" + projektId;
+            let url = domen + "/feetback/feetback?projektId=" + projektId;
             let qrcodeContainer = document.getElementById("qrcode");
             document.getElementById("url-text").innerHTML = url;
 
