@@ -86,8 +86,8 @@ return array (
   1 => 
   array (
     'null' => 2,
-    'App\\UI\\Feetback\\FeetbackFeetbackTemplate' => 1,
-    'App\\UI\\Feetback\\FeetbackTemplate' => 1,
+    'App\\UI\\Feetback\\FeetbackFeetbackTemplate' => 3,
+    'App\\UI\\Feetback\\FeetbackTemplate' => 3,
     'App\\UI\\Home\\HomeDefaultTemplate' => 3,
     'App\\UI\\Home\\HomeTemplate' => 3,
     'App\\UI\\Registration\\RegistrationRegistrationTemplate' => 3,
@@ -95,8 +95,12 @@ return array (
     'App\\UI\\Sign\\SignPresenter' => 1,
     'App\\UI\\SignIn\\SignInPresenter' => 1,
     'App\\UI\\Home\\' => 1,
-    'App\\UI\\ProjektsPage\\ProjektsPageProjektsPageTemplate' => 1,
-    'App\\UI\\ProjektsPage\\ProjektsPageTemplate' => 1,
+    'App\\UI\\ProjektsPage\\ProjektsPageProjektsPageTemplate' => 3,
+    'App\\UI\\ProjektsPage\\ProjektsPageTemplate' => 3,
+    'App\\UI\\Projekt\\ProjektProjektTemplate' => 3,
+    'App\\UI\\Projekt\\ProjektTemplate' => 3,
+    'App\\UI\\ProjektSetter\\ProjektSetterProjektSetterTemplate' => 2,
+    'App\\UI\\ProjektSetter\\ProjektSetterTemplate' => 2,
   ),
   2 => 
   array (

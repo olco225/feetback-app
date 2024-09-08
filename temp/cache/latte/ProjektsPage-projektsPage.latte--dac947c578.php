@@ -56,11 +56,13 @@ final class Template_dac947c578 extends Latte\Runtime\Template
     <button><a href="';
 			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('ProjektSetter:ProjektSetter', [$projekt->id])) /* line 4 */;
 			echo '">edit</a></button>
-    <button><a href="';
-			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('ProjektSetter:ProjektSetter')) /* line 5 */;
-			echo '">create</a></button>
 ';
 
 		}
+
+		echo '<button><a href="';
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('ProjektSetter:ProjektSetter')) /* line 6 */;
+		echo '">create</a></button>
+';
 	}
 }
