@@ -5,7 +5,7 @@ return array (
     'App\\Bootstrap' => 
     array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\Bootstrap.php',
-      1 => 1724316452,
+      1 => 1726582313,
     ),
     'App\\Core\\RouterFactory' => 
     array (
@@ -25,7 +25,7 @@ return array (
     'App\\Model\\RegistrationFacade' => 
     array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\Model\\RegistrationFacade.php',
-      1 => 1724319912,
+      1 => 1724320397,
     ),
     'App\\UI\\Accessory\\LatteExtension' => 
     array (
@@ -75,7 +75,7 @@ return array (
     'App\\UI\\Registration\\RegistrationPresenter' => 
     array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\Registration\\RegistrationPresenter.php',
-      1 => 1724319929,
+      1 => 1724320624,
     ),
     'App\\UI\\SingIn\\SingInPresenter' => 
     array (

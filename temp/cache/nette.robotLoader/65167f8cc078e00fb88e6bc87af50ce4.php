@@ -5,7 +5,7 @@ return array (
     'App\\Bootstrap' => 
     array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\Bootstrap.php',
-      1 => 1724316452,
+      1 => 1726582313,
     ),
     'App\\Core\\RouterFactory' => 
     array (
@@ -85,22 +85,17 @@ return array (
   ),
   1 => 
   array (
-    'null' => 2,
-    'App\\UI\\Feetback\\FeetbackFeetbackTemplate' => 3,
-    'App\\UI\\Feetback\\FeetbackTemplate' => 3,
+    'null' => 1,
     'App\\UI\\Home\\HomeDefaultTemplate' => 3,
     'App\\UI\\Home\\HomeTemplate' => 3,
-    'App\\UI\\Registration\\RegistrationRegistrationTemplate' => 3,
-    'App\\UI\\Registration\\RegistrationTemplate' => 3,
-    'App\\UI\\Sign\\SignPresenter' => 1,
-    'App\\UI\\SignIn\\SignInPresenter' => 1,
-    'App\\UI\\Home\\' => 1,
-    'App\\UI\\ProjektsPage\\ProjektsPageProjektsPageTemplate' => 3,
-    'App\\UI\\ProjektsPage\\ProjektsPageTemplate' => 3,
     'App\\UI\\Projekt\\ProjektProjektTemplate' => 3,
     'App\\UI\\Projekt\\ProjektTemplate' => 3,
-    'App\\UI\\ProjektSetter\\ProjektSetterProjektSetterTemplate' => 2,
-    'App\\UI\\ProjektSetter\\ProjektSetterTemplate' => 2,
+    'App\\UI\\Registration\\RegistrationRegistrationTemplate' => 3,
+    'App\\UI\\Registration\\RegistrationTemplate' => 3,
+    'App\\UI\\ProjektsPage\\ProjektsPageProjektsPageTemplate' => 3,
+    'App\\UI\\ProjektsPage\\ProjektsPageTemplate' => 3,
+    'App\\UI\\Feetback\\FeetbackFeetbackTemplate' => 3,
+    'App\\UI\\Feetback\\FeetbackTemplate' => 3,
   ),
   2 => 
   array (

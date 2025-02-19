@@ -34,9 +34,7 @@ final class Template_0c51a04b3c extends Latte\Runtime\Template
 		extract($ʟ_args);
 		unset($ʟ_args);
 
-		echo '<h1>Spetná väzba     testovacie id = ';
-		echo LR\Filters::escapeHtmlText($parameter) /* line 2 */;
-		echo '</h1>
+		echo '<h1>Názov projektu</h1>
 ';
 		$ʟ_tmp = $this->global->uiControl->getComponent('ratingForm');
 		if ($ʟ_tmp instanceof Nette\Application\UI\Renderable) $ʟ_tmp->redrawControl(null, false);

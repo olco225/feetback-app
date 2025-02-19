@@ -6,20 +6,23 @@
 
 	<link rel="stylesheet" href="{$basePath}/style/style.css">
 	
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 
 	<title>{ifset title}{include title|stripHtml} | {/ifset}Nette Web</title>
 </head>
 
 <body>
 	<header>
-	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+	
 		<ul>
 			<li><a n:href="ProjektsPage:projektsPage"> projekt page </a></li>
 			<li><a n:href="Registration:registration">registracia </a></li>
 			<li><a n:href="Home:">Home </a></li>
 
 		</ul>
+		<div> Flash message testing</div>
+		{*<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>*}
+
 	</header>
 	<main>
 		

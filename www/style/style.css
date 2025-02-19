@@ -8,3 +8,37 @@ body{
     height: 100vh;
     grid-template-rows: auto 1fr auto;
 }
+/*******Horná lišta********/
+@media(orientation: landscape){
+    header{
+    
+    display: grid;
+    grid-template-columns: 80vw 20vw ;
+    }
+    /*navigacia*/
+    header ul{
+        display: grid;
+        grid-template-columns: auto auto auto ;
+        list-style: none;
+    }
+    header ul li{
+        border: solid rgb(0, 0, 0) 2px;
+    }
+    
+}
+@media(orientation: portrait){
+    header{
+    
+    display: grid;
+    grid-template-columns: 80vw 20vw ;
+    }
+    /*navigacia*/
+    header ul{
+        display: grid;
+        grid-template-columns: auto auto auto ;
+        list-style: none;
+    }
+    header ul li{
+        border: solid red 2px;
+    }
+}

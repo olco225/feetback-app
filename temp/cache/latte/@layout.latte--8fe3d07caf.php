@@ -33,7 +33,7 @@ final class Template_8fe3d07caf extends Latte\Runtime\Template
 		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 7 */;
 		echo '/style/style.css">
 	
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 
 	<title>';
 		if ($this->hasBlock('title')) /* line 11 */ {
@@ -48,18 +48,8 @@ final class Template_8fe3d07caf extends Latte\Runtime\Template
 
 <body>
 	<header>
-';
-		foreach ($flashes as $flash) /* line 16 */ {
-			echo '	<div';
-			echo ($ʟ_tmp = array_filter(['flash', $flash->type])) ? ' class="' . LR\Filters::escapeHtmlAttr(implode(" ", array_unique($ʟ_tmp))) . '"' : "" /* line 16 */;
-			echo '>';
-			echo LR\Filters::escapeHtmlText($flash->message) /* line 16 */;
-			echo '</div>
-';
-
-		}
-
-		echo '		<ul>
+	
+		<ul>
 			<li><a href="';
 		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('ProjektsPage:projektsPage')) /* line 18 */;
 		echo '"> projekt page </a></li>
@@ -71,37 +61,25 @@ final class Template_8fe3d07caf extends Latte\Runtime\Template
 		echo '">Home </a></li>
 
 		</ul>
+		<div> Flash message testing</div>
 	</header>
 	<main>
 		
 ';
-		$this->renderBlock('content', [], 'html') /* line 26 */;
+		$this->renderBlock('content', [], 'html') /* line 29 */;
 		echo '	</main>
 	<footer>
 		<p>toto je petička</p>
 	</footer>
 ';
-		$this->renderBlock('scripts', get_defined_vars()) /* line 31 */;
+		$this->renderBlock('scripts', get_defined_vars()) /* line 34 */;
 		echo '</body>
 </html>
 ';
 	}
 
 
-	public function prepare(): array
-	{
-		extract($this->params);
-
-		if (!$this->getReferringTemplate() || $this->getReferenceType() === 'extends') {
-			foreach (array_intersect_key(['flash' => '16'], $this->params) as $ʟ_v => $ʟ_l) {
-				trigger_error("Variable \$$ʟ_v overwritten in foreach on line $ʟ_l");
-			}
-		}
-		return get_defined_vars();
-	}
-
-
-	/** {block scripts} on line 31 */
+	/** {block scripts} on line 34 */
 	public function blockScripts(array $ʟ_args): void
 	{
 		echo '	<script src="https://unpkg.com/nette-forms@3/src/assets/netteForms.js"></script>
