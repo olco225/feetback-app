@@ -77,10 +77,10 @@ return array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\Registration\\RegistrationPresenter.php',
       1 => 1724320624,
     ),
-    'App\\UI\\SingIn\\SingInPresenter' => 
+    'App\\UI\\SignIn\\SignInPresenter' => 
     array (
-      0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\SingIn\\SignInPresenter.php',
-      1 => 1724316452,
+      0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\SignIn\\SignInPresenter.php',
+      1 => 1740072306,
     ),
   ),
   1 => 

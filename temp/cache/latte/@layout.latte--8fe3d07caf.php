@@ -57,7 +57,10 @@ final class Template_8fe3d07caf extends Latte\Runtime\Template
 		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Registration:registration')) /* line 19 */;
 		echo '">registracia </a></li>
 			<li><a href="';
-		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Home:')) /* line 20 */;
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('SignIn:signIn')) /* line 20 */;
+		echo '">Prihlásenie </a></li>
+			<li><a href="';
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Home:')) /* line 21 */;
 		echo '">Home </a></li>
 
 		</ul>
@@ -66,20 +69,20 @@ final class Template_8fe3d07caf extends Latte\Runtime\Template
 	<main>
 		
 ';
-		$this->renderBlock('content', [], 'html') /* line 29 */;
+		$this->renderBlock('content', [], 'html') /* line 30 */;
 		echo '	</main>
 	<footer>
 		<p>toto je petička</p>
 	</footer>
 ';
-		$this->renderBlock('scripts', get_defined_vars()) /* line 34 */;
+		$this->renderBlock('scripts', get_defined_vars()) /* line 35 */;
 		echo '</body>
 </html>
 ';
 	}
 
 
-	/** {block scripts} on line 34 */
+	/** {block scripts} on line 35 */
 	public function blockScripts(array $ʟ_args): void
 	{
 		echo '	<script src="https://unpkg.com/nette-forms@3/src/assets/netteForms.js"></script>

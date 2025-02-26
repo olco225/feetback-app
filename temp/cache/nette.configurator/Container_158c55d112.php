@@ -246,7 +246,7 @@ class Container_158c55d112 extends Nette\DI\Container
 		'App\UI\ProjektSetter\ProjektSetterPresenter' => [2 => ['application.7']],
 		'App\UI\ProjektsPage\ProjektsPagePresenter' => [2 => ['application.8']],
 		'App\UI\Registration\RegistrationPresenter' => [2 => ['application.9']],
-		'App\UI\SingIn\SingInPresenter' => [2 => ['application.10']],
+		'App\UI\SignIn\SignInPresenter' => [2 => ['application.10']],
 		'NetteModule\ErrorPresenter' => [2 => ['application.11']],
 		'NetteModule\MicroPresenter' => [2 => ['application.12']],
 		'App\Model\FeetbackFacade' => [['02']],
@@ -302,9 +302,9 @@ class Container_158c55d112 extends Nette\DI\Container
 	}
 
 
-	public function createServiceApplication__10(): App\UI\SingIn\SingInPresenter
+	public function createServiceApplication__10(): App\UI\SignIn\SignInPresenter
 	{
-		$service = new App\UI\SingIn\SingInPresenter;
+		$service = new App\UI\SignIn\SignInPresenter;
 		$service->injectPrimary(
 			$this->getService('http.request'),
 			$this->getService('http.response'),
