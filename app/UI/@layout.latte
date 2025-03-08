@@ -21,8 +21,7 @@
 			<li><a n:href="Home:">Home </a></li>
 
 		</ul>
-		<div> Flash message testing</div>
-		{*<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>*}
+		<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 
 	</header>
 	<main>

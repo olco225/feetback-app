@@ -27,6 +27,11 @@ return array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\Model\\RegistrationFacade.php',
       1 => 1724320397,
     ),
+    'App\\Model\\SingInFacade' => 
+    array (
+      0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\Model\\SignInFacade.php',
+      1 => 1741418957,
+    ),
     'App\\UI\\Accessory\\LatteExtension' => 
     array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\Accessory\\LatteExtension.php',
@@ -80,7 +85,7 @@ return array (
     'App\\UI\\SignIn\\SignInPresenter' => 
     array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\SignIn\\SignInPresenter.php',
-      1 => 1740072306,
+      1 => 1741418858,
     ),
   ),
   1 => 
@@ -88,6 +93,5 @@ return array (
   ),
   2 => 
   array (
-    'C:\\wamp64\\www\\Nette-projekt4\\app\\Model\\SignInFacade.php' => 1721807616,
   ),
 );

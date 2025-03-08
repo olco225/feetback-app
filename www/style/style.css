@@ -18,7 +18,7 @@ body{
     /*navigacia*/
     header ul{
         display: grid;
-        grid-template-columns: auto auto auto ;
+        grid-template-columns: auto auto auto auto ;
         list-style: none;
     }
     header ul li{

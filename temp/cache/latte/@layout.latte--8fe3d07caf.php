@@ -64,25 +64,49 @@ final class Template_8fe3d07caf extends Latte\Runtime\Template
 		echo '">Home </a></li>
 
 		</ul>
-		<div> Flash message testing</div>
+';
+		foreach ($flashes as $flash) /* line 24 */ {
+			echo '		<div';
+			echo ($ʟ_tmp = array_filter(['flash', $flash->type])) ? ' class="' . LR\Filters::escapeHtmlAttr(implode(" ", array_unique($ʟ_tmp))) . '"' : "" /* line 24 */;
+			echo '>';
+			echo LR\Filters::escapeHtmlText($flash->message) /* line 24 */;
+			echo '</div>
+';
+
+		}
+
+		echo '
 	</header>
 	<main>
 		
 ';
-		$this->renderBlock('content', [], 'html') /* line 30 */;
+		$this->renderBlock('content', [], 'html') /* line 29 */;
 		echo '	</main>
 	<footer>
 		<p>toto je petička</p>
 	</footer>
 ';
-		$this->renderBlock('scripts', get_defined_vars()) /* line 35 */;
+		$this->renderBlock('scripts', get_defined_vars()) /* line 34 */;
 		echo '</body>
 </html>
 ';
 	}
 
 
-	/** {block scripts} on line 35 */
+	public function prepare(): array
+	{
+		extract($this->params);
+
+		if (!$this->getReferringTemplate() || $this->getReferenceType() === 'extends') {
+			foreach (array_intersect_key(['flash' => '24'], $this->params) as $ʟ_v => $ʟ_l) {
+				trigger_error("Variable \$$ʟ_v overwritten in foreach on line $ʟ_l");
+			}
+		}
+		return get_defined_vars();
+	}
+
+
+	/** {block scripts} on line 34 */
 	public function blockScripts(array $ʟ_args): void
 	{
 		echo '	<script src="https://unpkg.com/nette-forms@3/src/assets/netteForms.js"></script>

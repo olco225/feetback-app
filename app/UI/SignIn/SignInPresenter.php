@@ -20,8 +20,29 @@ final class SignInPresenter extends BasePresenter{
         $form->onSuccess[] = [$this, "signInFormSuccessed"];
         return $form;
     }
-    public function signInFormSuccessed(Form $form, $values):void {
+    public function signInFormSuccessed(Form $form, $formData):void {
+        
+        $dbUserData = $this->singInFacade->getUser($formData->username);
 
-        $this->redirect("Home:default");
+        //Neviem ako presne funguje empty, takže to môže robiť chyby
+        if(empty($dbUserData)){
+            $form->addError("Užívatel neexistuje.");
+        }else{
+
+            $userIsLogedIn = $this->singInFacade->singInUser($formData->username, $formData->password);
+
+            if($userIsLogedIn){
+                $this->flashMessage("Ste Prihlásený.");
+
+                //!! prípadne pridať esťe nejakú akciu po prihlásení.
+            }else{
+                $form->addError("Nesprávne heslo. Skúste znova.");
+            }
+        }
+        
+        //$this->redirect("Home:default");
+    }
+    public function renderSignIn(){
+
     }
 }

@@ -252,6 +252,7 @@ class Container_158c55d112 extends Nette\DI\Container
 		'App\Model\FeetbackFacade' => [['02']],
 		'App\Model\ProjektFacade' => [['03']],
 		'App\Model\RegistrationFacade' => [['04']],
+		'App\Model\SingInFacade' => [['05']],
 	];
 
 
@@ -285,6 +286,12 @@ class Container_158c55d112 extends Nette\DI\Container
 	}
 
 
+	public function createService05(): App\Model\SingInFacade
+	{
+		return new App\Model\SingInFacade($this->getService('database.default.explorer'), $this->getService('security.passwords'));
+	}
+
+
 	public function createServiceApplication__1(): App\UI\BasePresenter
 	{
 		$service = new App\UI\BasePresenter;
@@ -304,7 +311,7 @@ class Container_158c55d112 extends Nette\DI\Container
 
 	public function createServiceApplication__10(): App\UI\SignIn\SignInPresenter
 	{
-		$service = new App\UI\SignIn\SignInPresenter;
+		$service = new App\UI\SignIn\SignInPresenter($this->getService('05'));
 		$service->injectPrimary(
 			$this->getService('http.request'),
 			$this->getService('http.response'),
