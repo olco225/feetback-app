@@ -6,6 +6,7 @@ use Nette\Application\UI\Form;
 
 use App\Model\SingInFacade ;
 
+
 final class SignInPresenter extends BasePresenter{
     public function __construct(
         private SingInFacade $singInFacade,
@@ -13,8 +14,8 @@ final class SignInPresenter extends BasePresenter{
     }
     protected function createComponentSignInForm() :Form{
         $form = new Form;
-        $form->addText("username", "Username:");
-        $form->addPassword("password", "Password:");
+        $form->addText("username", "Username:")->setRequired("zadajte uživatelské meno.");
+        $form->addPassword("password", "Password:")->setRequired("zadajte heslo.");
         $form->addSubmit("send", "prihlásiť sa");
 
         $form->onSuccess[] = [$this, "signInFormSuccessed"];
@@ -35,6 +36,7 @@ final class SignInPresenter extends BasePresenter{
                 $this->flashMessage("Ste Prihlásený.");
 
                 //!! prípadne pridať esťe nejakú akciu po prihlásení.
+                //$this->redirect("");
             }else{
                 $form->addError("Nesprávne heslo. Skúste znova.");
             }

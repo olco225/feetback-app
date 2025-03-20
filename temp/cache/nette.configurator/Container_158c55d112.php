@@ -288,7 +288,11 @@ class Container_158c55d112 extends Nette\DI\Container
 
 	public function createService05(): App\Model\SingInFacade
 	{
-		return new App\Model\SingInFacade($this->getService('database.default.explorer'), $this->getService('security.passwords'));
+		return new App\Model\SingInFacade(
+			$this->getService('database.default.explorer'),
+			$this->getService('security.passwords'),
+			$this->getService('security.user'),
+		);
 	}
 
 

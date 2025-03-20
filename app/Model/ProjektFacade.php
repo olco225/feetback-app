@@ -22,4 +22,9 @@ final class ProjektFacade {
     public function addProjekt($data){
         $this->database->table("projekt")->insert($data);
     }
+
+    //user personalize function
+    public function getUserProjetks($userId){
+        //získanie dát z db podla user id
+    }
 }

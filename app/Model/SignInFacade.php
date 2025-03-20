@@ -3,11 +3,15 @@ namespace App\Model ;
 use Nette\Database\Explorer ;
 
 use Nette\Security\Passwords;
+use Nette\Security\Identity;
+use Nette\Security\User;
+
 
 final class SingInFacade {
     public function __construct(
         private Explorer $database,
         private Passwords $passwordsFunctions,
+        private User $user,
     ){
     }
     public function getUser($username){
@@ -21,6 +25,14 @@ final class SingInFacade {
         if($dbUserData){
             if($this->passwordsFunctions->verify($password, $dbUserData->password)){
                 //!! prihlásenie užívatela do nette, takže to budem môcť využívať v prezenteroch
+                //vytvorenie identyty
+                $identity = new Identity(
+                    $dbUserData->id,
+                    "non", // or array of roles
+                    ['username' => $dbUserData->username],
+                );
+                //prihlásenie identyty
+                $this->user->login($identity);
                 return true;
             }
 

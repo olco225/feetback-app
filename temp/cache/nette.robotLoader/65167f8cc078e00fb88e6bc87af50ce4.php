@@ -20,12 +20,17 @@ return array (
     'App\\Model\\ProjektFacade' => 
     array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\Model\\ProjektFacade.php',
-      1 => 1724306558,
+      1 => 1742409518,
     ),
     'App\\Model\\RegistrationFacade' => 
     array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\Model\\RegistrationFacade.php',
       1 => 1724320397,
+    ),
+    'App\\Model\\SingInFacade' => 
+    array (
+      0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\Model\\SignInFacade.php',
+      1 => 1741509059,
     ),
     'App\\UI\\Accessory\\LatteExtension' => 
     array (
@@ -80,12 +85,7 @@ return array (
     'App\\UI\\SignIn\\SignInPresenter' => 
     array (
       0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\SignIn\\SignInPresenter.php',
-      1 => 1741418858,
-    ),
-    'App\\Model\\SingInFacade' => 
-    array (
-      0 => 'C:\\wamp64\\www\\Nette-projekt4\\app\\Model\\SignInFacade.php',
-      1 => 1741419691,
+      1 => 1741508641,
     ),
   ),
   1 => 
@@ -107,6 +107,7 @@ return array (
     'App\\UI\\SignIn\\SignInTemplate' => 3,
     'App\\UI\\Form' => 1,
     'Vendor\\Nette\\Application\\UI\\Form' => 1,
+    'App\\Model\\SimpleIdentity' => 1,
   ),
   2 => 
   array (

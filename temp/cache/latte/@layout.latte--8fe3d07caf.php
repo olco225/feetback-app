@@ -50,26 +50,32 @@ final class Template_8fe3d07caf extends Latte\Runtime\Template
 	<header>
 	
 		<ul>
+		
 			<li><a href="';
-		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('ProjektsPage:projektsPage')) /* line 18 */;
-		echo '"> projekt page </a></li>
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Home:')) /* line 19 */;
+		echo '">Home </a></li>
+';
+		if ($user->isLoggedIn()) /* line 20 */ {
+			echo '				<li><a href="';
+			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('ProjektsPage:projektsPage')) /* line 21 */;
+			echo '"> projekt page </a></li>
+';
+		}
+		echo '			
 			<li><a href="';
-		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Registration:registration')) /* line 19 */;
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Registration:registration')) /* line 24 */;
 		echo '">registracia </a></li>
 			<li><a href="';
-		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('SignIn:signIn')) /* line 20 */;
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('SignIn:signIn')) /* line 25 */;
 		echo '">Prihlásenie </a></li>
-			<li><a href="';
-		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Home:')) /* line 21 */;
-		echo '">Home </a></li>
 
 		</ul>
 ';
-		foreach ($flashes as $flash) /* line 24 */ {
+		foreach ($flashes as $flash) /* line 28 */ {
 			echo '		<div';
-			echo ($ʟ_tmp = array_filter(['flash', $flash->type])) ? ' class="' . LR\Filters::escapeHtmlAttr(implode(" ", array_unique($ʟ_tmp))) . '"' : "" /* line 24 */;
+			echo ($ʟ_tmp = array_filter(['flash', $flash->type])) ? ' class="' . LR\Filters::escapeHtmlAttr(implode(" ", array_unique($ʟ_tmp))) . '"' : "" /* line 28 */;
 			echo '>';
-			echo LR\Filters::escapeHtmlText($flash->message) /* line 24 */;
+			echo LR\Filters::escapeHtmlText($flash->message) /* line 28 */;
 			echo '</div>
 ';
 
@@ -80,13 +86,13 @@ final class Template_8fe3d07caf extends Latte\Runtime\Template
 	<main>
 		
 ';
-		$this->renderBlock('content', [], 'html') /* line 29 */;
+		$this->renderBlock('content', [], 'html') /* line 33 */;
 		echo '	</main>
 	<footer>
 		<p>toto je petička</p>
 	</footer>
 ';
-		$this->renderBlock('scripts', get_defined_vars()) /* line 34 */;
+		$this->renderBlock('scripts', get_defined_vars()) /* line 38 */;
 		echo '</body>
 </html>
 ';
@@ -98,7 +104,7 @@ final class Template_8fe3d07caf extends Latte\Runtime\Template
 		extract($this->params);
 
 		if (!$this->getReferringTemplate() || $this->getReferenceType() === 'extends') {
-			foreach (array_intersect_key(['flash' => '24'], $this->params) as $ʟ_v => $ʟ_l) {
+			foreach (array_intersect_key(['flash' => '28'], $this->params) as $ʟ_v => $ʟ_l) {
 				trigger_error("Variable \$$ʟ_v overwritten in foreach on line $ʟ_l");
 			}
 		}
@@ -106,7 +112,7 @@ final class Template_8fe3d07caf extends Latte\Runtime\Template
 	}
 
 
-	/** {block scripts} on line 34 */
+	/** {block scripts} on line 38 */
 	public function blockScripts(array $ʟ_args): void
 	{
 		echo '	<script src="https://unpkg.com/nette-forms@3/src/assets/netteForms.js"></script>
