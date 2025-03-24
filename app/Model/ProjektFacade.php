@@ -24,7 +24,23 @@ final class ProjektFacade {
     }
 
     //user personalize function
-    public function getUserProjetks($userId){
+    public function getUserProjekts($userId){
+        //funckia na načítanie dát z db, !!!ale ešte nufunguje, gôly tomu že treba ešte dorobiť pár iných vecí
+        return $this->database->table("projekt")->where("user_id", $userId)->fetchAll();
         //získanie dát z db podla user id
+    }
+    public function createUserProjekt($userProjektData): bool{
+        //vloženie dát do db aj s user id
+        $result = $this->database->table("projekt")->insert([
+            "user_id" => $userProjektData["userId"] ,
+            "title" => $userProjektData["title"],
+            "question" => $userProjektData["question"]
+        ]);
+        
+        if($result){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

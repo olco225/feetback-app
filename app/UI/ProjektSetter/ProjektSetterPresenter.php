@@ -11,6 +11,7 @@ final class ProjektSetterPresenter extends BasePresenter{
     }
     public function createComponentSetProjektForm(): Form{
         $form = new Form;
+        //získanie, projekt id keď to je projekt id
         $projektId = $this->getParameter("projektId");
 
         $form->addText("title", "Title")
@@ -26,7 +27,7 @@ final class ProjektSetterPresenter extends BasePresenter{
         $form->onSuccess[] = $this->projektFormSucceeded(...);
         return $form;
     }
-    private function projektFormSucceeded(array $data): void{
+    private function projektFormSucceeded(Form $form, array $data): void{
         $projektId = $this->getParameter("projektId");
         if($projektId){
             $this->projektFacade->updateProjekt($projektId, $data);
@@ -49,6 +50,50 @@ final class ProjektSetterPresenter extends BasePresenter{
 
         }
 
+        
+    }
+//create projekt
+    public function createComponentCreateProjektForm(): Form{
+        $form = new Form;
+
+        $form->addText("title", "Title:")->setRequired("Title must be");
+        $form->addTextArea("question", "Qustion:");
+        $form->addSubmit('send', 'Create');
+
+
+        $form->onSuccess[] = [$this, "createProjektFormSucceeded"];
+        return $form;
+    }
+    public function createProjektFormSucceeded(Form $form, $data){
+        //príprava dát
+        $user = $this->getUser();
+        $userId = $user->getIdentity()->getId();
+
+        $userProjektData = [
+            "userId" => $userId,
+            "title" => $data->title,
+            "question" => $data->question
+        ];
+        //uloženie dát
+        $result = $this->projektFacade->createUserProjekt($userProjektData);
+        //kontrola dát, a následné akcie a upozornenia
+        if($result){
+            $this->flashmessage("Projekt bol vytvorený.");
+        }else{
+            $form->addError("Nastala nejaká chyba skúste znova.");
+        }
+    }
+    public function renderCreateProjekt(){
+
+    }
+//edit projekt
+    public function createComponentEditProjektForm(){
+
+    }
+    public function editProjektFormSucceeded(){
+
+    }
+    public function renderEditProjekt(){
         
     }
 }
