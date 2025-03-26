@@ -43,4 +43,18 @@ final class ProjektFacade {
             return false;
         }
     }
+    public function updateUserProjekt($userProjektData): bool{
+        //urobeie premennej s id a odstránenie ho z posielacieho array
+        $projektId = $userProjektData["id"];
+        unset($userProjektData["id"]);
+
+        $result = $this->database->table("projekt")->where("id", $projektId)->update($userProjektData);
+
+        
+        if($result){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

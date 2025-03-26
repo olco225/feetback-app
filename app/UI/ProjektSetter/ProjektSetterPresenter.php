@@ -86,14 +86,45 @@ final class ProjektSetterPresenter extends BasePresenter{
     public function renderCreateProjekt(){
 
     }
-//edit projekt
+//---------edit projekt----------
     public function createComponentEditProjektForm(){
+        $form = new Form;
 
-    }
-    public function editProjektFormSucceeded(){
+        $form->addText("title", "Title:")->setRequired("Title must be");
+        $form->addTextArea("question", "Qustion:");
+        $form->addSubmit('send', 'Update');
 
+
+        $form->onSuccess[] = [$this, "editProjektFormSucceeded"];
+        return $form;
     }
-    public function renderEditProjekt(){
-        
+    public function editProjektFormSucceeded(Form $form, $data){
+        //príprava dát
+        $user = $this->getUser();
+        $userId = $user->getIdentity()->getId();
+
+        $projektId = $this->getParameter("projektId");
+
+        $userProjektData = [
+            "id" => $projektId,
+            "user_id" => $userId,
+            "title" => $data->title,
+            "question" => $data->question
+        ];
+        //update data
+        $result = $this->projektFacade->updateUserProjekt($userProjektData);
+        //kontrola update data
+        if($result){
+            $this->flashmessage("Projekt bol aktualizovaný.");
+        }else{
+            $form->addError("Nastala nejaká chyba skúste znova.");
+        }
+    }
+    public function renderEditProjekt($projektId){
+        $projektData = $this->projektFacade->getProjekt($projektId);
+
+        $this->getComponent('editProjektForm')
+            ->setDefaults($projektData->toArray());
+
     }
 }

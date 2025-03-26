@@ -54,7 +54,7 @@ final class Template_dac947c578 extends Latte\Runtime\Template
 			echo LR\Filters::escapeHtmlText($projekt->title) /* line 3 */;
 			echo '</a></h2>
         <button><a href="';
-			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('ProjektSetter:ProjektSetter', [$projekt->id])) /* line 4 */;
+			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('ProjektSetter:EditProjekt', [$projekt->id])) /* line 4 */;
 			echo '">edit</a></button>
 ';
 
