@@ -10,4 +10,7 @@ use Nette;
 
 final class HomePresenter extends BasePresenter
 {
+    public function renderDefault(){
+        
+    }
 }

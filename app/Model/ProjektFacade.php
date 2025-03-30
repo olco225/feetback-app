@@ -53,7 +53,11 @@ final class ProjektFacade {
         
         if($result){
             return true;
-        }else{
+        }
+        elseif($result == 0){
+            return true;
+        }
+        else{
             return false;
         }
     }

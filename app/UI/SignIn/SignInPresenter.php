@@ -35,16 +35,19 @@ final class SignInPresenter extends BasePresenter{
             if($userIsLogedIn){
                 $this->flashMessage("Ste Prihlásený.");
 
-                //!! prípadne pridať esťe nejakú akciu po prihlásení.
-                //$this->redirect("");
+                $this->redirect("Home:default");
             }else{
                 $form->addError("Nesprávne heslo. Skúste znova.");
             }
         }
-        
-        //$this->redirect("Home:default");
     }
     public function renderSignIn(){
 
+    }
+    public function actionSignOut(){
+        $user = $this->getUser();
+        $user->logout();
+        $this->flashMessage("Ste odhlásený.");
+        $this->redirect("Home:default");
     }
 }

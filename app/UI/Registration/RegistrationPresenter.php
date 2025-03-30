@@ -30,7 +30,7 @@ final class RegistrationPresenter extends BasePresenter{
 			{
 				$this->registrationFacade->insertRegistrationDataHash($data);
 				$this->flashMessage('Registration successful.', 'success');
-            	$this->redirect('Home:');
+            	$this->redirect('Home:Home');
 			}else{
 				$form->addError("Username is already taken, try difrent name");
 			}

@@ -20,9 +20,12 @@
 			{if $user->isLoggedIn()}
 				<li><a n:href="ProjektsPage:projektsPage"> projekt page </a></li>
 			{/if}
-			
-			<li><a n:href="Registration:registration">registracia </a></li>
-			<li><a n:href="SignIn:signIn">Prihlásenie </a></li>
+			{if $user->isLoggedIn()}
+				<li><a n:href="SignIn:SignOut" >Sign out</a></li>
+			{else }
+				<li><a n:href="Registration:registration">registracia </a></li>
+				<li><a n:href="SignIn:signIn">Prihlásenie </a></li>
+			{/if}
 
 		</ul>
 		<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>

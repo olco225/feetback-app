@@ -9,49 +9,6 @@ final class ProjektSetterPresenter extends BasePresenter{
         private ProjektFacade $projektFacade,
     ){
     }
-    public function createComponentSetProjektForm(): Form{
-        $form = new Form;
-        //získanie, projekt id keď to je projekt id
-        $projektId = $this->getParameter("projektId");
-
-        $form->addText("title", "Title")
-        ->setRequired("Title must be");
-
-        if($projektId){
-            $form->addSubmit('send', 'Update');
-        }else{
-            $form->addSubmit('send', 'Create');
-        }
-        
-
-        $form->onSuccess[] = $this->projektFormSucceeded(...);
-        return $form;
-    }
-    private function projektFormSucceeded(Form $form, array $data): void{
-        $projektId = $this->getParameter("projektId");
-        if($projektId){
-            $this->projektFacade->updateProjekt($projektId, $data);
-        }else{
-            $this->projektFacade->addProjekt($data);
-        }
-        $this->redirect("ProjektsPage:projektsPage");
-
-    }
-    public function renderProjektSetter($projektId): void{
-        $projekt = $this->projektFacade->getProjekt($projektId);
-        if($projektId){
-            $projektData = $this->projektFacade->getProjekt($projektId);
-            $this->template->projektId = $projektId;
-            //vloženie údajov do formulára
-            $this->getComponent('setProjektForm')
-            ->setDefaults($projektData->toArray());
-        }else{
-            $this->template->projektId = Null;
-
-        }
-
-        
-    }
 //create projekt
     public function createComponentCreateProjektForm(): Form{
         $form = new Form;
@@ -79,6 +36,7 @@ final class ProjektSetterPresenter extends BasePresenter{
         //kontrola dát, a následné akcie a upozornenia
         if($result){
             $this->flashmessage("Projekt bol vytvorený.");
+            $this->redirect("ProjektsPage:ProjektsPage");
         }else{
             $form->addError("Nastala nejaká chyba skúste znova.");
         }
@@ -116,6 +74,7 @@ final class ProjektSetterPresenter extends BasePresenter{
         //kontrola update data
         if($result){
             $this->flashmessage("Projekt bol aktualizovaný.");
+            $this->redirect("ProjektsPage:ProjektsPage");
         }else{
             $form->addError("Nastala nejaká chyba skúste znova.");
         }
