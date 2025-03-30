@@ -28,19 +28,22 @@ final class Template_8fe3d07caf extends Latte\Runtime\Template
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-
+<!--linky pre css-->
 	<link rel="stylesheet" href="';
 		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 7 */;
 		echo '/style/style.css">
+	<link rel="stylesheet" href="';
+		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 8 */;
+		echo '/style/default.css">
 	
     <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 
 	<title>';
-		if ($this->hasBlock('title')) /* line 11 */ {
+		if ($this->hasBlock('title')) /* line 12 */ {
 			$this->renderBlock('title', [], function ($s, $type) {
 				$ʟ_fi = new LR\FilterInfo($type);
 				return LR\Filters::convertTo($ʟ_fi, 'html', $this->filters->filterContent('stripHtml', $ʟ_fi, $s));
-			}) /* line 11 */;
+			}) /* line 12 */;
 			echo ' | ';
 		}
 		echo 'Nette Web</title>
@@ -52,37 +55,37 @@ final class Template_8fe3d07caf extends Latte\Runtime\Template
 		<ul>
 		
 			<li><a href="';
-		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Home:')) /* line 19 */;
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Home:')) /* line 20 */;
 		echo '">Home </a></li>
 ';
-		if ($user->isLoggedIn()) /* line 20 */ {
+		if ($user->isLoggedIn()) /* line 21 */ {
 			echo '				<li><a href="';
-			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('ProjektsPage:projektsPage')) /* line 21 */;
+			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('ProjektsPage:projektsPage')) /* line 22 */;
 			echo '"> projekt page </a></li>
 ';
 		}
-		if ($user->isLoggedIn()) /* line 23 */ {
+		if ($user->isLoggedIn()) /* line 24 */ {
 			echo '				<li><a href="';
-			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('SignIn:SignOut')) /* line 24 */;
+			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('SignIn:SignOut')) /* line 25 */;
 			echo '" >Sign out</a></li>
 ';
-		} else /* line 25 */ {
+		} else /* line 26 */ {
 			echo '				<li><a href="';
-			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Registration:registration')) /* line 26 */;
+			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Registration:registration')) /* line 27 */;
 			echo '">registracia </a></li>
 				<li><a href="';
-			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('SignIn:signIn')) /* line 27 */;
+			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('SignIn:signIn')) /* line 28 */;
 			echo '">Prihlásenie </a></li>
 ';
 		}
 		echo '
 		</ul>
 ';
-		foreach ($flashes as $flash) /* line 31 */ {
+		foreach ($flashes as $flash) /* line 32 */ {
 			echo '		<div';
-			echo ($ʟ_tmp = array_filter(['flash', $flash->type])) ? ' class="' . LR\Filters::escapeHtmlAttr(implode(" ", array_unique($ʟ_tmp))) . '"' : "" /* line 31 */;
+			echo ($ʟ_tmp = array_filter(['flash', $flash->type])) ? ' class="' . LR\Filters::escapeHtmlAttr(implode(" ", array_unique($ʟ_tmp))) . '"' : "" /* line 32 */;
 			echo '>';
-			echo LR\Filters::escapeHtmlText($flash->message) /* line 31 */;
+			echo LR\Filters::escapeHtmlText($flash->message) /* line 32 */;
 			echo '</div>
 ';
 
@@ -93,13 +96,13 @@ final class Template_8fe3d07caf extends Latte\Runtime\Template
 	<main>
 		
 ';
-		$this->renderBlock('content', [], 'html') /* line 36 */;
+		$this->renderBlock('content', [], 'html') /* line 37 */;
 		echo '	</main>
 	<footer>
-		<p>toto je petička</p>
+		<p> created by: &copy Oliver Chalúpka</p>
 	</footer>
 ';
-		$this->renderBlock('scripts', get_defined_vars()) /* line 41 */;
+		$this->renderBlock('scripts', get_defined_vars()) /* line 42 */;
 		echo '</body>
 </html>
 ';
@@ -111,7 +114,7 @@ final class Template_8fe3d07caf extends Latte\Runtime\Template
 		extract($this->params);
 
 		if (!$this->getReferringTemplate() || $this->getReferenceType() === 'extends') {
-			foreach (array_intersect_key(['flash' => '31'], $this->params) as $ʟ_v => $ʟ_l) {
+			foreach (array_intersect_key(['flash' => '32'], $this->params) as $ʟ_v => $ʟ_l) {
 				trigger_error("Variable \$$ʟ_v overwritten in foreach on line $ʟ_l");
 			}
 		}
@@ -119,7 +122,7 @@ final class Template_8fe3d07caf extends Latte\Runtime\Template
 	}
 
 
-	/** {block scripts} on line 41 */
+	/** {block scripts} on line 42 */
 	public function blockScripts(array $ʟ_args): void
 	{
 		echo '	<script src="https://unpkg.com/nette-forms@3/src/assets/netteForms.js"></script>

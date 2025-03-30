@@ -1,0 +1,27 @@
+h1{
+    text-align: center;
+    margin: 25px;
+}
+#container1{
+    width: 700px;
+    margin: 0 auto;
+}
+    .text-blok{
+        width: 350px;
+        display: inline-block;
+    }
+    #blok-upozornenia{
+        width: 300px;
+        padding: 10px;
+
+        border: solid rgb(255, 204, 0) 2px;
+        border-radius: 15px;
+        background-color: rgba(255, 220, 0, 0.446);
+        display: inline-block;
+
+    }
+        #dakujem{
+            display: block;
+            text-align: right;
+            
+        }
