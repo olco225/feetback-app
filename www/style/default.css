@@ -14,14 +14,15 @@ h1{
         width: 300px;
         padding: 10px;
 
-        border: solid rgb(255, 204, 0) 2px;
+        border: solid rgb(255, 205, 0) 2px;
         border-radius: 15px;
         background-color: rgba(255, 220, 0, 0.446);
         display: inline-block;
 
     }
-        #dakujem{
+        #blok-upozornenia #dakujem{
             display: block;
-            text-align: right;
+            text-align: left;
             
         }
+        

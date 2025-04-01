@@ -35,4 +35,7 @@ final class RegistrationPresenter extends BasePresenter{
 				$form->addError("Username is already taken, try difrent name");
 			}
     }
+    public function renderRegistration(){
+        $this->template->currentCssPage = "registration";
+    }
 }

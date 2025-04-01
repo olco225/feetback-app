@@ -42,6 +42,7 @@ final class SignInPresenter extends BasePresenter{
         }
     }
     public function renderSignIn(){
+        $this->template->currentCssPage = "singIn";
 
     }
     public function actionSignOut(){

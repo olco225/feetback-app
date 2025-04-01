@@ -33,7 +33,7 @@ final class Template_06dbfc53f1 extends Latte\Runtime\Template
 		echo '	<h1>Webová aplikácia pre získavanie spetnej väzby.</h1>
 	<div id="container1">
 		<p class="text-blok">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-		<p id="blok-upozornenia">Upozornenie: Napriek tomu, že som sa to snažil urobiť najlepšie ako som vedel, môžu sa tu vyskitovať rôzne chyby a buggy. <br> <span id="dakujem">Ďakujem za pochopenie.</span> </p>
+		<p id="blok-upozornenia"> <strong>Upozornenie:</strong> <br> Napriek tomu, že som sa to snažil urobiť najlepšie ako som vedel, môžu sa tu vyskitovať rôzne chyby a buggy. <br> <span id="dakujem">- Ďakujem za pochopenie.</span> </p>
 	</div>
 	
 ';
