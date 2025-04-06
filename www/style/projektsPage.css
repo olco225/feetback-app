@@ -1,0 +1,19 @@
+#main-container{
+    width: 250px;
+    margin: auto;
+    display: flexbox;
+}
+.project-container{
+    width: 250px;
+    margin: 0 auto;
+}
+#create-button{
+    margin-left: auto;
+}
+#unclick-background{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(62, 62, 62, 0.354);
+    z-index: 1;
+}

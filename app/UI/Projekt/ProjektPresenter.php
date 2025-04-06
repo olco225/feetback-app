@@ -11,6 +11,9 @@ final class ProjektPresenter extends BasePresenter{
     ){
     }
     public function renderProjekt($projektId): void{
+        //nastavenie štýlov
+        $this->template->currentCssPage = "projekt";
+
         $this->template->projekt = $this->projektFacade->getProjekt($projektId);
         $this->template->comentars = $this->feetbackFacade->getProjektcomentars($projektId);
 

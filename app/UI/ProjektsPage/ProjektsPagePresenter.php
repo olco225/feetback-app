@@ -10,6 +10,9 @@ final class ProjektsPagePresenter extends BasePresenter{
     ){
     }
     public function renderProjektsPage(): void{
+        //nastavenie štýlov
+        $this->template->currentCssPage = "projektsPage";
+        
         //získanie a nahratie projektov užívatela
         //dáta prihláseného užívatela
         $user = $this->getUser();

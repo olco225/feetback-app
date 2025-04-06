@@ -1,6 +1,12 @@
 {block content}
-    {foreach $userProjekts as $projekt}
-        <h2><a n:href="Projekt:projekt $projekt->id">{$projekt->title}</a></h2>
-        <button><a n:href="ProjektSetter:EditProjekt $projekt->id">edit</a></button>
-    {/foreach}
-    <button><a n:href="ProjektSetter:CreateProjekt">create</a></button>
+    <div id="main-container">
+        {foreach $userProjekts as $projekt}
+            <div class="project-container"> 
+                <h2><a n:href="Projekt:projekt $projekt->id">{$projekt->title}</a></h2>
+                <button><a n:href="ProjektSetter:EditProjekt $projekt->id">edit</a></button>
+            </div>
+            
+        {/foreach}
+        <button id="create-button"><a n:href="ProjektSetter:CreateProjekt">create</a></button>
+    </div>
+    

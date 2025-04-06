@@ -80,6 +80,9 @@ final class ProjektSetterPresenter extends BasePresenter{
         }
     }
     public function renderEditProjekt($projektId){
+        //nastavenie štýlov 
+        $this->template->currentCssPage = "projektSetter";
+    
         $projektData = $this->projektFacade->getProjekt($projektId);
 
         $this->getComponent('editProjektForm')

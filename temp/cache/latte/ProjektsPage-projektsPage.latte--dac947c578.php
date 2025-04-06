@@ -32,7 +32,7 @@ final class Template_dac947c578 extends Latte\Runtime\Template
 		extract($this->params);
 
 		if (!$this->getReferringTemplate() || $this->getReferenceType() === 'extends') {
-			foreach (array_intersect_key(['projekt' => '2'], $this->params) as $ʟ_v => $ʟ_l) {
+			foreach (array_intersect_key(['projekt' => '4'], $this->params) as $ʟ_v => $ʟ_l) {
 				trigger_error("Variable \$$ʟ_v overwritten in foreach on line $ʟ_l");
 			}
 		}
@@ -47,22 +47,29 @@ final class Template_dac947c578 extends Latte\Runtime\Template
 		extract($ʟ_args);
 		unset($ʟ_args);
 
-		foreach ($userProjekts as $projekt) /* line 2 */ {
-			echo '        <h2><a href="';
-			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Projekt:projekt', [$projekt->id])) /* line 3 */;
+		echo '    <div id="unclick-background" > </div>
+    <div id="main-container">
+';
+		foreach ($userProjekts as $projekt) /* line 4 */ {
+			echo '            <div class="project-container"> 
+                <h2><a href="';
+			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Projekt:projekt', [$projekt->id])) /* line 6 */;
 			echo '">';
-			echo LR\Filters::escapeHtmlText($projekt->title) /* line 3 */;
+			echo LR\Filters::escapeHtmlText($projekt->title) /* line 6 */;
 			echo '</a></h2>
-        <button><a href="';
-			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('ProjektSetter:EditProjekt', [$projekt->id])) /* line 4 */;
+                <button><a href="';
+			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('ProjektSetter:EditProjekt', [$projekt->id])) /* line 7 */;
 			echo '">edit</a></button>
+            </div>
+            
 ';
 
 		}
 
-		echo '    <button><a href="';
-		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('ProjektSetter:CreateProjekt')) /* line 6 */;
+		echo '        <button id="create-button"><a href="';
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('ProjektSetter:CreateProjekt')) /* line 11 */;
 		echo '">create</a></button>
-';
+    </div>
+    ';
 	}
 }

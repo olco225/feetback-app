@@ -19,7 +19,7 @@ final class RegistrationPresenter extends BasePresenter{
         $form->addPassword("password", "Password:")
         ->setRequired("password must be");
 
-        $form->addSubmit('send', 'Save and publish');
+        $form->addSubmit('send', 'register');
 
         $form->onSuccess[] = $this->registrationFormSucceeded(...);
         return $form;
@@ -30,7 +30,7 @@ final class RegistrationPresenter extends BasePresenter{
 			{
 				$this->registrationFacade->insertRegistrationDataHash($data);
 				$this->flashMessage('Registration successful.', 'success');
-            	$this->redirect('Home:Home');
+            	$this->redirect('Home:default');
 			}else{
 				$form->addError("Username is already taken, try difrent name");
 			}
