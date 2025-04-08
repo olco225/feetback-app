@@ -61,4 +61,17 @@ final class ProjektFacade {
             return false;
         }
     }
+    public function deletUserProjekt($projektId): bool{
+        //zmazanie projektových spetných vezieb
+        $this->deletUserProjektFeetback($projektId);
+        $wasDeleted = $this->database->table("projekt")->where("id", $projektId)->delete();
+        if($wasDeleted){
+            return true;
+        }
+        return false;
+    }
+    public function deletUserProjektFeetback($projektId){
+        $this->database->table("feetback")->where("projekt_id", $projektId)->delete();
+
+    }
 }

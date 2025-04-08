@@ -21,4 +21,5 @@ final class ProjektsPagePresenter extends BasePresenter{
         $this->template->userProjekts = $this->projektFacade->getUserProjekts($userId);
 
     }
+    
 }

@@ -15,6 +15,15 @@
 </head>
 
 <body>
+    <div id="unclick-background" style="display: none;"> 
+		<div id="">
+			{ifset $userProjekts}
+				<p></p><br>
+			{/ifset}
+			<button>zrušiť</button> <button>zmazať</button>
+		</div>
+	</div>
+
 	<header>
 	
 		<ul>
@@ -34,6 +43,7 @@
 		<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 
 	</header>
+	
 	<main>
 		
 		{include content}

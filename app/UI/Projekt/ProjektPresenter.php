@@ -18,4 +18,15 @@ final class ProjektPresenter extends BasePresenter{
         $this->template->comentars = $this->feetbackFacade->getProjektcomentars($projektId);
 
     }
+    public function actionDeletProjekt($projektId){
+        $projektWasDeleted = $this->projektFacade->deletUserProjekt($projektId);
+        if($projektWasDeleted){
+            $this->flashMessage("Projekt bol úspešne vymazaný");
+            $this->redirect("ProjektsPage:ProjektsPage");
+
+        }else{
+            $this->flashMessage("Nastala nejaká chyba.");
+            $this->redirect("ProjektsPage:ProjektsPage");
+        }
+    }
 }

@@ -4,9 +4,26 @@
             <div class="project-container"> 
                 <h2><a n:href="Projekt:projekt $projekt->id">{$projekt->title}</a></h2>
                 <button><a n:href="ProjektSetter:EditProjekt $projekt->id">edit</a></button>
+                <button id="preDelet-button" >delete</button> <button id=""><a n:href="Projekt:DeletProjekt $projekt->id">naozaj zmazať</a></button>
             </div>
             
         {/foreach}
         <button id="create-button"><a n:href="ProjektSetter:CreateProjekt">create</a></button>
     </div>
     
+    <script>
+        function hideElement() {
+            document.getElementById('unclick-background').style.display = 'none';
+        }
+
+        function showElement() {
+            document.getElementById('unclick-background').style.display = 'block';
+        }
+        function
+        document.getElementById("preDelete-button").addEventListener("click", )
+        showElement();
+
+        //cesta k získaniu kontrolného okienka praragraph
+        let projektTitle = "";
+        let paragraphText = "Naozaj chcete vymazať projekt s názvom " + projektTitle;
+    </script>
