@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 use Latte\Runtime as LR;
 
-/** source: C:\wamp64\www\Nette-projekt4\app\UI\ProjektsPage/projektsPage.latte */
-final class Template_dac947c578 extends Latte\Runtime\Template
+/** source: C:\wamp64\www\spetna-vezba\app\UI\ProjektsPage/projektsPage.latte */
+final class Template_69708b07c9 extends Latte\Runtime\Template
 {
-	public const Source = 'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\ProjektsPage/projektsPage.latte';
+	public const Source = 'C:\\wamp64\\www\\spetna-vezba\\app\\UI\\ProjektsPage/projektsPage.latte';
 
 	public const Blocks = [
 		['content' => 'blockContent'],

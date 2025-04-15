@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 use Latte\Runtime as LR;
 
-/** source: C:\wamp64\www\Nette-projekt4\app\UI\ProjektSetter/projektSetter.latte */
-final class Template_ee579f72cd extends Latte\Runtime\Template
+/** source: C:\wamp64\www\spetna-vezba\app\UI\ProjektSetter/createProjekt.latte */
+final class Template_ef4a8b3ec5 extends Latte\Runtime\Template
 {
-	public const Source = 'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\ProjektSetter/projektSetter.latte';
+	public const Source = 'C:\\wamp64\\www\\spetna-vezba\\app\\UI\\ProjektSetter/createProjekt.latte';
 
 	public const Blocks = [
 		['content' => 'blockContent'],
@@ -34,17 +34,10 @@ final class Template_ee579f72cd extends Latte\Runtime\Template
 		extract($ʟ_args);
 		unset($ʟ_args);
 
-		if ($projektId) /* line 2 */ {
-			echo '        <h1>Edit projekt</h1>
-';
-		} else /* line 4 */ {
-			echo '        <h1>Create new projekt</h1>
-';
-		}
-		echo '
+		echo '    <h1>Nový projekt</h1>
     ';
-		$ʟ_tmp = $this->global->uiControl->getComponent('setProjektForm');
+		$ʟ_tmp = $this->global->uiControl->getComponent('createProjektForm');
 		if ($ʟ_tmp instanceof Nette\Application\UI\Renderable) $ʟ_tmp->redrawControl(null, false);
-		$ʟ_tmp->render() /* line 8 */;
+		$ʟ_tmp->render() /* line 3 */;
 	}
 }

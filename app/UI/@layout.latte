@@ -15,12 +15,13 @@
 </head>
 
 <body>
+	<!-- Kontrolný formulár -->
     <div id="unclick-background" style="display: none;"> 
-		<div id="">
+		<div id="control-formular">
 			{ifset $userProjekts}
-				<p></p><br>
+				<p>Naozaj, chcete zmazať projekt?</p><br>
 			{/ifset}
-			<button>zrušiť</button> <button>zmazať</button>
+			<button id="cancel-control-formular" >zrušiť</button> <button id="delet-projekt-button">zmazať</button>
 		</div>
 	</div>
 
@@ -51,6 +52,9 @@
 	<footer>
 		<p> created by: &copy Oliver Chalúpka</p>
 	</footer>
+
+<!--scripty -->
+
 	{block scripts}
 	<script src="https://unpkg.com/nette-forms@3/src/assets/netteForms.js"></script>
 	{/block}

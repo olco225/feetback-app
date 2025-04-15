@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 use Latte\Runtime as LR;
 
-/** source: C:\wamp64\www\Nette-projekt4\app\UI\Feetback/feetback.latte */
-final class Template_0c51a04b3c extends Latte\Runtime\Template
+/** source: C:\wamp64\www\spetna-vezba\app\UI\ProjektSetter/editProjekt.latte */
+final class Template_6aa4b8e6d9 extends Latte\Runtime\Template
 {
-	public const Source = 'C:\\wamp64\\www\\Nette-projekt4\\app\\UI\\Feetback/feetback.latte';
+	public const Source = 'C:\\wamp64\\www\\spetna-vezba\\app\\UI\\ProjektSetter/editProjekt.latte';
 
 	public const Blocks = [
 		['content' => 'blockContent'],
@@ -34,9 +34,9 @@ final class Template_0c51a04b3c extends Latte\Runtime\Template
 		extract($ʟ_args);
 		unset($ʟ_args);
 
-		echo '<h1>Názov projektu</h1>
-';
-		$ʟ_tmp = $this->global->uiControl->getComponent('ratingForm');
+		echo '    <h1>edit projekt</h1>
+    ';
+		$ʟ_tmp = $this->global->uiControl->getComponent('editProjektForm');
 		if ($ʟ_tmp instanceof Nette\Application\UI\Renderable) $ʟ_tmp->redrawControl(null, false);
 		$ʟ_tmp->render() /* line 3 */;
 	}

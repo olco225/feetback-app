@@ -7,13 +7,14 @@
     width: 250px;
     margin: 0 auto;
 }
-#create-button{
+#create-button a{
     margin-left: auto;
 }
-#unclick-background{
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(62, 62, 62, 0.143);
-    z-index: 1;
+.predelet-button{
+    background-color: red;
+    color: white;
+    padding: 2px;
+    border: rgb(154, 0, 0) solid 2px;
+    border-radius: 4px;
 }
+

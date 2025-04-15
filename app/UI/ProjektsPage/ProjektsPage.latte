@@ -4,25 +4,25 @@
             <div class="project-container"> 
                 <h2><a n:href="Projekt:projekt $projekt->id">{$projekt->title}</a></h2>
                 <button><a n:href="ProjektSetter:EditProjekt $projekt->id">edit</a></button>
-                <button id="preDelet-button" >delete</button> <button id=""><a n:href="Projekt:DeletProjekt $projekt->id">naozaj zmazať</a></button>
+                <button class="predelet-button" projektId="{$projekt->id}" >delete</button> <button id="delet-button-projekt{$projekt->id}" style="display: none;"><a n:href="Projekt:DeletProjekt $projekt->id">naozaj zmazať</a></button>
             </div>
             
         {/foreach}
         <button id="create-button"><a n:href="ProjektSetter:CreateProjekt">create</a></button>
     </div>
-    
+    <script src="{$basePath}/script/controlFormular.js"></script>
     <script>
-        function hideElement() {
-            document.getElementById('unclick-background').style.display = 'none';
-        }
 
-        function showElement() {
-            document.getElementById('unclick-background').style.display = 'block';
-        }
-        function
-        document.getElementById("preDelete-button").addEventListener("click", )
-        showElement();
-
+        let buttons = Array.from(document.getElementsByClassName("predelet-button"));
+        buttons.forEach(function(element){
+            
+            let projektId = element.getAttribute("projektId");
+            console.log(projektId);
+            element.addEventListener("click", function(){
+                showControlFormular(projektId);
+        });
+        });
+		document.getElementById("cancel-control-formular").addEventListener("click", hideControlFormular);
         //cesta k získaniu kontrolného okienka praragraph
         let projektTitle = "";
         let paragraphText = "Naozaj chcete vymazať projekt s názvom " + projektTitle;
