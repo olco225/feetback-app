@@ -1,4 +1,4 @@
-function handleDeletProjektButtonClick(ProjektId){
+function handleDeletProjektButtonClick(projektId){
     let buttonId = "#delet-button-projekt" + projektId + " a";
 
     let deletButton = document.querySelector(buttonId);
@@ -11,7 +11,9 @@ function showControlFormular(projektId ){
     //odstránenie predošlého event lisenara gôli stackovaniu
     deletProjektButton.removeEventListener("click", handleDeletProjektButtonClick);
 
-    deletProjektButton.addEventListener("click", handleDeletProjektButtonClick);
+    deletProjektButton.addEventListener("click", function(){
+        handleDeletProjektButtonClick(projektId);
+    });
 }
 function hideControlFormular(){
     document.getElementById('unclick-background').style.display = 'none';

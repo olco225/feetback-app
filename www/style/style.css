@@ -8,6 +8,9 @@ body{
     height: 100vh;
     grid-template-rows: auto 1fr auto;
 }
+header ul li a{
+    text-decoration: none;
+}
 /*******Horná lišta********/
 @media(orientation: landscape){
     header{
@@ -42,6 +45,8 @@ body{
         border: solid red 2px;
     }
 }
+
+
 /****control form****/
 #unclick-background{
     position: absolute;

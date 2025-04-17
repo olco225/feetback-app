@@ -74,23 +74,23 @@ final class Template_f1e700eea2 extends Latte\Runtime\Template
 		
 			<li><a href="';
 		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Home:')) /* line 32 */;
-		echo '">Home </a></li>
+		echo '">Domov</a></li>
 ';
 		if ($user->isLoggedIn()) /* line 33 */ {
 			echo '				<li><a href="';
 			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('ProjektsPage:projektsPage')) /* line 34 */;
-			echo '"> projekt page </a></li>
+			echo '">Projekty</a></li>
 ';
 		}
 		if ($user->isLoggedIn()) /* line 36 */ {
 			echo '				<li><a href="';
 			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('SignIn:SignOut')) /* line 37 */;
-			echo '" >Sign out</a></li>
+			echo '" >odhlásiť sa</a></li>
 ';
 		} else /* line 38 */ {
 			echo '				<li><a href="';
 			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Registration:registration')) /* line 39 */;
-			echo '">registracia </a></li>
+			echo '">Registracia </a></li>
 				<li><a href="';
 			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('SignIn:signIn')) /* line 40 */;
 			echo '">Prihlásenie </a></li>

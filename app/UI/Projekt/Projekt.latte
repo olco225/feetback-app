@@ -7,22 +7,20 @@
     <a id="download-button" download="qrCode.png">stiahuť qrcode</a>
     <div id="url-text"></div>
     <!-- link pre testovacie účely -->
-    <a n:href="www" id="url-local-link">Pre testovacie účeli link</a>
+    <a n:href="feetback:feetback $projekt->id" id="url-local-link">Pre testovacie účeli link</a>
 
 
 {*scripty*}
     <script>
         //vytvorenie linku na stránku s hodnotením pre testovacie účely
         let projektId = {$projekt->id};
-        let localDomen = "http://localhost/Nette-projekt4/www";
-        let localUrl = localDomen + "/feetback/feetback?projektId=" + projektId;
-        document.getElementById("url-local-link").href = localUrl;
+
         //funkcia pre generovanie qr codu
         function generateQRCode() {
             console.log(QRCode);
 
             let projektId = {$projekt->id};
-            let domen = "http://192.168.1.10/Nette-projekt4/www";
+            let domen = "http://192.168.1.10/spetna-vezba/www";
             let url = domen + "/feetback/feetback?projektId=" + projektId;
             
             document.getElementById("url-text").innerHTML = url;

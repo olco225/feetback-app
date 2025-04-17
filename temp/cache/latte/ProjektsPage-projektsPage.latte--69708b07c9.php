@@ -56,16 +56,19 @@ final class Template_69708b07c9 extends Latte\Runtime\Template
 			echo '">';
 			echo LR\Filters::escapeHtmlText($projekt->title) /* line 5 */;
 			echo '</a></h2>
-                <button><a href="';
-			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('ProjektSetter:EditProjekt', [$projekt->id])) /* line 6 */;
-			echo '">edit</a></button>
+
+                <a href="';
+			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('ProjektSetter:EditProjekt', [$projekt->id])) /* line 7 */;
+			echo '" id="edit-button">upraviť</a>
                 <button class="predelet-button" projektId="';
-			echo LR\Filters::escapeHtmlAttr($projekt->id) /* line 7 */;
-			echo '" >delete</button> <button id="delet-button-projekt';
-			echo LR\Filters::escapeHtmlAttr($projekt->id) /* line 7 */;
+			echo LR\Filters::escapeHtmlAttr($projekt->id) /* line 8 */;
+			echo '" >zmazať</button> 
+                <!-- invisible button for hard delet -->
+                <button id="delet-button-projekt';
+			echo LR\Filters::escapeHtmlAttr($projekt->id) /* line 10 */;
 			echo '" style="display: none;"><a href="';
-			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Projekt:DeletProjekt', [$projekt->id])) /* line 7 */;
-			echo '">naozaj zmazať</a></button>
+			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Projekt:DeletProjekt', [$projekt->id])) /* line 10 */;
+			echo '">hard delet</a></button>
             </div>
             
 ';
@@ -73,11 +76,11 @@ final class Template_69708b07c9 extends Latte\Runtime\Template
 		}
 
 		echo '        <button id="create-button"><a href="';
-		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('ProjektSetter:CreateProjekt')) /* line 11 */;
-		echo '">create</a></button>
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('ProjektSetter:CreateProjekt')) /* line 14 */;
+		echo '">vytvoriť</a></button>
     </div>
     <script src="';
-		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 13 */;
+		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 16 */;
 		echo '/script/controlFormular.js"></script>
     <script>
 

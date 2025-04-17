@@ -29,14 +29,14 @@
 	
 		<ul>
 		
-			<li><a n:href="Home:">Home </a></li>
+			<li><a n:href="Home:">Domov</a></li>
 			{if $user->isLoggedIn()}
-				<li><a n:href="ProjektsPage:projektsPage"> projekt page </a></li>
+				<li><a n:href="ProjektsPage:projektsPage">Projekty</a></li>
 			{/if}
 			{if $user->isLoggedIn()}
-				<li><a n:href="SignIn:SignOut" >Sign out</a></li>
+				<li><a n:href="SignIn:SignOut" >odhlásiť sa</a></li>
 			{else }
-				<li><a n:href="Registration:registration">registracia </a></li>
+				<li><a n:href="Registration:registration">Registracia </a></li>
 				<li><a n:href="SignIn:signIn">Prihlásenie </a></li>
 			{/if}
 

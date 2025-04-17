@@ -3,12 +3,15 @@
         {foreach $userProjekts as $projekt}
             <div class="project-container"> 
                 <h2><a n:href="Projekt:projekt $projekt->id">{$projekt->title}</a></h2>
-                <button><a n:href="ProjektSetter:EditProjekt $projekt->id">edit</a></button>
-                <button class="predelet-button" projektId="{$projekt->id}" >delete</button> <button id="delet-button-projekt{$projekt->id}" style="display: none;"><a n:href="Projekt:DeletProjekt $projekt->id">naozaj zmazať</a></button>
+
+                <a id="edit-button" n:href="ProjektSetter:EditProjekt $projekt->id">upraviť</a>
+                <button class="predelet-button" projektId="{$projekt->id}" >zmazať</button> 
+                <!-- invisible button for hard delet -->
+                <button id="delet-button-projekt{$projekt->id}" style="display: none;"><a n:href="Projekt:DeletProjekt $projekt->id">hard delet</a></button>
             </div>
             
         {/foreach}
-        <button id="create-button"><a n:href="ProjektSetter:CreateProjekt">create</a></button>
+        <button id="create-button"><a n:href="ProjektSetter:CreateProjekt">vytvoriť</a></button>
     </div>
     <script src="{$basePath}/script/controlFormular.js"></script>
     <script>
