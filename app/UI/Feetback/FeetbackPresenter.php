@@ -12,11 +12,8 @@ final class FeetbackPresenter extends BasePresenter{
     public function createComponentRatingForm(): Form{
         $form = new Form;
 
-        $form->addText("name", "Name:")
-        ->setRequired("Title must be");
-
-        $form->addTextArea("text", "What is your feedback?")
-        ->setRequired("Title must be");
+        $form->addTextArea("text", "")
+        ->setRequired("feetback must be or just do not send any.");
 
         $projektId = $this->getParameter("projektId");
 
@@ -33,8 +30,19 @@ final class FeetbackPresenter extends BasePresenter{
         $this->feetbackFacade->addFeetback($data);
         $this->redirect("Home:");
     }
+    //render pre local testing
     public function renderFeetback($id): void{
-        $this->template->parameter = $id;
+
+        //načítanie otázky
+        $projektId = $this->getParameter("projektId");
+        if($projektId){
+            $projektQuestion = $this->feetbackFacade->getProjektQuestion($projektId);
+        }else{
+            $projektQuestion = $this->feetbackFacade->getProjektQuestion($id);
+        }
+        
+
+        $this->template->projektQuestion = $projektQuestion;
 
         
         

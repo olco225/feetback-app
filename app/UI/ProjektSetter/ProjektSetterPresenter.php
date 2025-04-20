@@ -45,7 +45,7 @@ final class ProjektSetterPresenter extends BasePresenter{
 
     }
 //---------edit projekt----------
-    public function createComponentEditProjektForm(){
+    public function createComponentEditProjektForm(): Form{
         $form = new Form;
 
         $form->addText("title", "Title:")->setRequired("Title must be");
