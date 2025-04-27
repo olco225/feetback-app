@@ -11,7 +11,10 @@
             </div>
             
         {/foreach}
-        <button id="create-button"><a n:href="ProjektSetter:CreateProjekt">vytvoriť</a></button>
+        <div class="project-container">
+            <h2>Nový projekt</h2>
+            <a id="create-button" n:href="ProjektSetter:CreateProjekt">vytvoriť</a>
+        </div>
     </div>
     <script src="{$basePath}/script/controlFormular.js"></script>
     <script>
