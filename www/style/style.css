@@ -5,7 +5,7 @@
 }
 body{
     display: grid;
-    height: 100vh;
+    height: 100svh; /*nastavenie, pre mobily, lebo oni  majú lštu ktorá pri scrolovaní zmizne, ale vievport s ňou počíta, ako keby tam nebola*/
     grid-template-rows: auto 1fr auto;
 
     
