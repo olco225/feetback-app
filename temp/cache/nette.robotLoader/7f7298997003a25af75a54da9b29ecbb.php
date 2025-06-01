@@ -5,7 +5,7 @@ return array (
     'App\\Bootstrap' => 
     array (
       0 => 'C:\\wamp64\\www\\spetna-vezba\\app\\Bootstrap.php',
-      1 => 1726582313,
+      1 => 1748775658,
     ),
     'App\\Core\\RouterFactory' => 
     array (
@@ -91,14 +91,10 @@ return array (
   1 => 
   array (
     'null' => 1,
-    'App\\UI\\Home\\HomeDefaultTemplate' => 3,
-    'App\\UI\\Home\\HomeTemplate' => 3,
-    'App\\UI\\SignIn\\SignInSignInTemplate' => 2,
-    'App\\UI\\SignIn\\SignInTemplate' => 2,
     'App\\UI\\ProjektsPage\\ProjektsPageProjektsPageTemplate' => 3,
     'App\\UI\\ProjektsPage\\ProjektsPageTemplate' => 3,
-    'App\\UI\\Registration\\RegistrationRegistrationTemplate' => 3,
-    'App\\UI\\Registration\\RegistrationTemplate' => 3,
+    'App\\UI\\Home\\HomeDefaultTemplate' => 3,
+    'App\\UI\\Home\\HomeTemplate' => 3,
   ),
   2 => 
   array (

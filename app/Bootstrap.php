@@ -19,6 +19,8 @@ class Bootstrap
 
 		$configurator->setTempDirectory($appDir . '/temp');
 
+		array_map('unlink', glob(__DIR__ . '/temp/cache/*'));//na vymazanie catchov
+
 		$configurator->createRobotLoader()
 			->addDirectory(__DIR__)
 			->register();
@@ -32,3 +34,9 @@ class Bootstrap
 
 	}
 }
+
+
+
+
+
+

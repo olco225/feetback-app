@@ -60,7 +60,7 @@ header ul li a{
 #control-formular{
     border: 2px solid black;
     background-color: white;
-    width: 250px;
+    max-width: 300px;
     margin: 45vh auto;
     z-index: 2;
     padding: 5px;
