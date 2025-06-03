@@ -54,7 +54,7 @@ final class Template_f1e700eea2 extends Latte\Runtime\Template
 			}) /* line 16 */;
 			echo ' | ';
 		}
-		echo 'Nette Web</title>
+		echo 'Spetná vezba</title>
 </head>
 
 <body>

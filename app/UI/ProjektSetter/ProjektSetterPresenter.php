@@ -42,6 +42,8 @@ final class ProjektSetterPresenter extends BasePresenter{
         }
     }
     public function renderCreateProjekt(){
+        //nastavenie štýlov 
+        $this->template->currentCssPage = "projektSetter";
 
     }
 //---------edit projekt----------

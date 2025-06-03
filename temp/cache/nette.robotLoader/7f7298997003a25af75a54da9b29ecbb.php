@@ -70,7 +70,7 @@ return array (
     'App\\UI\\ProjektSetter\\ProjektSetterPresenter' => 
     array (
       0 => 'C:\\wamp64\\www\\spetna-vezba\\app\\UI\\ProjektSetter\\ProjektSetterPresenter.php',
-      1 => 1744894632,
+      1 => 1748959067,
     ),
     'App\\UI\\ProjektsPage\\ProjektsPagePresenter' => 
     array (
@@ -90,11 +90,18 @@ return array (
   ),
   1 => 
   array (
-    'null' => 1,
+    'null' => 3,
     'App\\UI\\ProjektsPage\\ProjektsPageProjektsPageTemplate' => 3,
     'App\\UI\\ProjektsPage\\ProjektsPageTemplate' => 3,
     'App\\UI\\Home\\HomeDefaultTemplate' => 3,
     'App\\UI\\Home\\HomeTemplate' => 3,
+    'App\\UI\\SignIn\\SignInSignInTemplate' => 3,
+    'App\\UI\\SignIn\\SignInTemplate' => 3,
+    'App\\UI\\ProjektSetter\\ProjektSetterCreateProjektTemplate' => 3,
+    'App\\UI\\ProjektSetter\\ProjektSetterTemplate' => 3,
+    'App\\UI\\Registration\\RegistrationRegistrationTemplate' => 1,
+    'App\\UI\\Registration\\RegistrationTemplate' => 1,
+    'App\\UI\\ProjektSetter\\ProjektSetterEditProjektTemplate' => 3,
   ),
   2 => 
   array (
