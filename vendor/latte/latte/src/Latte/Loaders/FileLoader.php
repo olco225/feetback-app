@@ -10,6 +10,8 @@ declare(strict_types=1);
 namespace Latte\Loaders;
 
 use Latte;
+use function array_pop, end, explode, file_get_contents, implode, is_file, preg_match, str_starts_with, strtr, time, touch;
+use const DIRECTORY_SEPARATOR;
 
 
 /**
@@ -36,7 +38,7 @@ class FileLoader implements Latte\Loader
 			throw new Latte\RuntimeException("Template '$file' is not within the allowed path '{$this->baseDir}'.");
 
 		} elseif (!is_file($file)) {
-			throw new Latte\RuntimeException("Missing template file '$file'.");
+			throw new Latte\TemplateNotFoundException("Missing template file '$file'.");
 
 		} elseif ($this->isExpired($fileName, time())) {
 			if (@touch($file) === false) {
@@ -59,7 +61,7 @@ class FileLoader implements Latte\Loader
 	 */
 	public function getReferredName(string $file, string $referringFile): string
 	{
-		if ($this->baseDir || !preg_match('#/|\\\\|[a-z][a-z0-9+.-]*:#iA', $file)) {
+		if ($this->baseDir || !preg_match('#/|\\\|[a-z]:|phar:#iA', $file)) {
 			$file = $this->normalizePath($referringFile . '/../' . $file);
 		}
 
@@ -78,15 +80,16 @@ class FileLoader implements Latte\Loader
 
 	protected static function normalizePath(string $path): string
 	{
+		preg_match('#^([a-z]:|phar://.+?/)?(.*)#i', $path, $m);
 		$res = [];
-		foreach (explode('/', strtr($path, '\\', '/')) as $part) {
-			if ($part === '..' && $res && end($res) !== '..') {
+		foreach (explode('/', strtr($m[2], '\\', '/')) as $part) {
+			if ($part === '..' && $res && end($res) !== '..' && end($res) !== '') {
 				array_pop($res);
 			} elseif ($part !== '.') {
 				$res[] = $part;
 			}
 		}
 
-		return implode(DIRECTORY_SEPARATOR, $res);
+		return $m[1] . implode(DIRECTORY_SEPARATOR, $res);
 	}
 }

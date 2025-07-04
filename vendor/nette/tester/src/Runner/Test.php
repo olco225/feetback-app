@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Tester\Runner;
 
+use function array_map, implode, is_array, is_int;
+
 
 /**
  * Test represents one result.
@@ -97,6 +99,18 @@ class Test
 	public function getOutput(): string
 	{
 		return $this->stdout . ($this->stderr ? "\nSTDERR:\n" . $this->stderr : '');
+	}
+
+
+	public function withTitle(string $title): self
+	{
+		if ($this->hasResult()) {
+			throw new \LogicException('Cannot change title to test which already has a result.');
+		}
+
+		$me = clone $this;
+		$me->title = $title;
+		return $me;
 	}
 
 

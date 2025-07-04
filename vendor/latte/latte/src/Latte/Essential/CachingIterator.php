@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Latte\Essential;
 
+use function get_debug_type, is_array, max, method_exists, sprintf;
+
 
 /**
  * Smarter caching iterator.
@@ -207,11 +209,10 @@ class CachingIterator extends \CachingIterator implements \Countable
 	 * Returns property value.
 	 * @throws \LogicException if the property is not defined.
 	 */
-	public function &__get(string $name): mixed
+	public function __get(string $name): mixed
 	{
 		if (method_exists($this, $m = 'get' . $name) || method_exists($this, $m = 'is' . $name)) {
-			$ret = $this->$m();
-			return $ret;
+			return $this->$m();
 		}
 
 		throw new \LogicException('Attempt to read undeclared property ' . static::class . "::\$$name.");

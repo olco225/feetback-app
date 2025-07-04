@@ -11,7 +11,7 @@ namespace Nette\Database\Reflection;
 
 
 /**
- * Column reflection.
+ * Database table column metadata.
  */
 final class Column
 {
@@ -25,6 +25,7 @@ final class Column
 		public readonly mixed $default = null,
 		public readonly bool $autoIncrement = false,
 		public readonly bool $primary = false,
+		public readonly ?string $comment = null,
 		public readonly array $vendor = [],
 	) {
 	}

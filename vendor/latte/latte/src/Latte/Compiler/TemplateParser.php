@@ -17,6 +17,7 @@ use Latte\Helpers;
 use Latte\Policy;
 use Latte\Runtime\Template;
 use Latte\SecurityViolationException;
+use function array_keys, array_splice, count, end, in_array, preg_match, str_ends_with, str_starts_with, substr, trim, ucfirst;
 
 
 final class TemplateParser
@@ -82,7 +83,7 @@ final class TemplateParser
 	}
 
 
-	public function parseFragment(callable $resolver, callable $after = null): FragmentNode
+	public function parseFragment(callable $resolver, ?callable $after = null): FragmentNode
 	{
 		$res = new FragmentNode;
 		$save = [$this->lastResolver, $this->tag];

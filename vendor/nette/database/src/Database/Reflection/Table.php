@@ -13,7 +13,7 @@ use Nette\Database\Reflection;
 
 
 /**
- * Table reflection.
+ * Database table structure.
  */
 final class Table
 {
@@ -34,11 +34,16 @@ final class Table
 		public readonly string $name,
 		public readonly bool $view = false,
 		public readonly ?string $fullName = null,
+		public readonly ?string $comment = null,
 	) {
 		unset($this->columns, $this->indexes, $this->primaryKey, $this->foreignKeys);
 	}
 
 
+	/**
+	 * Returns column object or throws exception if column doesn't exist.
+	 * @throws \InvalidArgumentException
+	 */
 	public function getColumn(string $name): Column
 	{
 		return $this->columns[$name] ?? throw new \InvalidArgumentException("Column '$name' not found in table '$this->name'.");
@@ -49,7 +54,7 @@ final class Table
 	{
 		$res = [];
 		foreach ($this->reflection->getDriver()->getColumns($this->name) as $row) {
-			$res[$row['name']] = new Column($row['name'], $this, $row['nativetype'], $row['size'], $row['nullable'], $row['default'], $row['autoincrement'], $row['primary'], $row['vendor']);
+			$res[$row['name']] = new Column($row['name'], $this, $row['nativetype'], $row['size'], $row['nullable'], $row['default'], $row['autoincrement'], $row['primary'], $row['comment'] ?? null, $row['vendor']);
 		}
 		$this->columns = $res;
 	}

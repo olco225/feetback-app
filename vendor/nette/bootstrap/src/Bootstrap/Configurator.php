@@ -14,6 +14,7 @@ use Composer\InstalledVersions;
 use Latte;
 use Nette;
 use Nette\DI;
+use Nette\DI\Definitions\Statement;
 use Tracy;
 
 
@@ -28,11 +29,12 @@ class Configurator
 	public const COOKIE_SECRET = self::CookieSecret;
 
 
-	/** @var callable[]  function (Configurator $sender, DI\Compiler $compiler); Occurs after the compiler is created */
+	/** @var array<callable(self, DI\Compiler): void>  Occurs after the compiler is created */
 	public array $onCompile = [];
 
 	public array $defaultExtensions = [
 		'application' => [Nette\Bridges\ApplicationDI\ApplicationExtension::class, ['%debugMode%', ['%appDir%'], '%tempDir%/cache/nette.application']],
+		'assets' => [Nette\Bridges\AssetsDI\DIExtension::class, ['%baseUrl%', '%wwwDir%', '%debugMode%']],
 		'cache' => [Nette\Bridges\CacheDI\CacheExtension::class, ['%tempDir%/cache']],
 		'constants' => Extensions\ConstantsExtension::class,
 		'database' => [Nette\Bridges\DatabaseDI\DatabaseExtension::class, ['%debugMode%']],
@@ -169,16 +171,21 @@ class Configurator
 		$loaderRc = class_exists(ClassLoader::class)
 			? new \ReflectionClass(ClassLoader::class)
 			: null;
+		$rootDir = class_exists(InstalledVersions::class) && ($tmp = InstalledVersions::getRootPackage()['install_path'] ?? null)
+			? rtrim(Nette\Utils\FileSystem::normalizePath($tmp), '\/')
+			: null;
+		$baseUrl = class_exists(Nette\Http\Request::class)
+			? new Statement(['', 'rtrim'], [new Statement([new Statement('@Nette\Http\IRequest::getUrl'), 'getBaseUrl']), '/'])
+			: null;
 		return [
 			'appDir' => isset($trace[1]['file']) ? dirname($trace[1]['file']) : null,
 			'wwwDir' => isset($last['file']) ? dirname($last['file']) : null,
 			'vendorDir' => $loaderRc ? dirname($loaderRc->getFileName(), 2) : null,
-			'rootDir' => class_exists(InstalledVersions::class)
-				? rtrim(Nette\Utils\FileSystem::normalizePath(InstalledVersions::getRootPackage()['install_path']), '\\/')
-				: null,
+			'rootDir' => $rootDir,
 			'debugMode' => $debugMode,
 			'productionMode' => !$debugMode,
 			'consoleMode' => PHP_SAPI === 'cli',
+			'baseUrl' => $baseUrl,
 		];
 	}
 
@@ -289,7 +296,7 @@ class Configurator
 		}
 
 		$compiler->addConfig(['parameters' => DI\Helpers::escape($this->staticParameters)]);
-		$compiler->setDynamicParameterNames(array_keys($this->dynamicParameters));
+		$compiler->setDynamicParameterNames(array_merge(array_keys($this->dynamicParameters), ['baseUrl']));
 
 		$builder = $compiler->getContainerBuilder();
 		$builder->addExcludedClasses($this->autowireExcludedClasses);
@@ -343,7 +350,7 @@ class Configurator
 	/**
 	 * Detects debug mode by IP addresses or computer names whitelist detection.
 	 */
-	public static function detectDebugMode(string|array $list = null): bool
+	public static function detectDebugMode(string|array|null $list = null): bool
 	{
 		$addr = $_SERVER['REMOTE_ADDR'] ?? php_uname('n');
 		$secret = is_string($_COOKIE[self::CookieSecret] ?? null)

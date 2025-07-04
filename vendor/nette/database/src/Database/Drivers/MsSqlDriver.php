@@ -26,6 +26,12 @@ class MsSqlDriver implements Nette\Database\Driver
 	}
 
 
+	public function isSupported(string $feature): bool
+	{
+		return false;
+	}
+
+
 	public function convertException(\PDOException $e): Nette\Database\DriverException
 	{
 		return Nette\Database\DriverException::from($e);
@@ -84,10 +90,25 @@ class MsSqlDriver implements Nette\Database\Driver
 	public function getTables(): array
 	{
 		$tables = [];
-		foreach ($this->connection->query('SELECT TABLE_SCHEMA, TABLE_NAME, TABLE_TYPE FROM INFORMATION_SCHEMA.TABLES') as $row) {
+		$rows = $this->connection->query(<<<'X'
+			SELECT
+				TABLE_SCHEMA,
+				TABLE_NAME,
+				TABLE_TYPE,
+				CAST(ISNULL(p.value, '') AS VARCHAR(255)) AS comment
+			FROM
+				INFORMATION_SCHEMA.TABLES t
+			LEFT JOIN
+				sys.extended_properties p ON p.major_id = OBJECT_ID(TABLE_SCHEMA + '.' + TABLE_NAME)
+				AND p.minor_id = 0
+				AND p.name = 'MS_Description'
+			X);
+
+		while ($row = $rows->fetch()) {
 			$tables[] = [
 				'name' => $row['TABLE_SCHEMA'] . '.' . $row['TABLE_NAME'],
 				'view' => ($row['TABLE_TYPE'] ?? null) === 'VIEW',
+				'comment' => $row['comment'] ?? '',
 			];
 		}
 
@@ -100,33 +121,39 @@ class MsSqlDriver implements Nette\Database\Driver
 		[$table_schema, $table_name] = explode('.', $table);
 		$columns = [];
 
-		$query = <<<X
+		$rows = $this->connection->query(<<<'X'
 			SELECT
-				COLUMN_NAME,
-				DATA_TYPE,
-				CHARACTER_MAXIMUM_LENGTH,
-				NUMERIC_PRECISION,
-				IS_NULLABLE,
-				COLUMN_DEFAULT,
-				DOMAIN_NAME
+				c.COLUMN_NAME,
+				c.DATA_TYPE,
+				c.CHARACTER_MAXIMUM_LENGTH,
+				c.NUMERIC_PRECISION,
+				c.IS_NULLABLE,
+				c.COLUMN_DEFAULT,
+				c.DOMAIN_NAME,
+				CAST(p.value AS NVARCHAR(4000)) AS comment
 			FROM
-				INFORMATION_SCHEMA.COLUMNS
+				INFORMATION_SCHEMA.COLUMNS c
+				LEFT JOIN sys.extended_properties p ON
+					p.major_id = OBJECT_ID(c.TABLE_SCHEMA + '.' + c.TABLE_NAME) AND
+					p.minor_id = COLUMNPROPERTY(OBJECT_ID(c.TABLE_SCHEMA + '.' + c.TABLE_NAME), c.COLUMN_NAME, 'ColumnId') AND
+					p.name = 'MS_Description'
 			WHERE
-				TABLE_SCHEMA = {$this->connection->quote($table_schema)}
-				AND TABLE_NAME = {$this->connection->quote($table_name)}
-			X;
+				c.TABLE_SCHEMA = ?
+				AND c.TABLE_NAME = ?
+			X, $table_schema, $table_name);
 
-		foreach ($this->connection->query($query) as $row) {
+		while ($row = $rows->fetch()) {
 			$columns[] = [
 				'name' => $row['COLUMN_NAME'],
 				'table' => $table,
 				'nativetype' => strtoupper($row['DATA_TYPE']),
-				'size' => $row['CHARACTER_MAXIMUM_LENGTH'] ?? ($row['NUMERIC_PRECISION'] ?? null),
+				'size' => $row['CHARACTER_MAXIMUM_LENGTH'] ?? $row['NUMERIC_PRECISION'],
 				'unsigned' => false,
 				'nullable' => $row['IS_NULLABLE'] === 'YES',
 				'default' => $row['COLUMN_DEFAULT'],
 				'autoincrement' => $row['DOMAIN_NAME'] === 'COUNTER',
 				'primary' => $row['COLUMN_NAME'] === 'ID',
+				'comment' => $row['comment'] ?? '',
 				'vendor' => (array) $row,
 			];
 		}
@@ -140,7 +167,7 @@ class MsSqlDriver implements Nette\Database\Driver
 		[, $table_name] = explode('.', $table);
 		$indexes = [];
 
-		$query = <<<X
+		$rows = $this->connection->query(<<<'X'
 			SELECT
 				 name_index = ind.name,
 				 id_column = ic.index_column_id,
@@ -153,12 +180,12 @@ class MsSqlDriver implements Nette\Database\Driver
 				INNER JOIN sys.columns col ON ic.object_id = col.object_id and ic.column_id = col.column_id
 				INNER JOIN sys.tables t ON ind.object_id = t.object_id
 			WHERE
-				 t.name = {$this->connection->quote($table_name)}
+				 t.name = ?
 			ORDER BY
 				 t.name, ind.name, ind.index_id, ic.index_column_id
-			X;
+			X, $table_name);
 
-		foreach ($this->connection->query($query) as $row) {
+		while ($row = $rows->fetch()) {
 			$id = $row['name_index'];
 			$indexes[$id]['name'] = $id;
 			$indexes[$id]['unique'] = $row['is_unique'] !== 'False';
@@ -175,7 +202,7 @@ class MsSqlDriver implements Nette\Database\Driver
 		[$table_schema, $table_name] = explode('.', $table);
 		$keys = [];
 
-		$query = <<<X
+		$rows = $this->connection->query(<<<'X'
 			SELECT
 				obj.name AS [fk_name],
 				col1.name AS [column],
@@ -196,14 +223,15 @@ class MsSqlDriver implements Nette\Database\Driver
 				INNER JOIN sys.columns col2
 				ON col2.column_id = referenced_column_id AND col2.object_id = tab2.object_id
 			WHERE
-				tab1.name = {$this->connection->quote($table_name)}
-			X;
+				tab1.name = ?
+			X, $table_name);
 
-		foreach ($this->connection->query($query) as $id => $row) {
+		$id = 0;
+		while ($row = $rows->fetch()) {
 			$keys[$id]['name'] = $row['fk_name'];
 			$keys[$id]['local'] = $row['column'];
 			$keys[$id]['table'] = $table_schema . '.' . $row['referenced_table'];
-			$keys[$id]['foreign'] = $row['referenced_column'];
+			$keys[$id++]['foreign'] = $row['referenced_column'];
 		}
 
 		return array_values($keys);
@@ -213,11 +241,5 @@ class MsSqlDriver implements Nette\Database\Driver
 	public function getColumnTypes(\PDOStatement $statement): array
 	{
 		return Nette\Database\Helpers::detectTypes($statement);
-	}
-
-
-	public function isSupported(string $item): bool
-	{
-		return $item === self::SUPPORT_SUBSELECT;
 	}
 }

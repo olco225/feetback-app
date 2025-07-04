@@ -13,6 +13,8 @@ use Tester;
 use Tester\Dumper;
 use Tester\Helpers;
 use Tester\TestCase;
+use function count, in_array, is_array;
+use const DIRECTORY_SEPARATOR;
 
 
 /**
@@ -176,7 +178,7 @@ class TestHandler
 		$methods = null;
 
 		if ($this->tempDir) {
-			$cacheFile = $this->tempDir . DIRECTORY_SEPARATOR . 'TestHandler.testCase.' . substr(md5($test->getSignature()), 0, 5) . '.list';
+			$cacheFile = $this->tempDir . DIRECTORY_SEPARATOR . 'TestHandler.testCase.' . md5($test->getSignature()) . '.list';
 			if (is_file($cacheFile)) {
 				$cache = unserialize(file_get_contents($cacheFile));
 
@@ -228,7 +230,9 @@ class TestHandler
 		}
 
 		return array_map(
-			fn(string $method): Test => $test->withArguments(['method' => $method]),
+			fn(string $method): Test => $test
+				->withTitle(trim("$test->title $method"))
+				->withArguments(['method' => $method]),
 			$methods,
 		);
 	}

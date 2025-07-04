@@ -38,11 +38,14 @@ class PhpGenerator
 		$this->className = $className;
 		$class = new Php\ClassType($this->className);
 		$class->setExtends(Container::class);
-		$class->inheritMethod('__construct')
+		$manipulator = new Php\ClassManipulator($class);
+		$manipulator->inheritMethod('__construct')
 			->addBody('parent::__construct($params);');
 
 		foreach ($this->builder->exportMeta() as $key => $value) {
-			$class->inheritProperty($key)->setValue($value);
+			$manipulator->inheritProperty($key)
+				->setComment(null)
+				->setValue($value);
 		}
 
 		$definitions = $this->builder->getDefinitions();
@@ -53,10 +56,9 @@ class PhpGenerator
 		}
 
 		$class->getMethod(Container::getMethodName(ContainerBuilder::ThisContainer))
-			->setReturnType($className)
 			->setBody('return $this;');
 
-		$class->inheritMethod('initialize');
+		$manipulator->inheritMethod('initialize');
 
 		return $class;
 	}
@@ -64,11 +66,13 @@ class PhpGenerator
 
 	public function toString(Php\ClassType $class): string
 	{
-		return '/** @noinspection PhpParamsInspection,PhpMethodMayBeStaticInspection */
+		return <<<'XX'
+			/** @noinspection PhpParamsInspection,PhpMethodMayBeStaticInspection */
 
-declare(strict_types=1);
+			declare(strict_types=1);
 
-' . $class->__toString();
+
+			XX . $class->__toString();
 	}
 
 

@@ -125,45 +125,49 @@ class Container extends Nette\ComponentModel\Container implements \ArrayAccess
 	public function getUntrustedValues(string|object|null $returnType = null, ?array $controls = null): object|array
 	{
 		if (is_object($returnType)) {
-			$obj = $returnType;
-			$rc = new \ReflectionClass($obj);
+			$resultObj = $returnType;
+			$properties = (new \ReflectionClass($resultObj))->getProperties();
 
 		} else {
 			$returnType = ($returnType ?? $this->mappedType ?? ArrayHash::class);
 			$rc = new \ReflectionClass($returnType === self::Array ? \stdClass::class : $returnType);
-			if ($rc->hasMethod('__construct') && $rc->getMethod('__construct')->getNumberOfRequiredParameters()) {
-				$obj = new \stdClass;
-				$useConstructor = true;
+			$constructor = $rc->hasMethod('__construct') ? $rc->getMethod('__construct') : null;
+			if ($constructor?->getNumberOfRequiredParameters()) {
+				$resultObj = new \stdClass;
+				$properties = $constructor->getParameters();
 			} else {
-				$obj = $rc->newInstance();
+				$constructor = null;
+				$resultObj = $rc->newInstance();
+				$properties = $rc->getProperties();
 			}
 		}
+
+		$properties = array_combine(array_map(fn($p) => $p->getName(), $properties), $properties);
 
 		foreach ($this->getComponents() as $name => $control) {
 			$allowed = $controls === null || in_array($this, $controls, true) || in_array($control, $controls, true);
 			$name = (string) $name;
+			$property = $properties[$name] ?? null;
 			if (
 				$control instanceof Control
 				&& $allowed
 				&& !$control->isOmitted()
 			) {
-				$obj->$name = $control->getValue();
+				$resultObj->$name = Helpers::tryEnumConversion($control->getValue(), $property);
 
 			} elseif ($control instanceof self) {
 				$type = $returnType === self::Array && !$control->mappedType
 					? self::Array
-					: ($rc->hasProperty($name) ? Helpers::getSingleType($rc->getProperty($name)) : null);
-				$obj->$name = $control->getUntrustedValues($type, $allowed ? null : $controls);
+					: ($property ? Helpers::getSingleType($property) : null);
+				$resultObj->$name = $control->getUntrustedValues($type, $allowed ? null : $controls);
 			}
 		}
 
-		if (isset($useConstructor)) {
-			return new $returnType(...(array) $obj);
-		}
-
-		return $returnType === self::Array
-			? (array) $obj
-			: $obj;
+		return match (true) {
+			isset($constructor) => new $returnType(...(array) $resultObj),
+			$returnType === self::Array => (array) $resultObj,
+			default => $resultObj,
+		};
 	}
 
 
@@ -350,9 +354,13 @@ class Container extends Nette\ComponentModel\Container implements \ArrayAccess
 	/**
 	 * Adds input for email.
 	 */
-	public function addEmail(string $name, string|Stringable|null $label = null): Controls\TextInput
+	public function addEmail(
+		string $name,
+		string|Stringable|null $label = null,
+		int $maxLength = 255,
+	): Controls\TextInput
 	{
-		return $this[$name] = (new Controls\TextInput($label))
+		return $this[$name] = (new Controls\TextInput($label, $maxLength))
 			->addRule(Form::Email);
 	}
 
@@ -569,7 +577,7 @@ class Container extends Nette\ComponentModel\Container implements \ArrayAccess
 	/********************* extension methods ****************d*g**/
 
 
-	public function __call(string $name, array $args): mixed
+	public function __call(string $name, array $args)
 	{
 		if (isset(self::$extMethods[$name])) {
 			return (self::$extMethods[$name])($this, ...$args);

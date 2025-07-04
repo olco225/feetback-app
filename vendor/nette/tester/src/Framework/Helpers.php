@@ -9,6 +9,9 @@ declare(strict_types=1);
 
 namespace Tester;
 
+use function array_slice, count, defined;
+use const DIRECTORY_SEPARATOR, PREG_SET_ORDER;
+
 
 /**
  * Test helpers.
@@ -20,7 +23,7 @@ class Helpers
 	 */
 	public static function purge(string $dir): void
 	{
-		if (preg_match('#^(\w:)?[/\\\\]?$#', $dir)) {
+		if (preg_match('#^(\w:)?[/\\\]?$#', $dir)) {
 			throw new \InvalidArgumentException('Directory must not be an empty string or root path.');
 		}
 
@@ -71,7 +74,7 @@ class Helpers
 
 
 	/**
-	 * Parse phpDoc comment.
+	 * Parse the first docblock encountered in the provided string.
 	 * @internal
 	 */
 	public static function parseDocComment(string $s): array

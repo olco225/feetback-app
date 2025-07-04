@@ -16,6 +16,7 @@ use Latte\Compiler\Tag;
 use Latte\Engine;
 use Latte\Essential\Nodes\PrintNode;
 use Nette\Localization\Translator;
+use function array_unshift, is_array, is_string;
 
 
 /**
@@ -50,7 +51,7 @@ final class TranslatorExtension extends Latte\Extension
 	public function getFilters(): array
 	{
 		return [
-			'translate' => fn(Latte\Runtime\FilterInfo $fi, ...$args): string => $this->translator
+			'translate' => fn(Latte\Runtime\FilterInfo $fi, ...$args) => $this->translator
 				? ($this->translator)(...$args)
 				: $args[0],
 		];

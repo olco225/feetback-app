@@ -78,7 +78,7 @@ abstract class BaseControl extends Nette\ComponentModel\Component implements Con
 	/**
 	 * Sets textual caption or label.
 	 */
-	public function setCaption(string|Stringable $caption): static
+	public function setCaption(string|Stringable|null $caption): static
 	{
 		$this->caption = $caption;
 		return $this;
@@ -557,7 +557,7 @@ abstract class BaseControl extends Nette\ComponentModel\Component implements Con
 	/********************* extension methods ****************d*g**/
 
 
-	public function __call(string $name, array $args): mixed
+	public function __call(string $name, array $args)
 	{
 		$class = static::class;
 		do {

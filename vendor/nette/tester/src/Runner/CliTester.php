@@ -13,6 +13,8 @@ use Tester\CodeCoverage;
 use Tester\Dumper;
 use Tester\Environment;
 use Tester\Helpers;
+use function count, in_array;
+use const PATHINFO_EXTENSION, PHP_SAPI;
 
 
 /**
@@ -26,7 +28,7 @@ class CliTester
 	private ?string $stdoutFormat = null;
 
 
-	public function run(): ?int
+	public function run(): int
 	{
 		Environment::setupColors();
 		$this->setupErrors();
@@ -43,7 +45,7 @@ class CliTester
 
 		if ($cmd->isEmpty() || $this->options['--help']) {
 			$cmd->help();
-			return null;
+			return 0;
 		}
 
 		$this->createPhpInterpreter();
@@ -53,7 +55,7 @@ class CliTester
 			$job->setTempDirectory($this->options['--temp']);
 			$job->run();
 			echo $job->getTest()->stdout;
-			return null;
+			return 0;
 		}
 
 		$runner = $this->createRunner();
@@ -74,7 +76,7 @@ class CliTester
 
 		if ($this->options['--watch']) {
 			$this->watch($runner);
-			return null;
+			return 0;
 		}
 
 		$result = $runner->run();
@@ -94,7 +96,7 @@ class CliTester
 		echo <<<'XX'
 			 _____ ___  ___ _____ ___  ___
 			|_   _/ __)( __/_   _/ __)| _ )
-			  |_| \___ /___) |_| \___ |_|_\  v2.5.2
+			  |_| \___ /___) |_| \___ |_|_\  v2.5.4
 
 
 			XX;

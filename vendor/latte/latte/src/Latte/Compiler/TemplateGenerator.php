@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace Latte\Compiler;
 
 use Latte\ContentType;
+use function array_filter, compact, implode, is_int, preg_match, str_contains, str_replace, trim;
 
 
 /**
@@ -188,7 +189,7 @@ final class TemplateGenerator
 
 
 	/**
-	 * Returns custom properites.
+	 * Returns custom properties.
 	 * @return array<string, mixed>
 	 * @internal
 	 */
