@@ -18,10 +18,13 @@
         //funkcia pre generovanie qr codu
         function generateQRCode() {
             console.log(QRCode);
-
+            //nastavovanie linkou
             let projektId = {$projekt->id};
-            let domen = "http://192.168.1.10/spetna-vezba/www";
-            let url = domen + "/feetback/feetback?projektId=" + projektId;
+
+            let localDomen = "http://192.168.1.10/spetna-vezba/www";
+            let hostingDomen = "http://spetna-vezba.oliver-chalupka.sk/spetna-vezba-web/www";
+            
+            let url = localDomen + "/feetback/feetback?projektId=" + projektId;
             
             document.getElementById("url-text").innerHTML = url;
             //vygenerovanie qrCodu
