@@ -10,7 +10,10 @@ final class FeetbackFacade {
     ){
     }
     public function addFeetback($data){
-        $this->database->table("feetback")->insert($data);
+        $this->database->query("Insert Into feetback", [
+            "projekt_id" => $data["projekt_id"],
+            "text" => $data["text"]
+        ]);
     }
     //funckcia na získanie projektových dát podla projektId
     public function getProjektData($projektId): array{
