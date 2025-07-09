@@ -32,7 +32,7 @@ final class Template_2731489fb5 extends Latte\Runtime\Template
 		extract($this->params);
 
 		if (!$this->getReferringTemplate() || $this->getReferenceType() === 'extends') {
-			foreach (array_intersect_key(['coment' => '37'], $this->params) as $ʟ_v => $ʟ_l) {
+			foreach (array_intersect_key(['coment' => '40'], $this->params) as $ʟ_v => $ʟ_l) {
 				trigger_error("Variable \$$ʟ_v overwritten in foreach on line $ʟ_l");
 			}
 		}
@@ -56,7 +56,7 @@ final class Template_2731489fb5 extends Latte\Runtime\Template
     <div id="url-text"></div>
     <!-- link pre testovacie účely -->
     <a href="';
-		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('feetback:feetback', ['projektId' => $projekt->id])) /* line 10 */;
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Feetback:feetback', ['projektId' => $projekt->id])) /* line 10 */;
 		echo '" id="url-local-link">Otestuj stránku so spetnou vezbou</a>
 
 
@@ -69,12 +69,15 @@ final class Template_2731489fb5 extends Latte\Runtime\Template
         //funkcia pre generovanie qr codu
         function generateQRCode() {
             console.log(QRCode);
-
+            //nastavovanie linkou
             let projektId = ';
 		echo LR\Filters::escapeJs($projekt->id) /* line 22 */;
 		echo ';
-            let domen = "http://192.168.1.10/spetna-vezba/www";
-            let url = domen + "/feetback/feetback?projektId=" + projektId;
+
+            let localDomen = "http://192.168.1.10/spetna-vezba/www";
+            let hostingDomen = "http://spetna-vezba.oliver-chalupka.sk/spetna-vezba-web/www";
+            
+            let url = localDomen + "/feetback/feetback?projektId=" + projektId;
             
             document.getElementById("url-text").innerHTML = url;
             //vygenerovanie qrCodu
@@ -87,13 +90,13 @@ final class Template_2731489fb5 extends Latte\Runtime\Template
         }
     </script>
 ';
-		foreach ($comentars as $coment) /* line 37 */ {
+		foreach ($comentars as $coment) /* line 40 */ {
 			echo '    <div id="coment">
         <h4>';
-			echo LR\Filters::escapeHtmlText($coment->name) /* line 39 */;
+			echo LR\Filters::escapeHtmlText($coment->name) /* line 42 */;
 			echo '</h4>
         <p>';
-			echo LR\Filters::escapeHtmlText($coment->text) /* line 40 */;
+			echo LR\Filters::escapeHtmlText($coment->text) /* line 43 */;
 			echo '</p>
     </div>
 
