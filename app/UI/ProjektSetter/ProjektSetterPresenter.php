@@ -15,7 +15,7 @@ final class ProjektSetterPresenter extends BasePresenter{
 
         $form->addText("title", "Nadpis:")->setRequired("Nadpis musí byť");
         $form->addTextArea("question", "Otázka v spetnej vezbe:");
-        $form->addSubmit('send', 'Vytvoriť');
+        $form->addSubmit('send', 'Vytvoriť')->setHtmlAttribute("id", "create-button");
 
 
         $form->onSuccess[] = [$this, "createProjektFormSucceeded"];
@@ -43,7 +43,7 @@ final class ProjektSetterPresenter extends BasePresenter{
     }
     public function renderCreateProjekt(){
         //nastavenie štýlov 
-        $this->template->currentCssPage = "projektSetter";
+        $this->template->currentCssPage = "createProjekt";
 
     }
 //---------edit projekt----------
@@ -52,7 +52,7 @@ final class ProjektSetterPresenter extends BasePresenter{
 
         $form->addText("title", "Nadpis:")->setRequired("Nadpis musí byť");
         $form->addTextArea("question", "Otázka v spenej vezbe:");
-        $form->addSubmit('send', 'Aktualizovať');
+        $form->addSubmit('send', 'Aktualizovať')->setHtmlAttribute("id", "edit-button");
 
 
         $form->onSuccess[] = [$this, "editProjektFormSucceeded"];
@@ -83,7 +83,7 @@ final class ProjektSetterPresenter extends BasePresenter{
     }
     public function renderEditProjekt($projektId){
         //nastavenie štýlov 
-        $this->template->currentCssPage = "projektSetter";
+        $this->template->currentCssPage = "editProjekt";
     
         $projektData = $this->projektFacade->getProjekt($projektId);
 

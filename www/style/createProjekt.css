@@ -1,0 +1,26 @@
+.projekt-setter-container{
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+#create-button{
+    margin-left: auto;
+    margin-top: 20px;
+    margin-left: 68px;
+
+    text-decoration: none;
+    display: inline-block;
+    padding: 2px;
+    font-size: 15px;
+    font-family: sans-serif;
+    border-radius: 4px;
+    font-weight: 500;
+
+
+    border: solid 2px rgb(34, 156, 0) ;
+    background-color: rgb(36, 168, 0);
+    color: white;
+
+    
+
+}
