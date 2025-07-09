@@ -19,7 +19,7 @@ final class FeetbackPresenter extends BasePresenter{
 
         $form->addHidden("projekt_id", $projektId);
 
-        $form->addSubmit('send', 'Odoslať');
+        $form->addSubmit('send', 'Odoslať')->setHtmlAttribute("id", "send-button");
         
         
 
@@ -32,6 +32,7 @@ final class FeetbackPresenter extends BasePresenter{
     }
     //render pre local testing
     public function renderFeetback($id): void{
+        $this->template->currentCssPage = "feetback";
 
         //načítanie otázky
         $projektId = $this->getParameter("projektId");

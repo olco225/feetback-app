@@ -1,0 +1,19 @@
+#send-button{
+    margin-top: 1em;
+
+    text-decoration: none;
+    display: inline-block;
+    padding: 2px;
+    font-size: 15px;
+    font-family: sans-serif;
+    border-radius: 4px;
+    font-weight: 500;
+
+
+    border: solid 2px rgb(34, 156, 0) ;
+    background-color: rgb(36, 168, 0);
+    color: white;
+
+    
+
+}
