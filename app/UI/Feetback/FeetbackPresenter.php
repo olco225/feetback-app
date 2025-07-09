@@ -13,13 +13,13 @@ final class FeetbackPresenter extends BasePresenter{
         $form = new Form;
 
         $form->addTextArea("text", "")
-        ->setRequired("feetback must be or just do not send any.");
+        ->setRequired("Spetná vezba musí byť.");
 
         $projektId = $this->getParameter("projektId");
 
         $form->addHidden("projekt_id", $projektId);
 
-        $form->addSubmit('send', 'Send');
+        $form->addSubmit('send', 'Odoslať');
         
         
 
