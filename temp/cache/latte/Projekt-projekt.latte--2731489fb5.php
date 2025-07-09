@@ -51,8 +51,8 @@ final class Template_2731489fb5 extends Latte\Runtime\Template
 		echo LR\Filters::escapeHtmlText($projekt->title) /* line 3 */;
 		echo '</h1>
     <canvas id="qrCode-canvas"> </canvas>
-    <button onclick="generateQRCode()">Generate QR Code</button>
-    <a id="download-button" download="qrCode.png">stiahuť qrcode</a>
+    <button onclick="generateQRCode()">Generovať QR kód</button>
+    <a id="download-button" download="qrCode.png">stiahuť QR kód</a>
     <div id="url-text"></div>
     <!-- link pre testovacie účely -->
     <a href="';

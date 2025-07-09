@@ -5,7 +5,7 @@ return array (
     'App\\Bootstrap' => 
     array (
       0 => 'C:\\wamp64\\www\\spetna-vezba\\app\\Bootstrap.php',
-      1 => 1748775658,
+      1 => 1751980097,
     ),
     'App\\Core\\RouterFactory' => 
     array (
@@ -55,7 +55,7 @@ return array (
     'App\\UI\\Feetback\\FeetbackPresenter' => 
     array (
       0 => 'C:\\wamp64\\www\\spetna-vezba\\app\\UI\\Feetback\\FeetbackPresenter.php',
-      1 => 1744994509,
+      1 => 1752041716,
     ),
     'App\\UI\\Home\\HomePresenter' => 
     array (
@@ -70,7 +70,7 @@ return array (
     'App\\UI\\ProjektSetter\\ProjektSetterPresenter' => 
     array (
       0 => 'C:\\wamp64\\www\\spetna-vezba\\app\\UI\\ProjektSetter\\ProjektSetterPresenter.php',
-      1 => 1748959067,
+      1 => 1752042642,
     ),
     'App\\UI\\ProjektsPage\\ProjektsPagePresenter' => 
     array (
@@ -105,7 +105,10 @@ return array (
     'App\\UI\\ProjektSetter\\ProjektSetterEditProjektTemplate' => 3,
     'App\\UI\\ProjektSetter\\ProjektSetterTemplate' => 3,
     'App\\UI\\Projekt\\ProjektDeletProjektTemplate' => 1,
-    'App\\UI\\ProjektSetter\\ProjektSetterCreateProjektTemplate' => 2,
+    'App\\UI\\ProjektSetter\\ProjektSetterCreateProjektTemplate' => 3,
+    'App\\UI\\SignIn\\SignInSignOutTemplate' => 1,
+    'App\\UI\\Registration\\RegistrationRegistrationTemplate' => 1,
+    'App\\UI\\Registration\\RegistrationTemplate' => 1,
   ),
   2 => 
   array (

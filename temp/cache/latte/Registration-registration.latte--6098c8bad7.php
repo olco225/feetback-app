@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 use Latte\Runtime as LR;
 
-/** source: C:\wamp64\www\spetna-vezba\app\UI\ProjektSetter/editProjekt.latte */
-final class Template_8f0511e40f extends Latte\Runtime\Template
+/** source: C:\wamp64\www\spetna-vezba\app\UI\Registration/registration.latte */
+final class Template_6098c8bad7 extends Latte\Runtime\Template
 {
-	public const Source = 'C:\\wamp64\\www\\spetna-vezba\\app\\UI\\ProjektSetter/editProjekt.latte';
+	public const Source = 'C:\\wamp64\\www\\spetna-vezba\\app\\UI\\Registration/registration.latte';
 
 	public const Blocks = [
 		['content' => 'blockContent'],
@@ -34,13 +34,10 @@ final class Template_8f0511e40f extends Latte\Runtime\Template
 		extract($ʟ_args);
 		unset($ʟ_args);
 
-		echo '    <div class="projekt-setter-container">
-        <h1>Upravenie projektu</h1>
+		echo '<h1>Ragistracia</h1>
 ';
-		$ʟ_tmp = $this->global->uiControl->getComponent('editProjektForm');
+		$ʟ_tmp = $this->global->uiControl->getComponent('registrationForm');
 		if ($ʟ_tmp instanceof Nette\Application\UI\Renderable) $ʟ_tmp->redrawControl(null, false);
-		$ʟ_tmp->render() /* line 4 */;
-
-		echo '    </div>';
+		$ʟ_tmp->render() /* line 3 */;
 	}
 }

@@ -13,9 +13,9 @@ final class ProjektSetterPresenter extends BasePresenter{
     public function createComponentCreateProjektForm(): Form{
         $form = new Form;
 
-        $form->addText("title", "Title:")->setRequired("Title must be");
-        $form->addTextArea("question", "Qustion:");
-        $form->addSubmit('send', 'Create');
+        $form->addText("title", "Nadpis:")->setRequired("Nadpis musí byť");
+        $form->addTextArea("question", "Otázka v spetnej vezbe:");
+        $form->addSubmit('send', 'Vytvoriť');
 
 
         $form->onSuccess[] = [$this, "createProjektFormSucceeded"];
@@ -50,9 +50,9 @@ final class ProjektSetterPresenter extends BasePresenter{
     public function createComponentEditProjektForm(): Form{
         $form = new Form;
 
-        $form->addText("title", "Title:")->setRequired("Title must be");
-        $form->addTextArea("question", "Qustion:");
-        $form->addSubmit('send', 'Update');
+        $form->addText("title", "Nadpis:")->setRequired("Nadpis musí byť");
+        $form->addTextArea("question", "Otázka v spenej vezbe:");
+        $form->addSubmit('send', 'Aktualizovať');
 
 
         $form->onSuccess[] = [$this, "editProjektFormSucceeded"];
