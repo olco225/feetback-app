@@ -34,7 +34,7 @@ final class Template_6098c8bad7 extends Latte\Runtime\Template
 		extract($ʟ_args);
 		unset($ʟ_args);
 
-		echo '<h1>Ragistracia</h1>
+		echo '<h1>Registracia</h1>
 ';
 		$ʟ_tmp = $this->global->uiControl->getComponent('registrationForm');
 		if ($ʟ_tmp instanceof Nette\Application\UI\Renderable) $ʟ_tmp->redrawControl(null, false);

@@ -11,15 +11,15 @@ final class RegistrationPresenter extends BasePresenter{
     }
     public function createComponentRegistrationForm(): Form{
         $form = new Form;
-        $form->addText("email", "Eamil:");
+        $form->addText("email", "Email:");
 
-        $form->addText("username", "Username:")
-        ->setRequired("usename must be");
+        $form->addText("username", "Prihlasovacie meno:")
+        ->setRequired("Prihlasovacie meno treba vyplniť, kvôly fungovaniu aplikácie");
 
-        $form->addPassword("password", "Password:")
-        ->setRequired("password must be");
+        $form->addPassword("password", "Heslo:")
+        ->setRequired("Heslo treba vyplniť, kvôly fungovaniu aplikácie");
 
-        $form->addSubmit('send', 'register');
+        $form->addSubmit('send', 'Registrácia');
 
         $form->onSuccess[] = $this->registrationFormSucceeded(...);
         return $form;
@@ -29,10 +29,10 @@ final class RegistrationPresenter extends BasePresenter{
 			if($userExist == False)
 			{
 				$this->registrationFacade->insertRegistrationDataHash($data);
-				$this->flashMessage('Registration successful.', 'success');
+				$this->flashMessage('Registácia prebehla úspešne.', 'success');
             	$this->redirect('Home:default');
 			}else{
-				$form->addError("Username is already taken, try difrent name");
+				$form->addError("Uživatelské meno je už zabraté, treba si vybrať iné.");
 			}
     }
     public function renderRegistration(){

@@ -80,7 +80,7 @@ return array (
     'App\\UI\\Registration\\RegistrationPresenter' => 
     array (
       0 => 'C:\\wamp64\\www\\spetna-vezba\\app\\UI\\Registration\\RegistrationPresenter.php',
-      1 => 1743783376,
+      1 => 1752042987,
     ),
     'App\\UI\\SignIn\\SignInPresenter' => 
     array (
@@ -106,9 +106,9 @@ return array (
     'App\\UI\\ProjektSetter\\ProjektSetterTemplate' => 3,
     'App\\UI\\Projekt\\ProjektDeletProjektTemplate' => 1,
     'App\\UI\\ProjektSetter\\ProjektSetterCreateProjektTemplate' => 3,
-    'App\\UI\\SignIn\\SignInSignOutTemplate' => 1,
-    'App\\UI\\Registration\\RegistrationRegistrationTemplate' => 1,
-    'App\\UI\\Registration\\RegistrationTemplate' => 1,
+    'App\\UI\\SignIn\\SignInSignOutTemplate' => 2,
+    'App\\UI\\Registration\\RegistrationRegistrationTemplate' => 2,
+    'App\\UI\\Registration\\RegistrationTemplate' => 2,
   ),
   2 => 
   array (
