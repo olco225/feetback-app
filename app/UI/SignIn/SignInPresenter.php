@@ -14,8 +14,8 @@ final class SignInPresenter extends BasePresenter{
     }
     protected function createComponentSignInForm() :Form{
         $form = new Form;
-        $form->addText("username", "Username:")->setRequired("zadajte uživatelské meno.");
-        $form->addPassword("password", "Password:")->setRequired("zadajte heslo.");
+        $form->addText("username", "Prihlasovacie meno:")->setRequired("Zadajte prihlasovacie meno.");
+        $form->addPassword("password", "Heslo:")->setRequired("Zadajte heslo.");
         $form->addSubmit("send", "prihlásiť sa");
 
         $form->onSuccess[] = [$this, "signInFormSuccessed"];
