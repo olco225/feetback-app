@@ -12,6 +12,7 @@ final class FeetbackFacade {
     public function addFeetback($data){
         $this->database->query("Insert Into feetback", [
             "projekt_id" => $data["projekt_id"],
+            "name" => "",
             "text" => $data["text"]
         ]);
     }
