@@ -10,20 +10,20 @@ body{
 
     
 }
+#flash-mesage-container p{
+    text-align: right;
+    padding: 0.5em 1em;
+    
+}
 header ul li a{
     text-decoration: none;
 }
 /*******Horná lišta********/
 @media(orientation: landscape){
-    header{
-    
-    display: grid;
-    grid-template-columns: 80vw 20vw ;
-    }
     /*navigacia*/
     header ul{
         display: grid;
-        grid-template-columns: auto auto auto auto ;
+        grid-template-columns: auto auto auto ;
         list-style: none;
     }
     header ul li{
@@ -32,11 +32,6 @@ header ul li a{
     
 }
 @media(orientation: portrait){
-    header{
-    
-    display: grid;
-    grid-template-columns: 80vw 20vw ;
-    }
     /*navigacia*/
     header ul{
         display: grid;
@@ -44,7 +39,7 @@ header ul li a{
         list-style: none;
     }
     header ul li{
-        border: solid red 2px;
+        border: solid rgb(0, 0, 0) 2px;
     }
 }
 

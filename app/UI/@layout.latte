@@ -43,7 +43,7 @@
 			{/if}
 
 		</ul>
-		<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+		<div n:foreach="$flashes as $flash" n:class="flash, $flash->type" id="flash-mesage-container"><p>{$flash->message}</p></div>
 
 	</header>
 	
