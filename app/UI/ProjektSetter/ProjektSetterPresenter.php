@@ -13,8 +13,8 @@ final class ProjektSetterPresenter extends BasePresenter{
     public function createComponentCreateProjektForm(): Form{
         $form = new Form;
 
-        $form->addText("title", "Nadpis:")->setRequired("Nadpis musí byť");
-        $form->addTextArea("question", "Otázka v spetnej vezbe:");
+        $form->addText("title", "Nadpis:")->setHtmlAttribute("class", "inputs")->setRequired("Nadpis musí byť");
+        $form->addTextArea("question", "Otázka v spetnej vezbe:")->setHtmlAttribute("class", "inputs");
         $form->addSubmit('send', 'Vytvoriť')->setHtmlAttribute("id", "create-button");
 
 
@@ -50,8 +50,8 @@ final class ProjektSetterPresenter extends BasePresenter{
     public function createComponentEditProjektForm(): Form{
         $form = new Form;
 
-        $form->addText("title", "Nadpis:")->setRequired("Nadpis musí byť");
-        $form->addTextArea("question", "Otázka v spenej vezbe:");
+        $form->addText("title", "Nadpis:")->setHtmlAttribute("class", "inputs")->setRequired("Nadpis musí byť");
+        $form->addTextArea("question", "Otázka v spenej vezbe:")->setHtmlAttribute("class", "inputs");
         $form->addSubmit('send', 'Aktualizovať')->setHtmlAttribute("id", "edit-button");
 
 

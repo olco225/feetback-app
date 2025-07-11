@@ -55,7 +55,7 @@ return array (
     'App\\UI\\Feetback\\FeetbackPresenter' => 
     array (
       0 => 'C:\\wamp64\\www\\spetna-vezba\\app\\UI\\Feetback\\FeetbackPresenter.php',
-      1 => 1752065728,
+      1 => 1752216692,
     ),
     'App\\UI\\Home\\HomePresenter' => 
     array (
@@ -70,7 +70,7 @@ return array (
     'App\\UI\\ProjektSetter\\ProjektSetterPresenter' => 
     array (
       0 => 'C:\\wamp64\\www\\spetna-vezba\\app\\UI\\ProjektSetter\\ProjektSetterPresenter.php',
-      1 => 1752044975,
+      1 => 1752217208,
     ),
     'App\\UI\\ProjektsPage\\ProjektsPagePresenter' => 
     array (
@@ -92,10 +92,19 @@ return array (
   array (
     'Nette\\Bridges\\AssetsDI\\DIExtension' => 1,
     'null' => 1,
-    'App\\UI\\Home\\HomeDefaultTemplate' => 3,
-    'App\\UI\\Home\\HomeTemplate' => 3,
-    'App\\UI\\SignIn\\SignInSignInTemplate' => 3,
-    'App\\UI\\SignIn\\SignInTemplate' => 3,
+    'App\\UI\\Home\\HomeDefaultTemplate' => 2,
+    'App\\UI\\Home\\HomeTemplate' => 2,
+    'App\\UI\\SignIn\\SignInSignInTemplate' => 2,
+    'App\\UI\\SignIn\\SignInTemplate' => 2,
+    'App\\UI\\ProjektsPage\\ProjektsPageProjektsPageTemplate' => 3,
+    'App\\UI\\ProjektsPage\\ProjektsPageTemplate' => 3,
+    'App\\UI\\Projekt\\ProjektProjektTemplate' => 1,
+    'App\\UI\\Projekt\\ProjektTemplate' => 1,
+    'App\\UI\\Feetback\\FeetbackFeetbackTemplate' => 3,
+    'App\\UI\\Feetback\\FeetbackTemplate' => 3,
+    'App\\UI\\ProjektSetter\\ProjektSetterEditProjektTemplate' => 1,
+    'App\\UI\\ProjektSetter\\ProjektSetterTemplate' => 3,
+    'App\\UI\\ProjektSetter\\ProjektSetterCreateProjektTemplate' => 3,
   ),
   2 => 
   array (

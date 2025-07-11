@@ -104,7 +104,7 @@ final class Template_9d38d3b4f3 extends Latte\Runtime\Template
 		foreach ($flashes as $flash) /* line 46 */ {
 			echo '		<div';
 			echo ($ʟ_tmp = array_filter(['flash', $flash->type])) ? ' class="' . LR\Filters::escapeHtmlAttr(implode(" ", array_unique($ʟ_tmp))) . '"' : "" /* line 46 */;
-			echo ' id="flash-mesage-container"><p>';
+			echo ' id="flash-message-container"><p>';
 			echo LR\Filters::escapeHtmlText($flash->message) /* line 46 */;
 			echo '</p></div>
 ';

@@ -18,6 +18,10 @@ body{
 header ul li a{
     text-decoration: none;
 }
+
+.inputs{
+    padding: 0.4em;
+}
 /*******Horná lišta********/
 @media(orientation: landscape){
     /*navigacia*/
