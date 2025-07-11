@@ -11,15 +11,15 @@ final class RegistrationPresenter extends BasePresenter{
     }
     public function createComponentRegistrationForm(): Form{
         $form = new Form;
-        $form->addText("email", "Email:");
+        $form->addText("email", "Email:")->setHtmlAttribute("class", "inputs");
 
-        $form->addText("username", "Prihlasovacie meno:")
+        $form->addText("username", "Prihlasovacie meno:")->setHtmlAttribute("class", "inputs")
         ->setRequired("Prihlasovacie meno treba vyplniť, kvôly fungovaniu aplikácie");
 
-        $form->addPassword("password", "Heslo:")
+        $form->addPassword("password", "Heslo:")->setHtmlAttribute("class", "inputs")
         ->setRequired("Heslo treba vyplniť, kvôly fungovaniu aplikácie");
 
-        $form->addSubmit('send', 'Registrácia');
+        $form->addSubmit('send', 'Registrácia')->setHtmlAttribute("class", "inputs");
 
         $form->onSuccess[] = $this->registrationFormSucceeded(...);
         return $form;
