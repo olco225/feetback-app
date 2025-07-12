@@ -4,7 +4,7 @@
             <div class="project-container"> 
                 <h2><a n:href="Projekt:projekt $projekt->id">{$projekt->title}</a></h2>
 
-                <a id="edit-button" n:href="ProjektSetter:EditProjekt $projekt->id">upraviť</a>
+                <a class="blue-button" n:href="ProjektSetter:EditProjekt $projekt->id">upraviť</a>
                 <button class="predelet-button" projektId="{$projekt->id}" >zmazať</button> 
                 <!-- invisible button for hard delet -->
                 <button id="delet-button-projekt{$projekt->id}" style="display: none;"><a n:href="Projekt:DeletProjekt $projekt->id">hard delet</a></button>
@@ -13,7 +13,7 @@
         {/foreach}
         <div class="project-container">
             <h2>Nový projekt</h2>
-            <a id="create-button" n:href="ProjektSetter:CreateProjekt">vytvoriť</a>
+            <a class="green-button" n:href="ProjektSetter:CreateProjekt">vytvoriť</a>
         </div>
     </div>
     <script src="{$basePath}/script/controlFormular.js"></script>

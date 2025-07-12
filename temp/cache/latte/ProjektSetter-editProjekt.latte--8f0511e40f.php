@@ -34,7 +34,7 @@ final class Template_8f0511e40f extends Latte\Runtime\Template
 		extract($ʟ_args);
 		unset($ʟ_args);
 
-		echo '    <div class="projekt-setter-container">
+		echo '    <div class="form-container">
         <h1>Upravenie projektu</h1>
 ';
 		$ʟ_tmp = $this->global->uiControl->getComponent('editProjektForm');

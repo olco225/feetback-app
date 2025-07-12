@@ -19,7 +19,7 @@ final class RegistrationPresenter extends BasePresenter{
         $form->addPassword("password", "Heslo:")->setHtmlAttribute("class", "inputs")
         ->setRequired("Heslo treba vyplniť, kvôly fungovaniu aplikácie");
 
-        $form->addSubmit('send', 'Registrácia')->setHtmlAttribute("class", "inputs");
+        $form->addSubmit('send', 'Registrácia')->setHtmlAttribute("class", "green-button");
 
         $form->onSuccess[] = $this->registrationFormSucceeded(...);
         return $form;

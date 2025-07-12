@@ -19,7 +19,7 @@ final class FeetbackPresenter extends BasePresenter{
 
         $form->addHidden("projekt_id", $projektId);
 
-        $form->addSubmit('send', 'Odoslať')->setHtmlAttribute("class", "inputs")->setHtmlAttribute("id", "send-button");
+        $form->addSubmit('send', 'Odoslať')->setHtmlAttribute("class", "green-button");
         
         
 
