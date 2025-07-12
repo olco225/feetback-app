@@ -12,10 +12,11 @@ body{
 }
 #flash-message-container p{
     text-align: right;
-    padding: 0.5em 1em;
+    padding: 0.3em 1em;
     
 }
 header ul li a{
+    padding: 0.3em;
     text-decoration: none;
 }
 .form-container{
@@ -27,6 +28,7 @@ header ul li a{
     padding: 0.3em;
     border-radius: 0.3em;
     margin: 0.3em 0.3em;
+    font-size: 1rem;
 }
 /*******Horná lišta********/
 @media(orientation: landscape){
