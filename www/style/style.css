@@ -111,3 +111,8 @@ header ul li a{
     border: rgb(154, 0, 0) solid 2px;
     border-radius: 4px;
 }
+
+/****footer****/
+footer p{
+    padding: 0.3em;
+}
