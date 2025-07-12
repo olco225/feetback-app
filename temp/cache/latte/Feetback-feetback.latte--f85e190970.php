@@ -34,12 +34,15 @@ final class Template_f85e190970 extends Latte\Runtime\Template
 		extract($ʟ_args);
 		unset($ʟ_args);
 
-		echo '<h3>';
-		echo LR\Filters::escapeHtmlText($projektQuestion) /* line 2 */;
-		echo '</h3>
+		echo '<div class="form-container">
+    <h2>';
+		echo LR\Filters::escapeHtmlText($projektQuestion) /* line 3 */;
+		echo '</h2>
 ';
 		$ʟ_tmp = $this->global->uiControl->getComponent('ratingForm');
 		if ($ʟ_tmp instanceof Nette\Application\UI\Renderable) $ʟ_tmp->redrawControl(null, false);
-		$ʟ_tmp->render() /* line 3 */;
+		$ʟ_tmp->render() /* line 4 */;
+
+		echo '</div>';
 	}
 }

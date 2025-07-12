@@ -12,7 +12,7 @@ final class FeetbackPresenter extends BasePresenter{
     public function createComponentRatingForm(): Form{
         $form = new Form;
 
-        $form->addTextArea("text", "")->setHtmlAttribute("class", "inputs")
+        $form->addTextArea("text", "Tvoja správa:")->setHtmlAttribute("class", "inputs")
         ->setRequired("Spetná vezba musí byť.");
 
         $projektId = $this->getParameter("projektId");
