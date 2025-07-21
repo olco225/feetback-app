@@ -59,8 +59,8 @@ final class Template_87434f70f2 extends Latte\Runtime\Template
 
                 <a href="';
 			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('ProjektSetter:EditProjekt', [$projekt->id])) /* line 7 */;
-			echo '" class="blue-button">upraviť</a>
-                <button class="predelet-button" projektId="';
+			echo '" class="buttons blue-button">upraviť</a>
+                <button class="buttons predelet-button" projektId="';
 			echo LR\Filters::escapeHtmlAttr($projekt->id) /* line 8 */;
 			echo '" >zmazať</button> 
                 <!-- invisible button for hard delet -->
@@ -79,7 +79,7 @@ final class Template_87434f70f2 extends Latte\Runtime\Template
             <h2>Nový projekt</h2>
             <a href="';
 		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('ProjektSetter:CreateProjekt')) /* line 16 */;
-		echo '" class="green-button">vytvoriť</a>
+		echo '" class="buttons green-button">vytvoriť</a>
         </div>
     </div>
     <script src="';

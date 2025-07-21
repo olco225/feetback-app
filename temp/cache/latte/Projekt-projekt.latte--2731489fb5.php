@@ -32,7 +32,7 @@ final class Template_2731489fb5 extends Latte\Runtime\Template
 		extract($this->params);
 
 		if (!$this->getReferringTemplate() || $this->getReferenceType() === 'extends') {
-			foreach (array_intersect_key(['coment' => '40'], $this->params) as $ʟ_v => $ʟ_l) {
+			foreach (array_intersect_key(['coment' => '51'], $this->params) as $ʟ_v => $ʟ_l) {
 				trigger_error("Variable \$$ʟ_v overwritten in foreach on line $ʟ_l");
 			}
 		}
@@ -50,20 +50,27 @@ final class Template_2731489fb5 extends Latte\Runtime\Template
 		echo '<h1>';
 		echo LR\Filters::escapeHtmlText($projekt->title) /* line 3 */;
 		echo '</h1>
-    <canvas id="qrCode-canvas"> </canvas>
-    <button onclick="generateQRCode()">Generovať QR kód</button>
-    <a id="download-button" download="qrCode.png">stiahuť QR kód</a>
-    <div id="url-text"></div>
-    <!-- link pre testovacie účely -->
-    <a href="';
-		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Feetback:feetback', ['projektId' => $projekt->id])) /* line 10 */;
-		echo '" id="url-local-link">Otestuj stránku so spetnou vezbou</a>
-
+    <div>
+        <h2>Otázka pre hodnotenie: ';
+		echo LR\Filters::escapeHtmlText($projekt->question) /* line 6 */;
+		echo '</h2>
+        <div id="canvas-container">
+            <canvas id="qrCode-canvas"></canvas>
+            <button class="buttons" onclick="generateQRCode()">Generovať QR kód</button>
+            <a class="buttons" id="download-button" download="qrCode.png">stiahuť QR kód</a>
+        </div>
+        
+        <div id="url-text"></div>
+        <!-- link pre testovacie účely -->
+        <a href="';
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Feetback:feetback', ['projektId' => $projekt->id])) /* line 15 */;
+		echo '" class="buttons" id="url-local-link">Otestuj stránku so spetnou vezbou</a>
+    </div>
 
     <script>
         //vytvorenie linku na stránku s hodnotením pre testovacie účely
         let projektId = ';
-		echo LR\Filters::escapeJs($projekt->id) /* line 16 */;
+		echo LR\Filters::escapeJs($projekt->id) /* line 21 */;
 		echo ';
 
         //funkcia pre generovanie qr codu
@@ -71,32 +78,41 @@ final class Template_2731489fb5 extends Latte\Runtime\Template
             console.log(QRCode);
             //nastavovanie linkou
             let projektId = ';
-		echo LR\Filters::escapeJs($projekt->id) /* line 22 */;
+		echo LR\Filters::escapeJs($projekt->id) /* line 27 */;
 		echo ';
 
             let localDomen = "http://192.168.1.10/spetna-vezba/www";
-            let hostingDomen = "http://spetna-vezba.oliver-chalupka.sk/spetna-vezba-web/www";
+            let hostingDomen = "http://spetna-vezba.oliver-chalupka.sk/www";
             
             let url = localDomen + "/feetback/feetback?projektId=" + projektId;
             
             document.getElementById("url-text").innerHTML = url;
             //vygenerovanie qrCodu
             let qrCodeCanvas = document.getElementById("qrCode-canvas");
-            QRCode.toCanvas(qrCodeCanvas, url, function(error){
+            QRCode.toCanvas(qrCodeCanvas, url, {
+                type: "svg",
+                width: 600
+            },function(error){
                 if(error) console.log(error);
                 document.querySelector("#download-button").href = qrCodeCanvas.toDataURL("image/png");
 
             });
+            //pridanie štýlov na výšku a šírku, gôli prebiťiu width qrcode pôvodné nastavené štýli
+            qrCodeCanvas.style.width = "60vh";
+            qrCodeCanvas.style.height = "60vh";
         }
     </script>
 ';
-		foreach ($comentars as $coment) /* line 40 */ {
-			echo '    <div id="coment">
+		foreach ($comentars as $coment) /* line 51 */ {
+			echo '    <div class="comment-box">
         <h4>';
-			echo LR\Filters::escapeHtmlText($coment->name) /* line 42 */;
+			echo LR\Filters::escapeHtmlText($coment->name) /* line 53 */;
 			echo '</h4>
         <p>';
-			echo LR\Filters::escapeHtmlText($coment->text) /* line 43 */;
+			echo LR\Filters::escapeHtmlText($coment->text) /* line 54 */;
+			echo '</p>
+        <p>';
+			echo LR\Filters::escapeHtmlText($coment->time_of_creation) /* line 55 */;
 			echo '</p>
     </div>
 

@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
+
 }
 body{
     display: grid;
@@ -55,6 +57,16 @@ header ul li a{
     }
 }
 /*****buttons style***/
+.buttons{
+    font-size: 1rem;
+    padding: 0.3em;
+    margin: 0.3em 0.3em;
+    border-radius: 0.3em;
+
+    text-decoration: none;
+    font-family: sans-serif;
+    cursor: pointer;
+}
 .blue-button {
     display: inline-block;
 

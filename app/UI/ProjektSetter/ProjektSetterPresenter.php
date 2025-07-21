@@ -15,7 +15,7 @@ final class ProjektSetterPresenter extends BasePresenter{
 
         $form->addText("title", "Nadpis:")->setHtmlAttribute("class", "inputs")->setRequired("Nadpis musí byť");
         $form->addTextArea("question", "Otázka v spetnej vezbe:")->setHtmlAttribute("class", "inputs");
-        $form->addSubmit('send', 'Vytvoriť')->setHtmlAttribute("class", "green-button");
+        $form->addSubmit('send', 'Vytvoriť')->setHtmlAttribute("class", "buttons green-button");
 
 
         $form->onSuccess[] = [$this, "createProjektFormSucceeded"];
@@ -52,7 +52,7 @@ final class ProjektSetterPresenter extends BasePresenter{
 
         $form->addText("title", "Nadpis:")->setHtmlAttribute("class", "inputs")->setRequired("Nadpis musí byť");
         $form->addTextArea("question", "Otázka v spenej vezbe:")->setHtmlAttribute("class", "inputs");
-        $form->addSubmit('send', 'Aktualizovať')->setHtmlAttribute("class", "blue-button");
+        $form->addSubmit('send', 'Aktualizovať')->setHtmlAttribute("class", "buttons blue-button");
 
 
         $form->onSuccess[] = [$this, "editProjektFormSucceeded"];

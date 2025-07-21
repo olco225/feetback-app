@@ -19,7 +19,7 @@ final class SignInPresenter extends BasePresenter{
         ->setRequired("Zadajte prihlasovacie meno.");
         $form->addPassword("password", "Heslo:")->setHtmlAttribute("class", "inputs")
         ->setRequired("Zadajte heslo.");
-        $form->addSubmit("send", "prihlásiť sa")->setHtmlAttribute("class", "blue-button");
+        $form->addSubmit("send", "prihlásiť sa")->setHtmlAttribute("class", "buttons blue-button");
 
         $form->onSuccess[] = [$this, "signInFormSuccessed"];
         return $form;

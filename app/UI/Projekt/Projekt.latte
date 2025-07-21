@@ -2,13 +2,18 @@
 {******************* Nadpis *************************}
 <h1>{$projekt->title}</h1>
 {****************** Url a Qrcody **********************}
-    <canvas id="qrCode-canvas"> </canvas>
-    <button onclick="generateQRCode()">Generovať QR kód</button>
-    <a id="download-button" download="qrCode.png">stiahuť QR kód</a>
-    <div id="url-text"></div>
-    <!-- link pre testovacie účely -->
-    <a n:href="Feetback:feetback, projektId:$projekt->id" id="url-local-link">Otestuj stránku so spetnou vezbou</a>
-
+    <div>
+        <h2>Otázka pre hodnotenie: {$projekt->question}</h2>
+        <div id="canvas-container">
+            <canvas id="qrCode-canvas"></canvas>
+            <button class="buttons" onclick="generateQRCode()">Generovať QR kód</button>
+            <a class="buttons" id="download-button" download="qrCode.png">stiahuť QR kód</a>
+        </div>
+        
+        <div id="url-text"></div>
+        <!-- link pre testovacie účely -->
+        <a class="buttons" n:href="Feetback:feetback, projektId:$projekt->id" id="url-local-link">Otestuj stránku so spetnou vezbou</a>
+    </div>
 
 {*scripty*}
     <script>
@@ -22,25 +27,32 @@
             let projektId = {$projekt->id};
 
             let localDomen = "http://192.168.1.10/spetna-vezba/www";
-            let hostingDomen = "http://spetna-vezba.oliver-chalupka.sk/spetna-vezba-web/www";
+            let hostingDomen = "http://spetna-vezba.oliver-chalupka.sk/www";
             
             let url = localDomen + "/feetback/feetback?projektId=" + projektId;
             
             document.getElementById("url-text").innerHTML = url;
             //vygenerovanie qrCodu
             let qrCodeCanvas = document.getElementById("qrCode-canvas");
-            QRCode.toCanvas(qrCodeCanvas, url, function(error){
+            QRCode.toCanvas(qrCodeCanvas, url, {
+                type: "svg",
+                width: 600
+            },function(error){
                 if(error) console.log(error);
                 document.querySelector("#download-button").href = qrCodeCanvas.toDataURL("image/png");
 
             });
+            //pridanie štýlov na výšku a šírku, gôli prebiťiu width qrcode pôvodné nastavené štýli
+            qrCodeCanvas.style.width = "60vh";
+            qrCodeCanvas.style.height = "60vh";
         }
     </script>
 {********* Comentáre *************}
 {foreach $comentars as $coment}
-    <div id="coment">
+    <div class="comment-box">
         <h4>{$coment->name}</h4>
         <p>{$coment->text}</p>
+        <p>{$coment->time_of_creation}</p>
     </div>
 
 {/foreach}

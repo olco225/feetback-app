@@ -66,7 +66,7 @@ final class Template_9d38d3b4f3 extends Latte\Runtime\Template
 			echo '				<p>Naozaj, chcete zmazať projekt?</p><br>
 ';
 		}
-		echo '			<button id="cancel-control-formular" >zrušiť</button> <button id="delet-projekt-button">zmazať</button>
+		echo '			<button class="buttons" id="cancel-control-formular" >zrušiť</button> <button class="buttons" id="delet-projekt-button">zmazať</button>
 		</div>
 	</div>
 

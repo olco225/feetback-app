@@ -35,7 +35,7 @@ final class Template_f85e190970 extends Latte\Runtime\Template
 		unset($ʟ_args);
 
 		echo '<div class="form-container">
-    <h2>';
+    <h2 id="question-of-feetback">';
 		echo LR\Filters::escapeHtmlText($projektQuestion) /* line 3 */;
 		echo '</h2>
 ';
