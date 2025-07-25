@@ -102,8 +102,10 @@ return array (
     'App\\UI\\ProjektsPage\\ProjektsPageTemplate' => 3,
     'App\\UI\\Feetback\\FeetbackFeetbackTemplate' => 3,
     'App\\UI\\Feetback\\FeetbackTemplate' => 3,
-    'App\\UI\\ProjektSetter\\ProjektSetterEditProjektTemplate' => 1,
-    'App\\UI\\ProjektSetter\\ProjektSetterTemplate' => 1,
+    'App\\UI\\ProjektSetter\\ProjektSetterEditProjektTemplate' => 3,
+    'App\\UI\\ProjektSetter\\ProjektSetterTemplate' => 3,
+    'App\\UI\\ProjektSetter\\ProjektSetterCreateProjektTemplate' => 2,
+    'App\\UI\\SignIn\\SignInSignOutTemplate' => 1,
   ),
   2 => 
   array (

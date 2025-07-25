@@ -56,15 +56,15 @@ final class Template_2731489fb5 extends Latte\Runtime\Template
 		echo '</h2>
         <div id="canvas-container">
             <canvas id="qrCode-canvas"></canvas>
-            <button class="buttons" onclick="generateQRCode()">Generovať QR kód</button>
+            <button class="buttons green-button" onclick="generateQRCode()">Generovať QR kód</button>
             <a class="buttons" id="download-button" download="qrCode.png">stiahuť QR kód</a>
         </div>
         
-        <div id="url-text"></div>
+        <div id="url-text"><strong>Link url pre spetnú vezbu: </strong></div>
         <!-- link pre testovacie účely -->
         <a href="';
 		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Feetback:feetback', ['projektId' => $projekt->id])) /* line 15 */;
-		echo '" class="buttons" id="url-local-link">Otestuj stránku so spetnou vezbou</a>
+		echo '" class="buttons blue-button" id="url-local-link">Otestuj stránku so spetnou vezbou</a>
     </div>
 
     <script>
@@ -86,7 +86,7 @@ final class Template_2731489fb5 extends Latte\Runtime\Template
             
             let url = localDomen + "/feetback/feetback?projektId=" + projektId;
             
-            document.getElementById("url-text").innerHTML = url;
+            document.getElementById("url-text").innerHTML += url;
             //vygenerovanie qrCodu
             let qrCodeCanvas = document.getElementById("qrCode-canvas");
             QRCode.toCanvas(qrCodeCanvas, url, {
@@ -120,11 +120,6 @@ final class Template_2731489fb5 extends Latte\Runtime\Template
 
 		}
 
-		echo '<style>
-    #coment{
-        border: 2px solid black;
-    }
-</style>
-';
+		echo "\n";
 	}
 }

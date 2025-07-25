@@ -1,10 +1,21 @@
 #main-container{
-    width: 250px;
-    margin: auto;
+    width: 60%;
+    margin: 2rem auto;
     display: flexbox;
 }
+h1{
+    padding: 0.3em;
+    margin: 0.3em;
+}
+h2{
+    padding: 0.3em;
+    margin: 0.3em;
+}
+#projekt-buttons-container{
+    width: fit-content;
+    margin: 0.5em auto;
+}
 .project-container{
-    width: 250px;
     margin: 0 auto;
 
     border: solid 2px rgb(72, 72, 72);
@@ -62,4 +73,9 @@
     border-radius: 0.3em;
     font-family: sans-serif;
 }
-
+/******pre mobil*****/
+@media screen and (orientation: portrait) {
+    #main-container{
+        width: 95%;
+    }
+}

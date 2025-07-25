@@ -58,6 +58,8 @@ header ul li a{
 }
 /*****buttons style***/
 .buttons{
+    display: inline-block;
+
     font-size: 1rem;
     padding: 0.3em;
     margin: 0.3em 0.3em;

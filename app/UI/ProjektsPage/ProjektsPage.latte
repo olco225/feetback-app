@@ -1,19 +1,24 @@
 {block content}
     <div id="main-container">
+        <h1>Projekty:</h1>
         {foreach $userProjekts as $projekt}
             <div class="project-container"> 
                 <h2><a n:href="Projekt:projekt $projekt->id">{$projekt->title}</a></h2>
 
-                <a class="buttons blue-button" n:href="ProjektSetter:EditProjekt $projekt->id">upraviť</a>
-                <button class="buttons predelet-button" projektId="{$projekt->id}" >zmazať</button> 
-                <!-- invisible button for hard delet -->
-                <button id="delet-button-projekt{$projekt->id}" style="display: none;"><a n:href="Projekt:DeletProjekt $projekt->id">hard delet</a></button>
+                <div id="projekt-buttons-container">
+                    <a class="buttons blue-button" n:href="ProjektSetter:EditProjekt $projekt->id">upraviť</a>
+                    <button class="buttons predelet-button" projektId="{$projekt->id}" >zmazať</button> 
+                    <!-- invisible button for hard delet -->
+                    <button id="delet-button-projekt{$projekt->id}" style="display: none;"><a n:href="Projekt:DeletProjekt $projekt->id">hard delet</a></button>
+                </div>
             </div>
             
         {/foreach}
         <div class="project-container">
             <h2>Nový projekt</h2>
-            <a class="buttons green-button" n:href="ProjektSetter:CreateProjekt">vytvoriť</a>
+            <div id="projekt-buttons-container">
+                <a class="buttons green-button" n:href="ProjektSetter:CreateProjekt">vytvoriť</a>
+            </div>
         </div>
     </div>
     <script src="{$basePath}/script/controlFormular.js"></script>
