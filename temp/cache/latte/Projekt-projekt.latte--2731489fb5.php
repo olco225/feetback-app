@@ -32,7 +32,7 @@ final class Template_2731489fb5 extends Latte\Runtime\Template
 		extract($this->params);
 
 		if (!$this->getReferringTemplate() || $this->getReferenceType() === 'extends') {
-			foreach (array_intersect_key(['coment' => '51'], $this->params) as $ʟ_v => $ʟ_l) {
+			foreach (array_intersect_key(['coment' => '52'], $this->params) as $ʟ_v => $ʟ_l) {
 				trigger_error("Variable \$$ʟ_v overwritten in foreach on line $ʟ_l");
 			}
 		}
@@ -102,24 +102,37 @@ final class Template_2731489fb5 extends Latte\Runtime\Template
             qrCodeCanvas.style.height = "60vh";
         }
     </script>
+<div id="coment-section">
 ';
-		foreach ($comentars as $coment) /* line 51 */ {
-			echo '    <div class="comment-box">
-        <h4>';
-			echo LR\Filters::escapeHtmlText($coment->name) /* line 53 */;
+		foreach ($comentars as $coment) /* line 52 */ {
+			echo '        <div class="comment-box">
+            <div>
+                <h4>';
+			echo LR\Filters::escapeHtmlText($coment->name) /* line 55 */;
 			echo '</h4>
-        <p>';
-			echo LR\Filters::escapeHtmlText($coment->text) /* line 54 */;
+                <p>';
+			echo LR\Filters::escapeHtmlText($coment->text) /* line 56 */;
 			echo '</p>
-        <p>';
-			echo LR\Filters::escapeHtmlText($coment->time_of_creation) /* line 55 */;
+                <p>';
+			echo LR\Filters::escapeHtmlText($coment->time_of_creation) /* line 57 */;
 			echo '</p>
-    </div>
+            </div>
+            <div class="coment-settings">
+                <label for="">Typ komentára: </label>
+                <select name="" id="">
+                    <option value="">none</option>
+                    <option value="">hate</option>
+                </select>
+                <button>uložiť nastavenia</button>
+            </div>
+        </div>
 
 ';
 
 		}
 
-		echo "\n";
+		echo '</div>
+
+';
 	}
 }

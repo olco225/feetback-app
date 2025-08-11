@@ -1,4 +1,10 @@
-Require all granted
 RewriteEngine On
+
+# Presmeruj koreň domény na www/
 RewriteRule ^$ www/ [L]
-RewriteRule (.*) www/$1 [L]
+
+# Presmeruj všetko ostatné do www/, ak to nie je reálny priečinok mimo www/
+RewriteCond %{REQUEST_URI} !^/www/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ www/$1 [L]

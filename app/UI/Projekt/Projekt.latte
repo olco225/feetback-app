@@ -51,9 +51,19 @@
 <div id="coment-section">
     {foreach $comentars as $coment}
         <div class="comment-box">
-            <h4>{$coment->name}</h4>
-            <p>{$coment->text}</p>
-            <p>{$coment->time_of_creation}</p>
+            <div>
+                <h4>{$coment->name}</h4>
+                <p>{$coment->text}</p>
+                <p>{$coment->time_of_creation}</p>
+            </div>
+            <div class="coment-settings">
+                <label for="">Typ komentára: </label>
+                <select name="" id="">
+                    <option value="">none</option>
+                    <option value="">hate</option>
+                </select>
+                <button>uložiť nastavenia</button>
+            </div>
         </div>
 
     {/foreach}

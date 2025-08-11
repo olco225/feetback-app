@@ -105,7 +105,11 @@ return array (
     'App\\UI\\ProjektSetter\\ProjektSetterEditProjektTemplate' => 3,
     'App\\UI\\ProjektSetter\\ProjektSetterTemplate' => 3,
     'App\\UI\\ProjektSetter\\ProjektSetterCreateProjektTemplate' => 2,
-    'App\\UI\\SignIn\\SignInSignOutTemplate' => 1,
+    'App\\UI\\SignIn\\SignInSignOutTemplate' => 2,
+    'App\\UI\\Registration\\RegistrationRegistrationTemplate' => 3,
+    'App\\UI\\Registration\\RegistrationTemplate' => 3,
+    'App\\UI\\Projekt\\ProjektDeletProjektTemplate' => 1,
+    'App\\UI\\Config\\ConfigPresenter' => 2,
   ),
   2 => 
   array (
