@@ -15,7 +15,7 @@ return array (
     'App\\Model\\FeetbackFacade' => 
     array (
       0 => 'C:\\wamp64\\www\\spetna-vezba\\app\\Model\\FeetbackFacade.php',
-      1 => 1752065875,
+      1 => 1755167405,
     ),
     'App\\Model\\ProjektFacade' => 
     array (
@@ -65,7 +65,7 @@ return array (
     'App\\UI\\Projekt\\ProjektPresenter' => 
     array (
       0 => 'C:\\wamp64\\www\\spetna-vezba\\app\\UI\\Projekt\\ProjektPresenter.php',
-      1 => 1744130237,
+      1 => 1755168702,
     ),
     'App\\UI\\ProjektSetter\\ProjektSetterPresenter' => 
     array (
@@ -94,22 +94,12 @@ return array (
     'null' => 1,
     'App\\UI\\Projekt\\ProjektProjektTemplate' => 3,
     'App\\UI\\Projekt\\ProjektTemplate' => 3,
-    'App\\UI\\Home\\HomeDefaultTemplate' => 3,
-    'App\\UI\\Home\\HomeTemplate' => 3,
     'App\\UI\\SignIn\\SignInSignInTemplate' => 3,
     'App\\UI\\SignIn\\SignInTemplate' => 3,
+    'App\\UI\\Home\\HomeDefaultTemplate' => 1,
+    'App\\UI\\Home\\HomeTemplate' => 1,
     'App\\UI\\ProjektsPage\\ProjektsPageProjektsPageTemplate' => 3,
     'App\\UI\\ProjektsPage\\ProjektsPageTemplate' => 3,
-    'App\\UI\\Feetback\\FeetbackFeetbackTemplate' => 3,
-    'App\\UI\\Feetback\\FeetbackTemplate' => 3,
-    'App\\UI\\ProjektSetter\\ProjektSetterEditProjektTemplate' => 3,
-    'App\\UI\\ProjektSetter\\ProjektSetterTemplate' => 3,
-    'App\\UI\\ProjektSetter\\ProjektSetterCreateProjektTemplate' => 2,
-    'App\\UI\\SignIn\\SignInSignOutTemplate' => 2,
-    'App\\UI\\Registration\\RegistrationRegistrationTemplate' => 3,
-    'App\\UI\\Registration\\RegistrationTemplate' => 3,
-    'App\\UI\\Projekt\\ProjektDeletProjektTemplate' => 1,
-    'App\\UI\\Config\\ConfigPresenter' => 2,
   ),
   2 => 
   array (

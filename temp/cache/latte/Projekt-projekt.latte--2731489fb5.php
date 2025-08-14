@@ -32,7 +32,7 @@ final class Template_2731489fb5 extends Latte\Runtime\Template
 		extract($this->params);
 
 		if (!$this->getReferringTemplate() || $this->getReferenceType() === 'extends') {
-			foreach (array_intersect_key(['coment' => '52'], $this->params) as $ʟ_v => $ʟ_l) {
+			foreach (array_intersect_key(['comment' => '53'], $this->params) as $ʟ_v => $ʟ_l) {
 				trigger_error("Variable \$$ʟ_v overwritten in foreach on line $ʟ_l");
 			}
 		}
@@ -103,28 +103,31 @@ final class Template_2731489fb5 extends Latte\Runtime\Template
         }
     </script>
 <div id="coment-section">
+    <p>';
+		echo LR\Filters::escapeHtmlText($testValue->type) /* line 52 */;
+		echo '</p>
 ';
-		foreach ($comentars as $coment) /* line 52 */ {
+		foreach ($commentars as $comment) /* line 53 */ {
 			echo '        <div class="comment-box">
             <div>
                 <h4>';
-			echo LR\Filters::escapeHtmlText($coment->name) /* line 55 */;
+			echo LR\Filters::escapeHtmlText($comment->name) /* line 56 */;
 			echo '</h4>
                 <p>';
-			echo LR\Filters::escapeHtmlText($coment->text) /* line 56 */;
+			echo LR\Filters::escapeHtmlText($comment->text) /* line 57 */;
 			echo '</p>
                 <p>';
-			echo LR\Filters::escapeHtmlText($coment->time_of_creation) /* line 57 */;
+			echo LR\Filters::escapeHtmlText($comment->time_of_creation) /* line 58 */;
 			echo '</p>
             </div>
-            <div class="coment-settings">
-                <label for="">Typ komentára: </label>
-                <select name="" id="">
-                    <option value="">none</option>
-                    <option value="">hate</option>
-                </select>
-                <button>uložiť nastavenia</button>
-            </div>
+            <div class="coment-settings" style="border: 2px solid black; padding: 0.4rem;">
+                <h3>beta verzia</h3>
+';
+			if (!is_object($ʟ_tmp = "commentTypeForm-{$comment->id}")) $ʟ_tmp = $this->global->uiControl->getComponent($ʟ_tmp);
+			if ($ʟ_tmp instanceof Nette\Application\UI\Renderable) $ʟ_tmp->redrawControl(null, false);
+			$ʟ_tmp->render() /* line 62 */;
+
+			echo '            </div>
         </div>
 
 ';

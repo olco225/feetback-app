@@ -49,20 +49,16 @@
     </script>
 {********* Comentáre *************}
 <div id="coment-section">
-    {foreach $comentars as $coment}
+    {foreach $commentars as $comment}
         <div class="comment-box">
             <div>
-                <h4>{$coment->name}</h4>
-                <p>{$coment->text}</p>
-                <p>{$coment->time_of_creation}</p>
+                <h4>{$comment->name}</h4>
+                <p>{$comment->text}</p>
+                <p>{$comment->time_of_creation}</p>
             </div>
-            <div class="coment-settings">
-                <label for="">Typ komentára: </label>
-                <select name="" id="">
-                    <option value="">none</option>
-                    <option value="">hate</option>
-                </select>
-                <button>uložiť nastavenia</button>
+            <div class="coment-settings" style="border: 2px solid black; padding: 0.4rem;">
+                <h3>beta verzia</h3>
+                {control "commentTypeForm-$comment->id"}
             </div>
         </div>
 
