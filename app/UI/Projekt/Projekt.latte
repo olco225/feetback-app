@@ -48,20 +48,45 @@
         }
     </script>
 {********* Comentáre *************}
+
 <div id="coment-section">
     {foreach $commentars as $comment}
-        <div class="comment-box">
-            <div>
+        <div class="comment-box comment-box-{$comment->type}" id= "comment-box-{$comment->id}">
+            <div class="comment comment-{$comment->type}">
                 <h4>{$comment->name}</h4>
                 <p>{$comment->text}</p>
-                <p>{$comment->time_of_creation}</p>
+                <p class="time-of-creation">{$comment->time_of_creation}</p>
+                <button class="hide-comment hide-comment-{$comment->type} buttons" commentId="{$comment->id}" onclick="hideComment({$comment->id})">schovať komentár</button>
             </div>
-            <div class="coment-settings" style="border: 2px solid black; padding: 0.4rem;">
-                <h3>beta verzia</h3>
+            <div class="hate-comment-warning hate-comment-warning-{$comment->type}">
+                <p>Toto je komentár, ktorý sa snaží svojim obsahom skôr ublížiť človeku ako mu reálne pomôcť sa zlepšiť, alebo niečo zlepšiť.</p>
+                <button class="show-comment buttons" commentId="{$comment->id}" onclick="showComment({$comment->id})">ukázať komentár</button>
+            </div>
+            <div class="comment-type-settings" >
                 {control "commentTypeForm-$comment->id"}
             </div>
         </div>
 
     {/foreach}
+<script>
+
+    function showComment(commentId){
+        let commentBox = document.querySelector("#comment-box-" + commentId);
+        commentBox.className = "comment-box comment-box-none";
+
+        commentBox.querySelector(".comment").className = "comment comment-none";
+        commentBox.querySelector(".hate-comment-warning").className = "hate-comment-warning hate-comment-warning-none";
+        
+    }
+    function hideComment(commentId){
+        let commentBox = document.querySelector("#comment-box-" + commentId);
+        commentBox.className = "comment-box comment-box-hate";
+
+        commentBox.querySelector(".comment").className = "comment comment-hate";
+        commentBox.querySelector(".hate-comment-warning").className = "hate-comment-warning hate-comment-warning-hate";
+        
+    }
+</script>
+
 </div>
 

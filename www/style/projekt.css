@@ -35,10 +35,52 @@ h2{
 #download-button{
     border: black solid 2px;
 }
-/*******/
+/******************
+**Comment Sextion**
+******************/
 .comment-box{
     border: 2px solid black;
     padding: 0.4rem;
     display: flex;
     flex-direction: row;
 }
+.comment{
+    padding: 0.4em;
+
+}
+    .comment .time-of-creation{
+        margin-top: 1.5em;
+    }
+.hate-comment-warning{
+    padding: 0.4em;
+}
+.comment-type-settings{
+    margin-top: 2em;
+    margin-left: 1em;
+    padding: 0.4em;
+    background-color: white;
+    color: black;
+}
+/*****responsive comment section*******/
+.comment-box-hate{
+    background-color: rgba(202, 34, 12, 0.726);
+    color: rgb(244, 244, 244);
+}
+.comment-hate{
+    display: none;
+}
+.comment-none{
+    display: block;
+}
+
+.hate-comment-warning-hate{
+    display: block;
+}
+.hate-comment-warning-none{
+    display: none;
+}
+
+.hide-comment-none{
+    display: none;
+}
+    

@@ -31,8 +31,8 @@ final class ProjektPresenter extends BasePresenter{
                 "hate" => "hate"
             ];
             $form->addHidden("commentId", $commentId);
-            $form->addSelect("commentType", "Typ comentára", $commentTypes);
-            $form->addSubmit("submit", "Uložiť typ komentu");
+            $form->addSelect("commentType", "Typ comentára:", $commentTypes)->setHtmlAttribute("class", "inputs");
+            $form->addSubmit("submit", "Uložiť typ komentu")->setHtmlAttribute("class", "buttons");
 
             if($commentData){
                 $form->setDefaults([

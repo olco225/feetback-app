@@ -103,29 +103,48 @@ final class Template_2731489fb5 extends Latte\Runtime\Template
         }
     </script>
 <div id="coment-section">
-    <p>';
-		echo LR\Filters::escapeHtmlText($testValue->type) /* line 52 */;
-		echo '</p>
 ';
 		foreach ($commentars as $comment) /* line 53 */ {
-			echo '        <div class="comment-box">
-            <div>
+			echo '        <div class="comment-box comment-box-';
+			echo LR\Filters::escapeHtmlAttr($comment->type) /* line 54 */;
+			echo '" id="comment-box-';
+			echo LR\Filters::escapeHtmlAttr($comment->id) /* line 54 */;
+			echo '">
+            <div class="comment comment-';
+			echo LR\Filters::escapeHtmlAttr($comment->type) /* line 55 */;
+			echo '">
                 <h4>';
 			echo LR\Filters::escapeHtmlText($comment->name) /* line 56 */;
 			echo '</h4>
                 <p>';
 			echo LR\Filters::escapeHtmlText($comment->text) /* line 57 */;
 			echo '</p>
-                <p>';
+                <p class="time-of-creation">';
 			echo LR\Filters::escapeHtmlText($comment->time_of_creation) /* line 58 */;
 			echo '</p>
+                <button class="hide-comment hide-comment-';
+			echo LR\Filters::escapeHtmlAttr($comment->type) /* line 59 */;
+			echo ' buttons" commentId="';
+			echo LR\Filters::escapeHtmlAttr($comment->id) /* line 59 */;
+			echo '" onclick="hideComment(';
+			echo LR\Filters::escapeHtmlAttr(LR\Filters::escapeJs($comment->id)) /* line 59 */;
+			echo ')">schovať komentár</button>
             </div>
-            <div class="coment-settings" style="border: 2px solid black; padding: 0.4rem;">
-                <h3>beta verzia</h3>
+            <div class="hate-comment-warning hate-comment-warning-';
+			echo LR\Filters::escapeHtmlAttr($comment->type) /* line 61 */;
+			echo '">
+                <p>Toto je komentár, ktorý sa snaží svojim obsahom skôr ublížiť človeku ako mu reálne pomôcť sa zlepšiť, alebo niečo zlepšiť.</p>
+                <button class="show-comment buttons" commentId="';
+			echo LR\Filters::escapeHtmlAttr($comment->id) /* line 63 */;
+			echo '" onclick="showComment(';
+			echo LR\Filters::escapeHtmlAttr(LR\Filters::escapeJs($comment->id)) /* line 63 */;
+			echo ')">ukázať komentár</button>
+            </div>
+            <div class="comment-type-settings" >
 ';
 			if (!is_object($ʟ_tmp = "commentTypeForm-{$comment->id}")) $ʟ_tmp = $this->global->uiControl->getComponent($ʟ_tmp);
 			if ($ʟ_tmp instanceof Nette\Application\UI\Renderable) $ʟ_tmp->redrawControl(null, false);
-			$ʟ_tmp->render() /* line 62 */;
+			$ʟ_tmp->render() /* line 66 */;
 
 			echo '            </div>
         </div>
@@ -134,7 +153,27 @@ final class Template_2731489fb5 extends Latte\Runtime\Template
 
 		}
 
-		echo '</div>
+		echo '<script>
+
+    function showComment(commentId){
+        let commentBox = document.querySelector("#comment-box-" + commentId);
+        commentBox.className = "comment-box comment-box-none";
+
+        commentBox.querySelector(".comment").className = "comment comment-none";
+        commentBox.querySelector(".hate-comment-warning").className = "hate-comment-warning hate-comment-warning-none";
+        
+    }
+    function hideComment(commentId){
+        let commentBox = document.querySelector("#comment-box-" + commentId);
+        commentBox.className = "comment-box comment-box-hate";
+
+        commentBox.querySelector(".comment").className = "comment comment-hate";
+        commentBox.querySelector(".hate-comment-warning").className = "hate-comment-warning hate-comment-warning-hate";
+        
+    }
+</script>
+
+</div>
 
 ';
 	}
