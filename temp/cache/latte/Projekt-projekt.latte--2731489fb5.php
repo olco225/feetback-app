@@ -32,7 +32,7 @@ final class Template_2731489fb5 extends Latte\Runtime\Template
 		extract($this->params);
 
 		if (!$this->getReferringTemplate() || $this->getReferenceType() === 'extends') {
-			foreach (array_intersect_key(['comment' => '53'], $this->params) as $ʟ_v => $ʟ_l) {
+			foreach (array_intersect_key(['comment' => '54'], $this->params) as $ʟ_v => $ʟ_l) {
 				trigger_error("Variable \$$ʟ_v overwritten in foreach on line $ʟ_l");
 			}
 		}
@@ -103,48 +103,49 @@ final class Template_2731489fb5 extends Latte\Runtime\Template
         }
     </script>
 <div id="coment-section">
+    <h2>Komentáre</h2>
 ';
-		foreach ($commentars as $comment) /* line 53 */ {
+		foreach ($commentars as $comment) /* line 54 */ {
 			echo '        <div class="comment-box comment-box-';
-			echo LR\Filters::escapeHtmlAttr($comment->type) /* line 54 */;
+			echo LR\Filters::escapeHtmlAttr($comment->type) /* line 55 */;
 			echo '" id="comment-box-';
-			echo LR\Filters::escapeHtmlAttr($comment->id) /* line 54 */;
+			echo LR\Filters::escapeHtmlAttr($comment->id) /* line 55 */;
 			echo '">
             <div class="comment comment-';
-			echo LR\Filters::escapeHtmlAttr($comment->type) /* line 55 */;
+			echo LR\Filters::escapeHtmlAttr($comment->type) /* line 56 */;
 			echo '">
                 <h4>';
-			echo LR\Filters::escapeHtmlText($comment->name) /* line 56 */;
+			echo LR\Filters::escapeHtmlText($comment->name) /* line 57 */;
 			echo '</h4>
                 <p>';
-			echo LR\Filters::escapeHtmlText($comment->text) /* line 57 */;
+			echo LR\Filters::escapeHtmlText($comment->text) /* line 58 */;
 			echo '</p>
                 <p class="time-of-creation">';
-			echo LR\Filters::escapeHtmlText($comment->time_of_creation) /* line 58 */;
+			echo LR\Filters::escapeHtmlText($comment->time_of_creation) /* line 59 */;
 			echo '</p>
                 <button class="hide-comment hide-comment-';
-			echo LR\Filters::escapeHtmlAttr($comment->type) /* line 59 */;
+			echo LR\Filters::escapeHtmlAttr($comment->type) /* line 60 */;
 			echo ' buttons" commentId="';
-			echo LR\Filters::escapeHtmlAttr($comment->id) /* line 59 */;
+			echo LR\Filters::escapeHtmlAttr($comment->id) /* line 60 */;
 			echo '" onclick="hideComment(';
-			echo LR\Filters::escapeHtmlAttr(LR\Filters::escapeJs($comment->id)) /* line 59 */;
+			echo LR\Filters::escapeHtmlAttr(LR\Filters::escapeJs($comment->id)) /* line 60 */;
 			echo ')">schovať komentár</button>
             </div>
             <div class="hate-comment-warning hate-comment-warning-';
-			echo LR\Filters::escapeHtmlAttr($comment->type) /* line 61 */;
+			echo LR\Filters::escapeHtmlAttr($comment->type) /* line 62 */;
 			echo '">
                 <p>Toto je komentár, ktorý sa snaží svojim obsahom skôr ublížiť človeku ako mu reálne pomôcť sa zlepšiť, alebo niečo zlepšiť.</p>
                 <button class="show-comment buttons" commentId="';
-			echo LR\Filters::escapeHtmlAttr($comment->id) /* line 63 */;
+			echo LR\Filters::escapeHtmlAttr($comment->id) /* line 64 */;
 			echo '" onclick="showComment(';
-			echo LR\Filters::escapeHtmlAttr(LR\Filters::escapeJs($comment->id)) /* line 63 */;
+			echo LR\Filters::escapeHtmlAttr(LR\Filters::escapeJs($comment->id)) /* line 64 */;
 			echo ')">ukázať komentár</button>
             </div>
             <div class="comment-type-settings" >
 ';
 			if (!is_object($ʟ_tmp = "commentTypeForm-{$comment->id}")) $ʟ_tmp = $this->global->uiControl->getComponent($ʟ_tmp);
 			if ($ʟ_tmp instanceof Nette\Application\UI\Renderable) $ʟ_tmp->redrawControl(null, false);
-			$ʟ_tmp->render() /* line 66 */;
+			$ʟ_tmp->render() /* line 67 */;
 
 			echo '            </div>
         </div>
