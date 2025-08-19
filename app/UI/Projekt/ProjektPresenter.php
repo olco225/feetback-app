@@ -17,8 +17,28 @@ final class ProjektPresenter extends BasePresenter{
         //nastavenie štýlov
         $this->template->currentCssPage = "projekt";
 
-        $this->template->projekt = $this->projektFacade->getProjekt($projektId);
-        $this->template->commentars = $this->feetbackFacade->getProjektcomentars($projektId);
+        //overenie či je užívatel prihlásený, a má k tomuto prístup
+        //Keď nieje hádže to error
+        $user = $this->getUser();
+        $userIdentity = $user->getIdentity();
+        if($userIdentity){
+            $userId = $userIdentity->getId();
+            $projektData = $this->projektFacade->getProjekt($projektId);
+
+            if($userId == $projektData->user_id){
+                $this->template->projekt = $projektData;
+                $this->template->commentars = $this->feetbackFacade->getProjektcomentars($projektId);
+            }else{
+                $this->template->setFile(__dir__ . "/../Error/Error4xx/403.latte");
+            }
+        }else{
+            $this->template->setFile(__dir__ . "/../Error/Error4xx/403.latte");
+
+        }
+        
+
+        
+        
 
     }
     public function createComponentCommentTypeForm(): Multiplier{

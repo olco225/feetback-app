@@ -1,0 +1,2 @@
+[2025-08-17 06-34-52] Error: Call to a member function getId() on null in C:\wamp64\www\spetna-vezba\app\UI\Projekt\ProjektPresenter.php:22  @  http://localhost/spetna-vezba/projekt/projekt?projektId=40  @@  exception--2025-08-17--06-34--d8631ed429.html
+[2025-08-17 06-39-44] Error: Call to a member function getId() on null in C:\wamp64\www\spetna-vezba\app\UI\Projekt\ProjektPresenter.php:22  @  http://192.168.1.216/spetna-vezba/www/projekt/projekt?projektId=40  @@  exception--2025-08-17--06-34--d8631ed429.html

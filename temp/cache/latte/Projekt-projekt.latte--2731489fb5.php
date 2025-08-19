@@ -134,7 +134,7 @@ final class Template_2731489fb5 extends Latte\Runtime\Template
             <div class="hate-comment-warning hate-comment-warning-';
 			echo LR\Filters::escapeHtmlAttr($comment->type) /* line 62 */;
 			echo '">
-                <p>Toto je komentár, ktorý sa snaží svojim obsahom skôr ublížiť človeku ako mu reálne pomôcť sa zlepšiť, alebo niečo zlepšiť.</p>
+                <p>Toto je komentár, ktorý sa snaží svojim obsahom, skôr ublížiť človeku ako mu pomôcť sa zlepšiť, alebo niečo zlepšiť.</p>
                 <button class="show-comment buttons" commentId="';
 			echo LR\Filters::escapeHtmlAttr($comment->id) /* line 64 */;
 			echo '" onclick="showComment(';

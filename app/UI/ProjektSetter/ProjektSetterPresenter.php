@@ -45,6 +45,15 @@ final class ProjektSetterPresenter extends BasePresenter{
         //nastavenie štýlov 
         $this->template->currentCssPage = "createProjekt";
 
+        $user = $this->getUser();
+        $userIdentity = $user->getIdentity();
+        if($userIdentity){
+            $userId = $userIdentity->getId();
+        }else{
+            $this->template->setFile(__dir__ . "/../Error/Error4xx/403.latte");
+
+        }
+
     }
 //---------edit projekt----------
     public function createComponentEditProjektForm(): Form{
@@ -84,11 +93,24 @@ final class ProjektSetterPresenter extends BasePresenter{
     public function renderEditProjekt($projektId){
         //nastavenie štýlov 
         $this->template->currentCssPage = "editProjekt";
-    
-        $projektData = $this->projektFacade->getProjekt($projektId);
 
-        $this->getComponent('editProjektForm')
-            ->setDefaults($projektData->toArray());
+        //zabespečenie načítavania dát do edit formuláru
+        $user = $this->getUser();
+        $userIdentity = $user->getIdentity();
+        if($userIdentity){
+            $userId = $userIdentity->getId();
+            $projektData = $this->projektFacade->getProjekt($projektId);
+
+            if($userId == $projektData->user_id){
+                $this->getComponent('editProjektForm')
+                ->setDefaults($projektData->toArray());
+            }else{
+                $this->template->setFile(__dir__ . "/../Error/Error4xx/403.latte");
+            }
+        }else{
+            $this->template->setFile(__dir__ . "/../Error/Error4xx/403.latte");
+
+        }
 
     }
 }

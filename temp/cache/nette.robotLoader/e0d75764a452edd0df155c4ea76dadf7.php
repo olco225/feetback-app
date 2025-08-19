@@ -5,7 +5,7 @@ return array (
     'App\\Bootstrap' => 
     array (
       0 => 'C:\\wamp64\\www\\spetna-vezba\\app\\Bootstrap.php',
-      1 => 1751980097,
+      1 => 1755412576,
     ),
     'App\\Core\\RouterFactory' => 
     array (
@@ -65,17 +65,17 @@ return array (
     'App\\UI\\Projekt\\ProjektPresenter' => 
     array (
       0 => 'C:\\wamp64\\www\\spetna-vezba\\app\\UI\\Projekt\\ProjektPresenter.php',
-      1 => 1755168865,
+      1 => 1755610382,
     ),
     'App\\UI\\ProjektSetter\\ProjektSetterPresenter' => 
     array (
       0 => 'C:\\wamp64\\www\\spetna-vezba\\app\\UI\\ProjektSetter\\ProjektSetterPresenter.php',
-      1 => 1752394127,
+      1 => 1755611032,
     ),
     'App\\UI\\ProjektsPage\\ProjektsPagePresenter' => 
     array (
       0 => 'C:\\wamp64\\www\\spetna-vezba\\app\\UI\\ProjektsPage\\ProjektsPagePresenter.php',
-      1 => 1744129850,
+      1 => 1755611308,
     ),
     'App\\UI\\Registration\\RegistrationPresenter' => 
     array (
@@ -94,12 +94,19 @@ return array (
     'null' => 1,
     'App\\UI\\Projekt\\ProjektProjektTemplate' => 3,
     'App\\UI\\Projekt\\ProjektTemplate' => 3,
-    'App\\UI\\Home\\HomeDefaultTemplate' => 2,
-    'App\\UI\\Home\\HomeTemplate' => 2,
-    'App\\UI\\SignIn\\SignInSignInTemplate' => 2,
-    'App\\UI\\SignIn\\SignInTemplate' => 2,
-    'App\\UI\\ProjektsPage\\ProjektsPageProjektsPageTemplate' => 1,
-    'App\\UI\\ProjektsPage\\ProjektsPageTemplate' => 1,
+    'App\\UI\\ProjektsPage\\ProjektsPageProjektsPageTemplate' => 3,
+    'App\\UI\\ProjektsPage\\ProjektsPageTemplate' => 3,
+    'App\\UI\\ProjektSetter\\ProjektSetterCreateProjektTemplate' => 3,
+    'App\\UI\\ProjektSetter\\ProjektSetterTemplate' => 3,
+    'App\\UI\\Registration\\RegistrationRegistrationTemplate' => 2,
+    'App\\UI\\Registration\\RegistrationTemplate' => 2,
+    'App\\UI\\SignIn\\SignInSignInTemplate' => 3,
+    'App\\UI\\SignIn\\SignInTemplate' => 3,
+    'App\\UI\\Home\\HomeDefaultTemplate' => 3,
+    'App\\UI\\Home\\HomeTemplate' => 3,
+    'App\\UI\\SignIn\\SignInSignOutTemplate' => 3,
+    'App\\UI\\ProjektSetter\\ProjektSetterEditProjektTemplate' => 3,
+    'App\\UI\\Projekt\\ProjektDeletProjektTemplate' => 1,
   ),
   2 => 
   array (

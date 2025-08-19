@@ -13,12 +13,17 @@ final class ProjektsPagePresenter extends BasePresenter{
         //nastavenie štýlov
         $this->template->currentCssPage = "projektsPage";
         
-        //získanie a nahratie projektov užívatela
-        //dáta prihláseného užívatela
         $user = $this->getUser();
-        $userId = $user->getIdentity()->getId();
-        // nahratie dát do presentera
-        $this->template->userProjekts = $this->projektFacade->getUserProjekts($userId);
+        $userIdentity = $user->getIdentity();
+        if($userIdentity){
+            $userId = $userIdentity->getId();
+
+            $this->template->userProjekts = $this->projektFacade->getUserProjekts($userId);
+
+        }else{
+            $this->template->setFile(__dir__ . "/../Error/Error4xx/403.latte");
+
+        }
 
     }
     

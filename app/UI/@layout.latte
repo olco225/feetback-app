@@ -28,9 +28,8 @@
 	</div>
 
 	<header>
-	
 		<ul>
-		
+		<!--Navigation for page-->
 			<li><a n:href="Home:">Domov</a></li>
 			{if $user->isLoggedIn()}
 				<li><a n:href="ProjektsPage:projektsPage">Projekty</a></li>
@@ -44,11 +43,10 @@
 
 		</ul>
 		<div n:foreach="$flashes as $flash" n:class="flash, $flash->type" id="flash-message-container"><p>{$flash->message}</p></div>
-
+		
 	</header>
 	
 	<main>
-		
 		{include content}
 	</main>
 	<footer>
