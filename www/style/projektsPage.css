@@ -19,7 +19,7 @@ h2{
     margin: 0 auto;
 
     border: solid 2px rgb(72, 72, 72);
-    border-radius: 4px;
+    border-radius: 0.4em;
     margin: 5px;
 }
 #create-button{

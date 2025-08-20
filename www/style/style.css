@@ -18,7 +18,8 @@ body{
     
 }
 header ul li a{
-    padding: 0.4em;
+    display: inline-block;
+    padding: 0.3em;
     text-decoration: none;
 }
 .form-container{
@@ -105,7 +106,7 @@ header ul li a{
 
 /****control form****/
 #unclick-background{
-    position: absolute;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     background-color: rgba(62, 62, 62, 0.143);
