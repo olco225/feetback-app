@@ -90,23 +90,6 @@ return array (
   ),
   1 => 
   array (
-    'Nette\\Bridges\\AssetsDI\\DIExtension' => 1,
-    'null' => 1,
-    'App\\UI\\Projekt\\ProjektProjektTemplate' => 3,
-    'App\\UI\\Projekt\\ProjektTemplate' => 3,
-    'App\\UI\\ProjektsPage\\ProjektsPageProjektsPageTemplate' => 3,
-    'App\\UI\\ProjektsPage\\ProjektsPageTemplate' => 3,
-    'App\\UI\\ProjektSetter\\ProjektSetterCreateProjektTemplate' => 3,
-    'App\\UI\\ProjektSetter\\ProjektSetterTemplate' => 3,
-    'App\\UI\\Registration\\RegistrationRegistrationTemplate' => 2,
-    'App\\UI\\Registration\\RegistrationTemplate' => 2,
-    'App\\UI\\SignIn\\SignInSignInTemplate' => 3,
-    'App\\UI\\SignIn\\SignInTemplate' => 3,
-    'App\\UI\\Home\\HomeDefaultTemplate' => 3,
-    'App\\UI\\Home\\HomeTemplate' => 3,
-    'App\\UI\\SignIn\\SignInSignOutTemplate' => 3,
-    'App\\UI\\ProjektSetter\\ProjektSetterEditProjektTemplate' => 3,
-    'App\\UI\\Projekt\\ProjektDeletProjektTemplate' => 1,
   ),
   2 => 
   array (

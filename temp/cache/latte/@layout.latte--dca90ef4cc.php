@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Latte\Runtime as LR;
 
 /** source: C:\wamp64\www\spetna-vezba\app\UI/@layout.latte */
-final class Template_9d38d3b4f3 extends Latte\Runtime\Template
+final class Template_dca90ef4cc extends Latte\Runtime\Template
 {
 	public const Source = 'C:\\wamp64\\www\\spetna-vezba\\app\\UI/@layout.latte';
 

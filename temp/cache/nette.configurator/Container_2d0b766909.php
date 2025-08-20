@@ -7,7 +7,7 @@
 
 declare(strict_types=1);
 
-class Container_cf8f63af90 extends Nette\DI\Container
+class Container_2d0b766909 extends Nette\DI\Container
 {
 	protected array $aliases = [
 		'application' => 'application.application',
@@ -303,7 +303,7 @@ class Container_cf8f63af90 extends Nette\DI\Container
 			$this->getService('security.user'),
 			$this->getService('latte.templateFactory'),
 		);
-		$service->invalidLinkMode = 5;
+		$service->invalidLinkMode = 1;
 		return $service;
 	}
 
@@ -320,7 +320,7 @@ class Container_cf8f63af90 extends Nette\DI\Container
 			$this->getService('security.user'),
 			$this->getService('latte.templateFactory'),
 		);
-		$service->invalidLinkMode = 5;
+		$service->invalidLinkMode = 1;
 		return $service;
 	}
 
@@ -349,7 +349,7 @@ class Container_cf8f63af90 extends Nette\DI\Container
 			$this->getService('security.user'),
 			$this->getService('latte.templateFactory'),
 		);
-		$service->invalidLinkMode = 5;
+		$service->invalidLinkMode = 1;
 		return $service;
 	}
 
@@ -372,7 +372,7 @@ class Container_cf8f63af90 extends Nette\DI\Container
 			$this->getService('security.user'),
 			$this->getService('latte.templateFactory'),
 		);
-		$service->invalidLinkMode = 5;
+		$service->invalidLinkMode = 1;
 		return $service;
 	}
 
@@ -389,7 +389,7 @@ class Container_cf8f63af90 extends Nette\DI\Container
 			$this->getService('security.user'),
 			$this->getService('latte.templateFactory'),
 		);
-		$service->invalidLinkMode = 5;
+		$service->invalidLinkMode = 1;
 		return $service;
 	}
 
@@ -406,7 +406,7 @@ class Container_cf8f63af90 extends Nette\DI\Container
 			$this->getService('security.user'),
 			$this->getService('latte.templateFactory'),
 		);
-		$service->invalidLinkMode = 5;
+		$service->invalidLinkMode = 1;
 		return $service;
 	}
 
@@ -423,7 +423,7 @@ class Container_cf8f63af90 extends Nette\DI\Container
 			$this->getService('security.user'),
 			$this->getService('latte.templateFactory'),
 		);
-		$service->invalidLinkMode = 5;
+		$service->invalidLinkMode = 1;
 		return $service;
 	}
 
@@ -440,7 +440,7 @@ class Container_cf8f63af90 extends Nette\DI\Container
 			$this->getService('security.user'),
 			$this->getService('latte.templateFactory'),
 		);
-		$service->invalidLinkMode = 5;
+		$service->invalidLinkMode = 1;
 		return $service;
 	}
 
@@ -457,7 +457,7 @@ class Container_cf8f63af90 extends Nette\DI\Container
 			$this->getService('security.user'),
 			$this->getService('latte.templateFactory'),
 		);
-		$service->invalidLinkMode = 5;
+		$service->invalidLinkMode = 1;
 		return $service;
 	}
 
@@ -470,15 +470,12 @@ class Container_cf8f63af90 extends Nette\DI\Container
 			$this->getService('http.request'),
 			$this->getService('http.response'),
 		);
+		$service->error4xxPresenter = 'Error:Error4xx';
+		$service->errorPresenter = 'Error:Error5xx';
 		Nette\Bridges\ApplicationDI\ApplicationExtension::initializeBlueScreenPanel(
 			$this->getService('tracy.blueScreen'),
 			$service,
 		);
-		$this->getService('tracy.bar')->addPanel(new Nette\Bridges\ApplicationTracy\RoutingPanel(
-			$this->getService('01'),
-			$this->getService('http.request'),
-			$this->getService('application.presenterFactory'),
-		));
 		return $service;
 	}
 
@@ -495,11 +492,7 @@ class Container_cf8f63af90 extends Nette\DI\Container
 
 	public function createServiceApplication__presenterFactory(): Nette\Application\IPresenterFactory
 	{
-		$service = new Nette\Application\PresenterFactory(new Nette\Bridges\ApplicationDI\PresenterFactoryCallback(
-			$this,
-			5,
-			'C:\wamp64\www\spetna-vezba/temp/cache/nette.application/touch',
-		));
+		$service = new Nette\Application\PresenterFactory(new Nette\Bridges\ApplicationDI\PresenterFactoryCallback($this, 1, null));
 		$service->setMapping(['*' => 'App\UI\*\**Presenter']);
 		return $service;
 	}
@@ -533,7 +526,7 @@ class Container_cf8f63af90 extends Nette\DI\Container
 		);
 		Nette\Bridges\DatabaseTracy\ConnectionPanel::initialize(
 			$service,
-			true,
+			false,
 			'default',
 			true,
 			$this->getService('tracy.bar'),
@@ -592,7 +585,7 @@ class Container_cf8f63af90 extends Nette\DI\Container
 	{
 		return new class ($this) implements Nette\Bridges\ApplicationLatte\LatteFactory {
 			public function __construct(
-				private Container_cf8f63af90 $container,
+				private Container_2d0b766909 $container,
 			) {
 			}
 
@@ -601,7 +594,7 @@ class Container_cf8f63af90 extends Nette\DI\Container
 			{
 				$service = new Latte\Engine;
 				$service->setTempDirectory('C:\wamp64\www\spetna-vezba/temp/cache/latte');
-				$service->setAutoRefresh(true);
+				$service->setAutoRefresh(false);
 				$service->setStrictTypes(true);
 				$service->setStrictParsing(true);
 				$service->enablePhpLinter(null);
@@ -618,15 +611,13 @@ class Container_cf8f63af90 extends Nette\DI\Container
 
 	public function createServiceLatte__templateFactory(): Nette\Bridges\ApplicationLatte\TemplateFactory
 	{
-		$service = new Nette\Bridges\ApplicationLatte\TemplateFactory(
+		return new Nette\Bridges\ApplicationLatte\TemplateFactory(
 			$this->getService('latte.latteFactory'),
 			$this->getService('http.request'),
 			$this->getService('security.user'),
 			$this->getService('cache.storage'),
 			null,
 		);
-		Nette\Bridges\ApplicationDI\LatteExtension::initLattePanel($service, $this->getService('tracy.bar'), false);
-		return $service;
 	}
 
 
@@ -644,9 +635,7 @@ class Container_cf8f63af90 extends Nette\DI\Container
 
 	public function createServiceSecurity__user(): Nette\Security\User
 	{
-		$service = new Nette\Security\User($this->getService('security.userStorage'));
-		$this->getService('tracy.bar')->addPanel(new Nette\Bridges\SecurityTracy\UserPanel($service));
-		return $service;
+		return new Nette\Security\User($this->getService('security.userStorage'));
 	}
 
 
@@ -684,10 +673,6 @@ class Container_cf8f63af90 extends Nette\DI\Container
 
 	public function initialize(): void
 	{
-		// di.
-		(function () {
-			$this->getService('tracy.bar')->addPanel(new Nette\Bridges\DITracy\ContainerPanel($this));
-		})();
 		// http.
 		(function () {
 			$response = $this->getService('http.response');

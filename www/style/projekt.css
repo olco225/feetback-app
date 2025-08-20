@@ -40,13 +40,33 @@ h2{
 /******************
 **Comment Sextion**
 ******************/
+.comment-section{
+    margin-top: 1.5em;
+}
+@media screen and (orientation: portrait) {
+    .comment-box{
+        display: flex;
+        flex-direction: column;
+    }
+    .comment-type-settings{
+        margin-top: 0;
+    }
+}
+@media screen and (orientation: landscape) {
+    .comment-box{
+        display: flex;
+        flex-direction: row;
+    }
+    /*kvôly lepšej prehladnosti a oddelenia menu na ovládanie od textu*/
+    .comment-type-settings{
+        margin-top: 2em;
+    }
+}
 .comment-box{
     border: 2px solid black;
     border-radius: 0.4em;
     padding: 0.4rem;
     margin: 0.4em;
-    display: flex;
-    flex-direction: row;
 }
 .comment{
     padding: 0.4em;
@@ -58,8 +78,10 @@ h2{
 .hate-comment-warning{
     padding: 0.4em;
 }
+.show-comment{
+    margin-top: 1em;
+}
 .comment-type-settings{
-    margin-top: 2em;
     margin-left: 1em;
     padding: 0.4em;
     background-color: white;
@@ -88,4 +110,6 @@ h2{
 .hide-comment-none{
     display: none;
 }
+
+
     

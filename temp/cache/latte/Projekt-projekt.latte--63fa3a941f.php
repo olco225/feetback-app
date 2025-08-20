@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Latte\Runtime as LR;
 
 /** source: C:\wamp64\www\spetna-vezba\app\UI\Projekt/projekt.latte */
-final class Template_2731489fb5 extends Latte\Runtime\Template
+final class Template_63fa3a941f extends Latte\Runtime\Template
 {
 	public const Source = 'C:\\wamp64\\www\\spetna-vezba\\app\\UI\\Projekt/projekt.latte';
 
@@ -102,7 +102,7 @@ final class Template_2731489fb5 extends Latte\Runtime\Template
             qrCodeCanvas.style.height = "60vh";
         }
     </script>
-<div id="coment-section">
+<div class="comment-section">
     <h2>Komentáre</h2>
 ';
 		foreach ($commentars as $comment) /* line 54 */ {
