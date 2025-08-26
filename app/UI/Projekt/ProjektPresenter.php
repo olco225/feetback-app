@@ -47,8 +47,8 @@ final class ProjektPresenter extends BasePresenter{
             
             $commentData = $this->feetbackFacade->getComment($commentId);
             $commentTypes = [
-                "none" => "none",
-                "hate" => "hate"
+                "none" => "nezaradené",
+                "hate" => "nenávystný"
             ];
             $form->addHidden("commentId", $commentId);
             $form->addSelect("commentType", "Typ comentára:", $commentTypes)->setHtmlAttribute("class", "inputs");
