@@ -1,0 +1,21 @@
+<div class="comment-section">
+    <h2>Komentáre</h2>
+    {foreach $commentars as $comment}
+        <div class="comment-box comment-box-{$comment->type}" id= "comment-box-{$comment->id}">
+            <div class="comment comment-{$comment->type}">
+                <h4>{$comment->name}</h4>
+                <p>{$comment->text}</p>
+                <p class="time-of-creation">{$comment->time_of_creation}</p>
+                <button class="hide-comment hide-comment-{$comment->type} buttons" commentId="{$comment->id}" onclick="hideComment({$comment->id})">schovať komentár</button>
+            </div>
+            <div class="hate-comment-warning hate-comment-warning-{$comment->type}">
+                <p>Toto je komentár, ktorý sa snaží svojim obsahom, skôr ublížiť človeku ako mu pomôcť sa zlepšiť, alebo niečo zlepšiť.</p>
+                <button class="show-comment buttons" commentId="{$comment->id}" onclick="showComment({$comment->id})">ukázať komentár</button>
+            </div>
+            <div class="comment-type-settings" >
+                {control "commentTypeForm-$comment->id"}
+            </div>
+        </div>
+
+    {/foreach}
+</div>

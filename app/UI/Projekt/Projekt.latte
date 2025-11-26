@@ -6,7 +6,7 @@
         <h2>Otázka pre hodnotenie: {$projekt->question}</h2>
         <div id="canvas-container">
             <canvas id="qrCode-canvas"></canvas>
-            <button class="buttons green-button" onclick="generateQRCode()">Generovať QR kód</button>
+            <button class="buttons green-button" id="generate-qrcode-btn" projekt-id="{$projekt->id}">Generovať QR kód</button>
             <a class="buttons" id="download-button" download="qrCode.png">stiahuť QR kód</a>
         </div>
         
@@ -16,78 +16,13 @@
     </div>
 
 {*scripty*}
-    <script>
-        //vytvorenie linku na stránku s hodnotením pre testovacie účely
-        let projektId = {$projekt->id};
-
-        //funkcia pre generovanie qr codu
-        function generateQRCode() {
-            console.log(QRCode);
-            //nastavovanie linkou
-            let projektId = {$projekt->id};
-
-            let localDomen = "http://192.168.1.10/spetna-vezba/www";
-            let hostingDomen = "http://oliver-chalupka.sk/spetna-vezba/";
-            
-            let url = localDomen + "/feetback/feetback?projektId=" + projektId;
-            
-            document.getElementById("url-text").innerHTML += url;
-            //vygenerovanie qrCodu
-            let qrCodeCanvas = document.getElementById("qrCode-canvas");
-            QRCode.toCanvas(qrCodeCanvas, url, {
-                type: "svg",
-                width: 600
-            },function(error){
-                if(error) console.log(error);
-                document.querySelector("#download-button").href = qrCodeCanvas.toDataURL("image/png");
-
-            });
-            //pridanie štýlov na výšku a šírku, gôli prebiťiu width qrcode pôvodné nastavené štýli
-            qrCodeCanvas.style.width = "60vh";
-            qrCodeCanvas.style.height = "60vh";
-        }
-    </script>
+<script src="{$basePath}/script/projekt/qrCode.js"></script>
+<script>
+    let qrCodeButton = document.querySelector("#generate-qrcode-btn");
+    let projektId = qrCodeButton.getAttribute("projekt-id");
+    generateQrCode(projektId);
+</script>
 {********* Comentáre *************}
 
-<div class="comment-section">
-    <h2>Komentáre</h2>
-    {foreach $commentars as $comment}
-        <div class="comment-box comment-box-{$comment->type}" id= "comment-box-{$comment->id}">
-            <div class="comment comment-{$comment->type}">
-                <h4>{$comment->name}</h4>
-                <p>{$comment->text}</p>
-                <p class="time-of-creation">{$comment->time_of_creation}</p>
-                <button class="hide-comment hide-comment-{$comment->type} buttons" commentId="{$comment->id}" onclick="hideComment({$comment->id})">schovať komentár</button>
-            </div>
-            <div class="hate-comment-warning hate-comment-warning-{$comment->type}">
-                <p>Toto je komentár, ktorý sa snaží svojim obsahom, skôr ublížiť človeku ako mu pomôcť sa zlepšiť, alebo niečo zlepšiť.</p>
-                <button class="show-comment buttons" commentId="{$comment->id}" onclick="showComment({$comment->id})">ukázať komentár</button>
-            </div>
-            <div class="comment-type-settings" >
-                {control "commentTypeForm-$comment->id"}
-            </div>
-        </div>
-
-    {/foreach}
-<script>
-
-    function showComment(commentId){
-        let commentBox = document.querySelector("#comment-box-" + commentId);
-        commentBox.className = "comment-box comment-box-none";
-
-        commentBox.querySelector(".comment").className = "comment comment-none";
-        commentBox.querySelector(".hate-comment-warning").className = "hate-comment-warning hate-comment-warning-none";
-        
-    }
-    function hideComment(commentId){
-        let commentBox = document.querySelector("#comment-box-" + commentId);
-        commentBox.className = "comment-box comment-box-hate";
-
-        commentBox.querySelector(".comment").className = "comment comment-hate";
-        commentBox.querySelector(".hate-comment-warning").className = "hate-comment-warning hate-comment-warning-hate";
-        
-    }
-</script>
-
-</div>
-
+{include "partials/comments.latte"}
+<script src="{$basePath}/script/projekt/comments.js"></script>
