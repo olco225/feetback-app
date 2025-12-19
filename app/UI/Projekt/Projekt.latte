@@ -10,7 +10,7 @@
             <a class="buttons" id="download-button" download="qrCode.png">stiahuť QR kód</a>
         </div>
         
-        <div id="url-text"><strong>Link url pre spätnú väzbu: </strong></div>
+        <div id="url-text-container"><strong>Link url pre spätnú väzbu: </strong><span id="url-text"></span></div>
         <!-- link pre testovacie účely -->
         <a class="buttons blue-button" n:href="Feetback:feetback, projektId:$projekt->id" id="url-local-link">Otestuj stránku so spätnou väzbou</a>
     </div>
@@ -20,7 +20,10 @@
 <script>
     let qrCodeButton = document.querySelector("#generate-qrcode-btn");
     let projektId = qrCodeButton.getAttribute("projekt-id");
-    generateQrCode(projektId);
+    qrCodeButton.addEventListener("click", function(){
+        generateQrCode(projektId);
+    });
+    
 </script>
 {********* Comentáre *************}
 

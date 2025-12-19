@@ -1,7 +1,7 @@
 
 //funkcia pre generovanie qr codu
 function generateQrCode(projektId) {
-    console.log(QRCode);
+    console.log("funkcia funguje");
     //nastavovanie linkou
 
     let localDomen = "http://192.168.1.10/spetna-vezba/www";
@@ -9,7 +9,7 @@ function generateQrCode(projektId) {
     
     let url = localDomen + "/feetback/feetback?projektId=" + projektId;
     
-    document.getElementById("url-text").innerHTML += url;
+    document.querySelector("#url-text-container #url-text ").textContent = url;
     //vygenerovanie qrCodu
     let qrCodeCanvas = document.getElementById("qrCode-canvas");
     QRCode.toCanvas(qrCodeCanvas, url, {
